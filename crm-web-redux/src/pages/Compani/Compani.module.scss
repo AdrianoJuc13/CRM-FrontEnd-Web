@@ -1,0 +1,61 @@
+@use "src/styles/colors";
+@use "src/styles/mixinHelper";
+@use "src/styles/fonts";
+
+.compani {
+  // background: orange;
+
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .header {
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    .titlu {
+      margin-left: 5%;
+
+      // styles
+      color: colors.$mywhite;
+      font-size: small;
+      font-weight: 400;
+      font-family: "Poppins", sans-serif;
+      letter-spacing: 0.05rem;
+    }
+    .addbtn {
+      cursor: pointer;
+      //dimensions
+      border: none;
+      padding: 0.2%;
+
+      margin-right: 5%;
+
+      // styles
+      background: colors.$lightgreen;
+      color: colors.$mywhite;
+      font-size: small;
+      font-weight: 400;
+      font-family: "Poppins", sans-serif;
+
+      width: 221px;
+      height: 49px;
+
+      border-radius: 0.25rem;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+  }
+  .table {
+    // background: orangered;
+    // height: 2000px;
+  }
+  .footer {
+    margin: 30px 0 30px 0;
+    background: orangered;
+    font-size: 30px;
+  }
+}

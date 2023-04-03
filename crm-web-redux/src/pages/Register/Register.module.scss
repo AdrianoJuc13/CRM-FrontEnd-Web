@@ -1,0 +1,52 @@
+@use "src/styles/colors";
+@use "src/styles/mixinHelper";
+@use "src/styles/fonts";
+.register {
+  background: colors.$darkgrey;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  .header {
+    font-size: 30px;
+    color: colors.$mywhite;
+    margin: 0 auto 0 20px;
+  }
+  .form {
+    display: flex;
+    height: 80vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    gap: 20px;
+    .logo {
+      margin-bottom: 30px;
+      width: 200px;
+    }
+    .input {
+      height: 30px;
+      width: 500px;
+
+      border: none;
+
+      font-size: 20px;
+      padding: 10px;
+    }
+    .btn {
+      height: 30px;
+      width: 150px;
+      font-size: 20px;
+      border: none;
+      background: colors.$grey100;
+    }
+  }
+  .footer {
+    cursor: pointer;
+    font-size: 20px;
+  }
+  .footer:hover {
+    color: colors.$mywhite;
+  }
+}
