@@ -1,0 +1,35 @@
+@use "src/styles/colors";
+@use "src/styles/mixinHelper";
+@use "src/styles/fonts";
+
+.topside {
+  background: colors.$mywhite;
+
+  width: auto;
+  height: 2.8rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 5%;
+  .input {
+    margin-left: 1rem;
+
+    font-size: small;
+    font-weight: 400;
+    font-family: "Poppins", sans-serif;
+    border: none;
+    background: none;
+  }
+
+  .input:focus {
+    border: none;
+    outline: 0;
+  }
+  .clopotel {
+    margin-left: auto;
+    margin-right: 6%;
+    font-size: x-large;
+    color: rgb(165, 0, 0);
+  }
+}
