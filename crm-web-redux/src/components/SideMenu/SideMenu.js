@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from "./SideMenu.module.scss";
+import styles from "./SideMenu_copy.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import {
   closeSideMenu,
@@ -46,7 +46,7 @@ function SideMenu() {
   }, []);
 
   useEffect(() => {
-    // if (mousePos.x > 250 && isOpen) dispatch(closeSideMenu());
+    if (mousePos.x > 280 && isOpen) dispatch(closeSideMenu());
   }, [mousePos.x, dispatch, isOpen]);
 
   return (
@@ -56,7 +56,7 @@ function SideMenu() {
           src={Logo}
           alt="Logo"
           // className={`${styles.logo} ${isOpen ? null : styles.logo_closed}`}
-          className={styles.logo}
+          className={isOpen ? styles.logo : styles.closed}
         />
 
         <button

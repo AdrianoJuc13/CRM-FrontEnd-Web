@@ -2,138 +2,127 @@
 @use "src/styles/mixinHelper";
 @use "src/styles/fonts";
 
-$sidemenu_width: 280px;
-
+$sidemenu_width_open: 280px;
+$sidemenu_width_closed: 80px;
 .sidemenu_open {
-  width: $sidemenu_width;
-
-  transition: width 2s;
+  width: $sidemenu_width_open;
   background: colors.$darkgrey;
 
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  justify-content: flex-start;
+
+  transition: width 0.5s;
+  .btn_section .btn_title {
+    visibility: visible;
+    transition: visibility 0.2s, margin-left 0.2s;
+  }
 }
 .sidemenu_closed {
   width: 80px;
-
-  transition: width 1s;
   background: colors.$darkgrey;
-  // align-items: flex-end;
+
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+
+  transition: width 1s;
+
   .btn_section .btn_title {
-    display: none;
-  }
-  .btn_section {
-    width: 2.3rem;
+    visibility: hidden;
+    transition: visibility 0.2s, margin-left 0.2s;
+    margin-left: 100px;
   }
 }
 .header {
-  width: auto;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
   align-items: center;
-  padding: 1rem 0 1rem 1rem;
-
+  justify-content: right;
+  margin: 10px 0;
+  height: 80px;
   .logo {
-    width: 7rem;
-    margin-right: 4.7rem;
+    //empty
   }
   .logo_closed {
-    width: 7rem;
-    margin-right: 4.7rem;
+    //empty
   }
-  .lini {
-    display: flex;
-    justify-content: center;
-    color: colors.$mywhite;
-    background: none;
-    border: none;
-    font-size: x-large;
-    cursor: pointer;
-    text-align: center;
 
-    transition: font-size 0.7s;
-    width: 4rem;
+  .lini {
+    background: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+
+    font-size: 30px;
+
+    transition: font-size 0.5s linear, margin 0.5s linear;
+    margin-left: 80px;
+    margin-right: 20px;
   }
   .lini_closed {
-    display: flex;
-    color: colors.$mywhite;
-    background: none;
+    background: transparent;
+    color: white;
     border: none;
-    font-size: 3rem;
     cursor: pointer;
-    text-align: center;
-    margin-right: 0.5rem;
 
-    width: 4rem;
-    transition: font-size 0.7s;
+    font-size: 45px;
+    transition: font-size 0.5s linear, margin 0.5s linear;
+
+    margin: 0px 13px 0px 15px;
   }
 }
 .btn_section {
-  width: $sidemenu_width - 32px;
-
   display: flex;
+  flex-direction: row;
   align-items: center;
-
-  justify-content: space-between;
+  justify-content: left;
 
   text-decoration-line: none;
   color: colors.$mywhite;
 
-  margin-top: 0.2rem;
-  margin-right: 1rem;
-  margin-bottom: 0;
-  margin-left: 1rem;
-  padding: 0.8rem 0.5rem 0.8rem 0.4rem;
-
   .btn {
-    padding-left: 0.5rem;
+    min-width: 40px;
     font-size: 1.3rem;
+    height: 40px;
+    width: 40px;
     display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-left: 1.1rem;
   }
   .btn_title {
-    margin-left: 1.2rem;
-
+    margin-left: 0.4rem;
+    min-width: 150px;
     font-size: medium;
     font-weight: 300;
     line-height: 1rem;
     font-family: "Inter", sans-serif;
-    display: flex;
-    width: 100%;
-    text-align: center;
   }
 }
-.btn_section:hover {
+.btn:hover {
   background: colors.$lightgreen;
   border-radius: 0.5rem;
 }
 .btn_section_2 {
   flex: 1;
-  width: auto;
   display: flex;
-  flex-direction: column;
   justify-content: flex-end;
-  align-items: flex-end;
-  margin-bottom: 1rem;
-  // background: red;
-}
-.btn_active {
-  background: colors.$lightgreen;
+  flex-direction: column;
 }
 .endMenu {
   // background: orangered;
   display: flex;
   .card {
-    width: $sidemenu_width - 20px;
+    width: $sidemenu_width_open - 30px;
     height: 100px;
 
     background: colors.$lightgrey;
 
     border-radius: 10px;
-    margin: 0 0 20px 0;
+    margin: 1rem 1rem 1rem 1rem;
+    transition: margin-left 0.3s;
 
     display: flex;
     flex-direction: row;
@@ -166,7 +155,8 @@ $sidemenu_width: 280px;
     }
   }
   .cardclosed {
-    transition: width 0.3s;
+    margin-left: 0.3rem;
+    transition: width 0.3s, margin-left 0.3s;
     width: 60px;
     background: transparent;
 
