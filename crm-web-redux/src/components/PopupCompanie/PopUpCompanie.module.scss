@@ -2,23 +2,43 @@
 @use "../../styles/mixinHelper";
 @use "../../styles/fonts";
 
-.popup {
+.popup_open {
   position: fixed;
   left: 0;
-  top: 0;
-  height: 100vh;
+  bottom: 0;
+  height: 200vh;
   width: 100vw;
   background: rgba(0, 0, 0, 0.3);
+
+  visibility: visible;
+  transition: visibility 0.3s;
   .white_screen {
     background: white;
-    margin-top: 5vh;
+
+    position: fixed;
+
+    margin-top: 105vh;
     margin-left: 5vw;
+
     height: 90vh;
     width: 90vw;
+
+    transition: margin-top 0.2s;
+
     .exit_btn {
       cursor: pointer;
+
       font-size: 2rem;
       color: colors.$darkgrey;
     }
+  }
+}
+.popup_closed {
+  visibility: hidden;
+  transition: visibility 0.3s;
+
+  .white_screen_closed {
+    margin-top: 5vh;
+    transition: margin-top 0.2s;
   }
 }

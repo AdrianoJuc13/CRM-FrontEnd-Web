@@ -56,8 +56,7 @@ function Compani() {
         <div className={styles.numerotare}>1</div>
         <BsFillArrowRightSquareFill className={styles.arrow} />
       </div>
-
-      {isOpen ? <PopUpCompanie /> : null}
+      <PopUpCompanie />
     </div>
   );
 }

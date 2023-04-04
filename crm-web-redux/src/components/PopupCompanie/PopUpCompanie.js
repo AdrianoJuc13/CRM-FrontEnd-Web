@@ -8,17 +8,24 @@ import { closePopUp } from "../../features/popupcompanie/PopUpCompanieSlice";
 
 function PopUpCompanie() {
   const dispatch = useDispatch();
-  const { currentId } = useSelector((store) => store.popup);
+  const { isOpen, currentId } = useSelector((store) => store.popup);
 
   return (
-    <div className={styles.popup}>
-      <div className={styles.white_screen}>
+    <div
+      className={`${styles.popup_open}  ${isOpen ? null : styles.popup_closed}`}
+    >
+      <div
+        className={`${styles.white_screen}  ${
+          isOpen ? null : styles.white_screen_closed
+        }`}
+      >
         <FaWindowClose
           className={styles.exit_btn}
           onClick={() => {
             dispatch(closePopUp());
           }}
         />
+        nimic
         {currentId}
       </div>
     </div>
