@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.93d818c8.css",
-    "main.js": "/static/js/main.e85ccbd4.js",
+    "main.js": "/static/js/main.18740299.js",
     "static/media/catalog_primagra.jpg": "/static/media/catalog_primagra.9cb99a48d9a9735cc3dd.jpg",
     "index.html": "/index.html",
     "main.93d818c8.css.map": "/static/css/main.93d818c8.css.map",
-    "main.e85ccbd4.js.map": "/static/js/main.e85ccbd4.js.map"
+    "main.18740299.js.map": "/static/js/main.18740299.js.map"
   },
   "entrypoints": [
     "static/css/main.93d818c8.css",
-    "static/js/main.e85ccbd4.js"
+    "static/js/main.18740299.js"
   ]
 }
