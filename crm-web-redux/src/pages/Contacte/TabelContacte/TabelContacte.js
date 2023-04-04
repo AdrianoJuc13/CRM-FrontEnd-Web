@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import styles from "./TabelCompani.module.scss";
+import styles from "./TabelContacte.module.scss";
 // import lista from "./TabelData.json";
 
 import {
@@ -8,19 +8,23 @@ import {
 } from "react-icons/bs";
 
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCompani, openPopUp } from "../../features/compani/CompaniSlice";
-import PopUpCompanie from "../PopupCompanie/PopUpCompanie";
+import {
+  fetchContacte,
+  openPopUp,
+} from "../../../features/contacte/ContacteSlice.js";
 
-function Compani() {
+import PopUpContacte from "../PopUpContacte/PopUpContacte";
+
+function TabelContacte() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchCompani());
+    dispatch(fetchContacte());
   }, [dispatch]);
 
-  const compani = useSelector((state) => state.compani);
+  const contacte = useSelector((state) => state.contacte);
   return (
-    <div className={styles.tabel_compani}>
+    <div className={styles.tabel_contacte}>
       <div className={styles.main}>
         <div className={styles.header}>
           <div className={styles.hdata}>Cod AX</div>
@@ -29,15 +33,14 @@ function Compani() {
           <div className={styles.hdata}>Vanzari</div>
           <div className={styles.hdata}>Segment</div>
           <div className={styles.hdata}>Telefon</div>
-          <div className={styles.hdata}>Punct de lucru</div>
         </div>
         <div className={styles.rows}>
-          {compani.loading && <div>Loading...</div>}
-          {!compani.loading && compani.error ? (
-            <div>Error: {compani.error}</div>
+          {contacte.loading && <div>Loading...</div>}
+          {!contacte.loading && contacte.error ? (
+            <div>Error: {contacte.error}</div>
           ) : null}
-          {compani &&
-            compani.payload.map((item, index) => {
+          {contacte &&
+            contacte.payload.map((item, index) => {
               return (
                 <div
                   key={index}
@@ -52,7 +55,6 @@ function Compani() {
                   <div className={styles.td}>{item.username}</div>
                   <div className={styles.td}>{item.website}</div>
                   <div className={styles.td}>{item.phone}</div>
-                  <div className={styles.td}>{item.website}</div>
                 </div>
               );
             })}
@@ -63,9 +65,9 @@ function Compani() {
         <div className={styles.numerotare}>1</div>
         <BsFillArrowRightSquareFill className={styles.arrow} />
       </div>
-      <PopUpCompanie />
+      <PopUpContacte />
     </div>
   );
 }
 
-export default Compani;
+export default TabelContacte;

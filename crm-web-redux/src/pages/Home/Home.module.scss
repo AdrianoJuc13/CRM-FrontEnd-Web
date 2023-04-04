@@ -1,2 +1,17 @@
 @use "src/styles/colors";
 @use "src/styles/mixinHelper";
+
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  .image {
+    padding-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    max-width: fit-content;
+  }
+}

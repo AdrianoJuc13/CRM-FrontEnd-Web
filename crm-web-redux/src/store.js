@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import sidemenuReducer from "./features/sidemenu/SideMenuSlice";
-import popupReducer from "./features/popupcompanie/PopUpCompanieSlice";
+import companiReducer from "./features/compani/CompaniSlice";
+import contacteReducer from "./features/contacte/ContacteSlice";
 export const store = configureStore({
   reducer: {
     sidemenu: sidemenuReducer,
-    popup: popupReducer,
+    compani: companiReducer,
+    contacte: contacteReducer,
   },
 });
