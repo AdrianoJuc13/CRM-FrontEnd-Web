@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/CRM-FrontEnd-Web/static/css/main.93d818c8.css",
-    "main.js": "/CRM-FrontEnd-Web/static/js/main.203f318d.js",
-    "static/media/catalog_primagra.jpg": "/CRM-FrontEnd-Web/static/media/catalog_primagra.9cb99a48d9a9735cc3dd.jpg",
-    "index.html": "/CRM-FrontEnd-Web/index.html",
-    "main.93d818c8.css.map": "/CRM-FrontEnd-Web/static/css/main.93d818c8.css.map",
-    "main.203f318d.js.map": "/CRM-FrontEnd-Web/static/js/main.203f318d.js.map"
+    "main.css": "/static/css/main.93d818c8.css",
+    "main.js": "/static/js/main.e85ccbd4.js",
+    "static/media/catalog_primagra.jpg": "/static/media/catalog_primagra.9cb99a48d9a9735cc3dd.jpg",
+    "index.html": "/index.html",
+    "main.93d818c8.css.map": "/static/css/main.93d818c8.css.map",
+    "main.e85ccbd4.js.map": "/static/js/main.e85ccbd4.js.map"
   },
   "entrypoints": [
     "static/css/main.93d818c8.css",
-    "static/js/main.203f318d.js"
+    "static/js/main.e85ccbd4.js"
   ]
 }
