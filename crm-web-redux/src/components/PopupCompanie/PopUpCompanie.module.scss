@@ -1,0 +1,24 @@
+@use "../../styles/colors.scss";
+@use "../../styles/mixinHelper";
+@use "../../styles/fonts";
+
+.popup {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.3);
+  .white_screen {
+    background: white;
+    margin-top: 5vh;
+    margin-left: 5vw;
+    height: 90vh;
+    width: 90vw;
+    .exit_btn {
+      cursor: pointer;
+      font-size: 2rem;
+      color: colors.$darkgrey;
+    }
+  }
+}
