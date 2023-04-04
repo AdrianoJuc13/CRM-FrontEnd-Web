@@ -13,7 +13,6 @@ import { BiHomeAlt } from "react-icons/bi";
 import { BiLogOut } from "react-icons/bi";
 import { BsPinMapFill } from "react-icons/bs";
 import { AiOutlineFlag } from "react-icons/ai";
-
 import { HiDotsVertical } from "react-icons/hi";
 import { TbReportSearch } from "react-icons/tb";
 import { BsPeople } from "react-icons/bs";
@@ -92,9 +91,9 @@ function SideMenu() {
       </Link>
       {/* ------------------------------------------------ */}
       <Link
-        to="/contact"
+        to="/contacte"
         className={styles.btn_section}
-        style={location.pathname === "/contact" ? { color: "white" } : null}
+        style={location.pathname === "/contacte" ? { color: "white" } : null}
       >
         <div className={styles.btn}>
           <BsPeople />
@@ -116,10 +115,10 @@ function SideMenu() {
       </Link>
       {/* ------------------------------------------------ */}
       <Link
-        to="/plan_de_actiune"
+        to="/plandeactiune"
         className={styles.btn_section}
         style={
-          location.pathname === "/plan_de_actiune" ? { color: "white" } : null
+          location.pathname === "/plandeactiune" ? { color: "white" } : null
         }
       >
         <div className={styles.btn}>
@@ -151,9 +150,9 @@ function SideMenu() {
       </Link>
       {/* ------------------------------------------------ */}
       <Link
-        to="/login"
+        to="/rapoarte"
         className={styles.btn_section}
-        style={location.pathname === "/login" ? { color: "white" } : null}
+        style={location.pathname === "/rapoarte" ? { color: "white" } : null}
       >
         <div className={styles.btn}>
           <TbReportSearch />
@@ -173,19 +172,19 @@ function SideMenu() {
           <div className={styles.btn_title}>Setari</div>
         </Link>
         <Link
-          to="/support"
+          to="/suport"
           className={styles.btn_section}
-          style={location.pathname === "/support" ? { color: "white" } : null}
+          style={location.pathname === "/suport" ? { color: "white" } : null}
         >
           <div className={styles.btn}>
             <MdContactSupport />
           </div>
-          <div className={styles.btn_title}>Support</div>
+          <div className={styles.btn_title}>Suport</div>
         </Link>
         <Link
-          to="/delogare"
+          to="/login"
           className={styles.btn_section}
-          style={location.pathname === "/delogare" ? { color: "white" } : null}
+          style={location.pathname === "/login" ? { color: "white" } : null}
         >
           <div className={styles.btn}>
             <BiLogOut />

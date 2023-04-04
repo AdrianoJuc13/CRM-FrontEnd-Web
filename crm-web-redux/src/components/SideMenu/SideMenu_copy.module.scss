@@ -99,11 +99,22 @@ $sidemenu_width_closed: 80px;
     font-weight: 300;
     line-height: 1rem;
     font-family: "Inter", sans-serif;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 .btn:hover {
   background: colors.$lightgreen;
-  border-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+.btn_title:hover {
+  background: colors.$lightgreen;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
 }
 .btn_section_2 {
   flex: 1;
