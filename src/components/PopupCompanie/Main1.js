@@ -4,6 +4,7 @@ import styles from "./PopUpCompanie.module.scss";
 import { BiHomeAlt } from "react-icons/bi";
 import { AiOutlinePhone } from "react-icons/ai";
 import { ImMap2 } from "react-icons/im";
+import { FaReadme } from "react-icons/fa";
 
 function Main1() {
   return (
@@ -11,29 +12,37 @@ function Main1() {
       <div className={styles.zona}>
         <div className={styles.row}>
           <BiHomeAlt className={styles.icon} />
-          <div className={styles.title}>Date Personale</div>
-          <div className={styles.edit_btn}>Editeaza Compania</div>
+          <div className={styles.title}>Date Companie</div>
         </div>
         <div className={styles.row2}>
-          <div className={styles.title}>Nume: Alexandru</div>
-          <div className={styles.title}>Prenume: Tipa</div>
+          <div className={styles.title}>Nume: Egger</div>
+          <div className={styles.title}>Numar inregistrare: Tipa</div>
         </div>
         <div className={styles.row2}>
-          <div className={styles.title}>Functia: Manager</div>
+          <div className={styles.title}>Numar fiscal (J): Manager</div>
         </div>
       </div>
       <div className={styles.zona}>
         <div className={styles.row}>
           <AiOutlinePhone className={styles.icon} />
-          <div className={styles.title}>Comunicare</div>
+          <div className={styles.title}>Datele de contact</div>
         </div>
         <div className={styles.row2}>
           <div className={styles.title}>Telefon: Alexandru</div>
           <div className={styles.title}>Email: alexandrutipa@primagra.ro</div>
         </div>
+      </div>
+      <div className={styles.zona}>
+        <div className={styles.row}>
+          <FaReadme className={styles.icon} />
+          <div className={styles.title}>Sector</div>
+        </div>
         <div className={styles.row2}>
-          <div className={styles.title}>Telefon Companie: 00452343234</div>
-          <div className={styles.title}>Email Companie: office@primagra.ro</div>
+          <div className={styles.title}>Marime companie:</div>
+          <div className={styles.title}>Activitate companie:</div>
+        </div>
+        <div className={styles.row2}>
+          <div className={styles.title}>Nisa:</div>
         </div>
       </div>
       <div className={styles.zona}>

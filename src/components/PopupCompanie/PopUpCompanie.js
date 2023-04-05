@@ -72,6 +72,7 @@ function PopUpCompanie() {
             >
               Oportunitati
             </div>
+
             <div
               className={styles.button_name}
               onClick={() => {
@@ -79,7 +80,7 @@ function PopUpCompanie() {
               }}
               style={page === 3 ? { borderBottom: "2px solid blue" } : null}
             >
-              istoric Vizite
+              Taskuri
             </div>
             <div
               className={styles.button_name}
@@ -88,8 +89,9 @@ function PopUpCompanie() {
               }}
               style={page === 4 ? { borderBottom: "2px solid blue" } : null}
             >
-              Vanzari Client
+              Vanzari
             </div>
+            <div className={styles.edit_btn}>Editeaza Compania</div>
           </div>
           {page === 1 ? (
             <Main1 />

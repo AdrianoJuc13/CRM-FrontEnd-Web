@@ -6,12 +6,18 @@ import { useDispatch, useSelector } from "react-redux";
 
 import {
   closePopUp,
-  changePage,
+  // changePage,
 } from "../../../features/contacte/ContacteSlice";
+
+import Main1 from "./Main1.js";
 
 function PopUpContacte() {
   const dispatch = useDispatch();
-  const { isOpen, currentId, page } = useSelector((store) => store.contacte);
+  const {
+    isOpen,
+    currentId,
+    //  page
+  } = useSelector((store) => store.contacte);
 
   return (
     <div
@@ -52,7 +58,7 @@ function PopUpContacte() {
           null}
         </div> */}
         <div className={styles.main}>
-          <div className={styles.buttons}>
+          {/* <div className={styles.buttons}>
             <div
               className={styles.button_name}
               onClick={() => {
@@ -60,7 +66,7 @@ function PopUpContacte() {
               }}
               style={page === 1 ? { borderBottom: "2px solid blue" } : null}
             >
-              Contact info
+              ceva 1
             </div>
             <div
               className={styles.button_name}
@@ -69,7 +75,7 @@ function PopUpContacte() {
               }}
               style={page === 2 ? { borderBottom: "2px solid blue" } : null}
             >
-              Oportunitati
+              ceva 2
             </div>
             <div
               className={styles.button_name}
@@ -78,7 +84,7 @@ function PopUpContacte() {
               }}
               style={page === 3 ? { borderBottom: "2px solid blue" } : null}
             >
-              istoric Vizite
+              ceva 3
             </div>
             <div
               className={styles.button_name}
@@ -87,9 +93,10 @@ function PopUpContacte() {
               }}
               style={page === 4 ? { borderBottom: "2px solid blue" } : null}
             >
-              Vanzari Client
+              ceva 4
             </div>
-          </div>
+          </div> */}
+          <Main1 />
           {/* {page === 1 ? (
             <Main1 />
           ) : page === 2 ? (
