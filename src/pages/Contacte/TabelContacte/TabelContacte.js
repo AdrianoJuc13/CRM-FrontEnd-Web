@@ -27,12 +27,12 @@ function TabelContacte() {
     <div className={styles.tabel_contacte}>
       <div className={styles.main}>
         <div className={styles.header}>
-          <div className={styles.hdata}>Cod AX</div>
           <div className={styles.hdata}>Nume</div>
-          <div className={styles.hdata}>Email</div>
-          <div className={styles.hdata}>Vanzari</div>
-          <div className={styles.hdata}>Segment</div>
+          <div className={styles.hdata}>Prenume</div>
           <div className={styles.hdata}>Telefon</div>
+          <div className={styles.hdata}>Email</div>
+          <div className={styles.hdata}>Nume Companie</div>
+          <div className={styles.hdata}>Functia</div>
         </div>
         <div className={styles.rows}>
           {contacte.loading && <div>Loading...</div>}
