@@ -90,6 +90,7 @@ function PopUpCompanie() {
             >
               Vanzari Client
             </div>
+            <div className={styles.edit_btn}>Editeaza Compania</div>
           </div>
           {page === 1 ? (
             <Main1 />

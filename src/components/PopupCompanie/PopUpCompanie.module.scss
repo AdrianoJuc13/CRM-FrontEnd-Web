@@ -67,7 +67,33 @@
           line-height: 30px;
           cursor: pointer;
         }
+        .edit_btn {
+          display: flex;
+          align-items: center;
+          text-align: center;
+          justify-content: center;
+          margin-left: auto;
+          margin-right: 5%;
+          cursor: pointer;
+          //dimensions
+          border: none;
+          padding: 0.2%;
+
+          // styles
+          background: colors.$lightgreen;
+          color: colors.$mywhite;
+          font-size: small;
+          font-weight: 400;
+          font-family: "Poppins", sans-serif;
+
+          width: 221px;
+          height: 49px;
+
+          border-radius: 0.25rem;
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
       }
+
       .screen {
         position: relative;
         display: flex;
@@ -96,31 +122,6 @@
               font-family: "Poppins", sans-serif;
               letter-spacing: 0.05em;
               line-height: 30px;
-            }
-            .edit_btn {
-              display: flex;
-              align-items: center;
-              text-align: center;
-              justify-content: center;
-              margin-left: auto;
-
-              cursor: pointer;
-              //dimensions
-              border: none;
-              padding: 0.2%;
-
-              // styles
-              background: colors.$lightgreen;
-              color: colors.$mywhite;
-              font-size: small;
-              font-weight: 400;
-              font-family: "Poppins", sans-serif;
-
-              width: 221px;
-              height: 49px;
-
-              border-radius: 0.25rem;
-              box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
             }
           }
           .row2 {
