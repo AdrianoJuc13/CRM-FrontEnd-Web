@@ -4,6 +4,7 @@ import styles from "./PopUpCompanie.module.scss";
 import { BiHomeAlt } from "react-icons/bi";
 import { AiOutlinePhone } from "react-icons/ai";
 import { ImMap2 } from "react-icons/im";
+import { FaReadme } from "react-icons/fa";
 
 function Main1() {
   return (
@@ -33,7 +34,7 @@ function Main1() {
       </div>
       <div className={styles.zona}>
         <div className={styles.row}>
-          <AiOutlinePhone className={styles.icon} />
+          <FaReadme className={styles.icon} />
           <div className={styles.title}>Sector</div>
         </div>
         <div className={styles.row2}>

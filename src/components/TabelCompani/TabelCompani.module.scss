@@ -11,6 +11,7 @@
   font-family: "Poppins", sans-serif;
   letter-spacing: 0.05rem;
   font-weight: 400;
+  overflow: auto;
 
   .main {
     //   background: colors.$grey100;
@@ -38,7 +39,9 @@
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        padding-left: 2rem;
+        padding-left: 2%;
+        min-width: 5%;
+        word-wrap: break-all;
       }
     }
 
@@ -59,7 +62,10 @@
           flex: 1;
           justify-content: flex-start;
           display: flex;
-          padding-left: 2rem;
+          padding-left: 2%;
+          min-width: 5%;
+          word-wrap: break-word;
+          overflow-wrap: break-word;
         }
       }
     }
