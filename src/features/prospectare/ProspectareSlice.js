@@ -11,8 +11,8 @@ const initialState = {
 };
 
 // Generates pending, fulfilled and rejected action types
-export const fetchOportunitati = createAsyncThunk(
-  "user/fetchOportunitati",
+export const fetchProspectare = createAsyncThunk(
+  "user/fetchProspectare",
   async () => {
     return axios
       .get(
@@ -24,8 +24,8 @@ export const fetchOportunitati = createAsyncThunk(
   }
 );
 
-const OportunitatiSlice = createSlice({
-  name: "oportunitati",
+const ProspectareSlice = createSlice({
+  name: "prospectare",
   initialState,
   reducers: {
     openPopUp: (state, action) => {
@@ -41,15 +41,15 @@ const OportunitatiSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchOportunitati.pending, (state) => {
+    builder.addCase(fetchProspectare.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(fetchOportunitati.fulfilled, (state, action) => {
+    builder.addCase(fetchProspectare.fulfilled, (state, action) => {
       state.loading = false;
       state.payload = action.payload;
       state.error = "";
     });
-    builder.addCase(fetchOportunitati.rejected, (state, action) => {
+    builder.addCase(fetchProspectare.rejected, (state, action) => {
       state.loading = false;
       state.payload = [];
       state.error = action.error.message;
@@ -57,6 +57,6 @@ const OportunitatiSlice = createSlice({
   },
 });
 
-export const { openPopUp, closePopUp, changePage } = OportunitatiSlice.actions;
+export const { openPopUp, closePopUp, changePage } = ProspectareSlice.actions;
 
-export default OportunitatiSlice.reducer;
+export default ProspectareSlice.reducer;

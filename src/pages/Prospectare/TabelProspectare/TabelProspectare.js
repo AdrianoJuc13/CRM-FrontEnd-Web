@@ -1,26 +1,27 @@
 import React, { useEffect } from "react";
-import styles from "./TabelOportunitati.module.scss";
-import PopUpOportunitati from "./../PopUpOportunitati/PopUpOportunitati";
+import styles from "./TabelProspectare.module.scss";
+// import PopUpPlandeactiune from "./../PopUpPlandeactiune/PopUpPlandeactiune";
 import {
   BsFillArrowLeftSquareFill,
   BsFillArrowRightSquareFill,
 } from "react-icons/bs";
+
 import {
-  fetchOportunitati,
+  fetchProspectare,
   openPopUp,
-} from "../../../features/oportunitati/OportunitatiSlice";
+} from "../../../features/prospectare/ProspectareSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-function TabelOportunitati() {
+function TabelProspectare() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchOportunitati());
+    dispatch(fetchProspectare());
   }, [dispatch]);
 
-  const oportunitati = useSelector((state) => state.oportunitati);
+  const prospectare = useSelector((state) => state.prospectare);
   return (
-    <div className={styles.tabel_oportunitati}>
+    <div className={styles.tabel_prospectare}>
       <div className={styles.main}>
         <div className={styles.header}>
           <div className={styles.hdata}>Tipul</div>
@@ -31,12 +32,12 @@ function TabelOportunitati() {
           <div className={styles.hdata}>Deadline</div>
         </div>
         <div className={styles.rows}>
-          {oportunitati.loading && <div>Loading...</div>}
-          {!oportunitati.loading && oportunitati.error ? (
-            <div>Error: {oportunitati.error}</div>
+          {prospectare.loading && <div>Loading...</div>}
+          {!prospectare.loading && prospectare.error ? (
+            <div>Error: {prospectare.error}</div>
           ) : null}
-          {oportunitati &&
-            oportunitati.payload.map((item, index) => {
+          {prospectare &&
+            prospectare.payload.map((item, index) => {
               return (
                 <div
                   key={index}
@@ -61,9 +62,9 @@ function TabelOportunitati() {
         <div className={styles.numerotare}>1</div>
         <BsFillArrowRightSquareFill className={styles.arrow} />
       </div>
-      <PopUpOportunitati />
+      {/* <PopUpOportunitati /> */}
     </div>
   );
 }
 
-export default TabelOportunitati;
+export default TabelProspectare;

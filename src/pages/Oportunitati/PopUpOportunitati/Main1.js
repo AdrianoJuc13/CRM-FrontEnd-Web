@@ -39,6 +39,7 @@ function Main1() {
             <div className={styles.td}>Ceva</div>
             <div className={styles.td}>Ceva</div>
             <div className={styles.td}>Ceva</div>
+            <div className={styles.td}>Ceva</div>
           </div>
         </div>
       </div>
