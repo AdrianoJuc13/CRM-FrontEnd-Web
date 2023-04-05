@@ -100,9 +100,9 @@ $sidemenu_width_closed: 80px;
     line-height: 1rem;
     font-family: "Inter", sans-serif;
     height: 100%;
-    text-align: center;
+    text-align: start;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
   }
 }
