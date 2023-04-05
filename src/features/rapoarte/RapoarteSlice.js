@@ -11,8 +11,8 @@ const initialState = {
 };
 
 // Generates pending, fulfilled and rejected action types
-export const fetchOportunitati = createAsyncThunk(
-  "user/fetchOportunitati",
+export const fetchRapoarte = createAsyncThunk(
+  "user/fetchRapoarte",
   async () => {
     return axios
       .get(
@@ -24,8 +24,8 @@ export const fetchOportunitati = createAsyncThunk(
   }
 );
 
-const OportunitatiSlice = createSlice({
-  name: "oportunitati",
+const RapoarteSlice = createSlice({
+  name: "rapoarte",
   initialState,
   reducers: {
     openPopUp: (state, action) => {
@@ -41,15 +41,15 @@ const OportunitatiSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchOportunitati.pending, (state) => {
+    builder.addCase(fetchRapoarte.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(fetchOportunitati.fulfilled, (state, action) => {
+    builder.addCase(fetchRapoarte.fulfilled, (state, action) => {
       state.loading = false;
       state.payload = action.payload;
       state.error = "";
     });
-    builder.addCase(fetchOportunitati.rejected, (state, action) => {
+    builder.addCase(fetchRapoarte.rejected, (state, action) => {
       state.loading = false;
       state.payload = [];
       state.error = action.error.message;
@@ -57,6 +57,6 @@ const OportunitatiSlice = createSlice({
   },
 });
 
-export const { openPopUp, closePopUp, changePage } = OportunitatiSlice.actions;
+export const { openPopUp, closePopUp, changePage } = RapoarteSlice.actions;
 
-export default OportunitatiSlice.reducer;
+export default RapoarteSlice.reducer;
