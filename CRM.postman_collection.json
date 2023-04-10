@@ -1,0 +1,2231 @@
+{
+	"info": {
+		"_postman_id": "812dc5e8-488d-49bf-a26b-bbe8076b7738",
+		"name": "CRM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16662034"
+	},
+	"item": [
+		{
+			"name": "main route",
+			"item": [
+				{
+					"name": "get main Route",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "actiuni route",
+			"item": [
+				{
+					"name": "rezultate",
+					"item": [
+						{
+							"name": "get rezultatele unei actiuni",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5800/actiuni/rezultate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5800",
+									"path": [
+										"actiuni",
+										"rezultate"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "tip rezultat",
+					"item": [
+						{
+							"name": "adauga tip rezultat",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nume_tip_rezultat\" : \"de sters\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostname}}/actiuni/tip_rezultat/",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"actiuni",
+										"tip_rezultat",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get tip rezultat",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{hostname}}/actiuni/tip_rezultat?tip_rezultat_id=5891a4a3-f708-4d0b-aa62-b93628a1fd5b",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"actiuni",
+										"tip_rezultat"
+									],
+									"query": [
+										{
+											"key": "tip_rezultat_id",
+											"value": "5891a4a3-f708-4d0b-aa62-b93628a1fd5b"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete tip rezultat",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"tip_rezultat_id\" : \"a89f2e72-ca2b-4fed-856a-74e15f1b192d\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostname}}/actiuni/tip_rezultat/",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"actiuni",
+										"tip_rezultat",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all tipuri rezultat",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{hostname}}/actiuni/tip_rezultat/getAll",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"actiuni",
+										"tip_rezultat",
+										"getAll"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update rezultat",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n        \"tip_rezultat_id\": \"5891a4a3-f708-4d0b-aa62-b93628a1fd5b\",\r\n        \"nume_tip_rezultat\": \"Rezultat 4 update update\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostname}}/actiuni/tip_rezultat/",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"actiuni",
+										"tip_rezultat",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "tip actiune",
+					"item": [
+						{
+							"name": "tip actiune",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{hostname}}/actiuni/tip_actiune?tip_actiune_id=a7b66fa0-820e-456d-8cb8-3f9cbdf6aff7",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"actiuni",
+										"tip_actiune"
+									],
+									"query": [
+										{
+											"key": "tip_actiune_id",
+											"value": "a7b66fa0-820e-456d-8cb8-3f9cbdf6aff7"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "adauga tip actiune",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nume_tip_actiune\" : \"actiune de sters\",\r\n    \"timp_executie\" : 666\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostname}}/actiuni/tip_actiune",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"actiuni",
+										"tip_actiune"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete tip actiune",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"tip_actiune_id\" : \"5542ef27-37b4-4d9a-9e0e-ba403ef75cdc\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostname}}/actiuni/tip_actiune",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"actiuni",
+										"tip_actiune"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "patch tip actiune",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n        \"tip_actiune_id\": \"a7b66fa0-820e-456d-8cb8-3f9cbdf6aff7\",\r\n        \"nume_tip_actiune\": \"actiune nebuna chiar si dupa update\",\r\n        \"timp_executie\": 6\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostname}}/actiuni/tip_actiune",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"actiuni",
+										"tip_actiune"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all tipuri actiune",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{hostname}}/actiuni/tip_actiune/getAll",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"actiuni",
+										"tip_actiune",
+										"getAll"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "status actiuni",
+					"item": [
+						{
+							"name": "get status actiune",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{hostname}}/actiuni/status?status_actiune_id=4e33e108-67b1-47b9-a18c-cde198ea8dd1",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"actiuni",
+										"status"
+									],
+									"query": [
+										{
+											"key": "status_actiune_id",
+											"value": "4e33e108-67b1-47b9-a18c-cde198ea8dd1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get toate statusurile disponibile",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{hostname}}/actiuni/status/getAll",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"actiuni",
+										"status",
+										"getAll"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete status actiune",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"status_actiune_id\": \"35f53459-8a9a-4cad-8f95-d5bcb00c45ae\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostname}}/actiuni/status",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"actiuni",
+										"status"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update status actiune",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"status_actiune_id\": \"4e33e108-67b1-47b9-a18c-cde198ea8dd1\",\r\n        \"nume_status_actiune\": \"Completa super super cu Update ratata\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostname}}/actiuni/status",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"actiuni",
+										"status"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "adauga status actiune",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nume_status_actiune\" : \"Completa super super de sters\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostname}}/actiuni/status",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"actiuni",
+										"status"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "match tip rezultat cu tip actiune",
+					"item": [
+						{
+							"name": "get match tip rezultat tip actiune",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{hostname}}/actiuni/matchTipActiuneTipRezultat?tip_actiune_id=126010b6-4303-4c6e-a964-fe1470bde5f3&tip_rezultat_id=5891a4a3-f708-4d0b-aa62-b93628a1fd5b",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"actiuni",
+										"matchTipActiuneTipRezultat"
+									],
+									"query": [
+										{
+											"key": "tip_actiune_id",
+											"value": "126010b6-4303-4c6e-a964-fe1470bde5f3"
+										},
+										{
+											"key": "tip_rezultat_id",
+											"value": "5891a4a3-f708-4d0b-aa62-b93628a1fd5b"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "adauga match tip rezultat tip actiune",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"tip_actiune_id\" : \"126010b6-4303-4c6e-a964-fe1470bde5f3\",\r\n    \"tip_rezultat_id\" : \"5891a4a3-f708-4d0b-aa62-b93628a1fd5b\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostname}}/actiuni/matchTipActiuneTipRezultat",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"actiuni",
+										"matchTipActiuneTipRezultat"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete match tip rezultat tip actiune",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"tip_actiune_id\" : \"126010b6-4303-4c6e-a964-fe1470bde5f3\",\r\n    \"tip_rezultat_id\" : \"5891a4a3-f708-4d0b-aa62-b93628a1fd5b\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostname}}/actiuni/matchTipActiuneTipRezultat",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"actiuni",
+										"matchTipActiuneTipRezultat"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "main Actiune",
+					"item": [
+						{
+							"name": "get actiune",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5800/actiuni",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5800",
+									"path": [
+										"actiuni"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Adauga actiune",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5800/actiuni",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5800",
+									"path": [
+										"actiuni"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "angajat route",
+			"item": [
+				{
+					"name": "Tipuri angajati",
+					"item": [
+						{
+							"name": "get all tipuri angajati",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{hostname}}/angajati/tip/getAll",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"angajati",
+										"tip",
+										"getAll"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get tip angajat",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{hostname}}/angajati/tip?tip_angajat_id=86389d20-7fd1-4fc4-8d69-f9988bed6586",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"angajati",
+										"tip"
+									],
+									"query": [
+										{
+											"key": "tip_angajat_id",
+											"value": "86389d20-7fd1-4fc4-8d69-f9988bed6586"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Creeaza tip angajat",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nume_tip_angajat\" : \"director de marketing\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostname}}/angajati/tip/",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"angajati",
+										"tip",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Updateaza tip angajat",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"tip_angajat_id\" : \"ee56baf1-38af-4d12-8af3-563e6f8a1a5b\",\r\n    \"nume_tip_angajat\" : \"UPDATED\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostname}}/angajati/tip/",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"angajati",
+										"tip",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sterge tip angajat",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"tip_angajat_id\" : \"ad355b02-982c-43d4-ac5d-b0139b4eb5e3\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostname}}/angajati/tip/",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"angajati",
+										"tip",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Functii angajati",
+					"item": [
+						{
+							"name": "get all functii angajati",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{hostname}}/angajati/functie/getAll",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"angajati",
+										"functie",
+										"getAll"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get functie angajat",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{hostname}}/angajati/functie?functie_angajat_id=63b909b5-385c-4914-a592-53fcd20db8d3",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"angajati",
+										"functie"
+									],
+									"query": [
+										{
+											"key": "functie_angajat_id",
+											"value": "63b909b5-385c-4914-a592-53fcd20db8d3"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updateaza functie angajat",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"functie_angajat_id\" : \"63b909b5-385c-4914-a592-53fcd20db8d3\",\r\n     \"nume_functie_angajat\" : \"shogun de UPDATE\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostname}}/angajati/functie/",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"angajati",
+										"functie",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "adauga functie angajat",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nume_functie_angajat\" : \"director de marketing\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostname}}/angajati/functie/",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"angajati",
+										"functie",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "sterge functie angajat",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"functie_angajat_id\" : \"a5a69aae-4a36-4004-a3df-067b6dc972da\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostname}}/angajati/functie/",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"angajati",
+										"functie",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Filtreaza angajati",
+					"item": []
+				},
+				{
+					"name": "Main Angajati",
+					"item": [
+						{
+							"name": "get angajat",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{hostname}}/angajati?angajat_id=7311d0a1-b4a6-445d-aa68-0b0d6195a287",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"angajati"
+									],
+									"query": [
+										{
+											"key": "angajat_id",
+											"value": "7311d0a1-b4a6-445d-aa68-0b0d6195a287"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Adauga angajat",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nume\" : \"Anutei\",\r\n    \"prenume\" : \"Matei\",\r\n    \"tip_angajat_id\" : \"29fda58d-7139-496f-b171-dff32ac649f9\",\r\n    \"functie_angajat_id\" : \"1a2a02f8-2681-4bbe-b683-e3e0d8293c6e\",\r\n    \"email\" : \"matei.anutei24@gmail.com\",\r\n    \"numar_telefon\" : \"07noidoi\",\r\n    \"punct_lucru_id\": \"4260bc44-9376-4a7c-9796-e4f0ad5c0899\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostname}}/angajati",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"angajati"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete angajat",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"angajat_id\" : \"b2e81586-fd77-47cf-9ab0-1e4022d3e6c9\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostname}}/angajati",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"angajati"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update angajat",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"angajat_id\" : \"7311d0a1-b4a6-445d-aa68-0b0d6195a287\",\r\n    \"nume\" : \"Anutei UPDATE\",\r\n    \"prenume\" : \"Matei\",\r\n    \"tip_angajat_id\" : \"a7c7df69-5e77-4cc7-af5e-d4dde485fb83\",\r\n    \"functie_angajat_id\" : \"45da1cfd-77b5-4dbe-aaac-b64effff3492\",\r\n    \"email\" : \"matei.anutei24@gmail.com\",\r\n    \"numar_telefon\" : \"07noidoi\",\r\n    \"punct_lucru_id\": \"6ff5a9ca-f2ba-48f8-8e1a-7d77a15d60b9\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostname}}/angajati",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"angajati"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get All angajati",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{hostname}}/angajati/getAll",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"angajati",
+										"getAll"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get paginare angajati",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{hostname}}/angajati/pagination?limita=10&last_id=7311d0a1-b4a6-445d-aa68-0b0d6195a287",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"angajati",
+										"pagination"
+									],
+									"query": [
+										{
+											"key": "limita",
+											"value": "10"
+										},
+										{
+											"key": "last_id",
+											"value": "7311d0a1-b4a6-445d-aa68-0b0d6195a287"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "companie route",
+			"item": [
+				{
+					"name": "lead routes",
+					"item": [
+						{
+							"name": "get leads",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5800/companii/leads",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5800",
+									"path": [
+										"companii",
+										"leads"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "persoana contact routes",
+					"item": [
+						{
+							"name": "get persoane contact",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5800/companii/persoaneContact",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5800",
+									"path": [
+										"companii",
+										"persoaneContact"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Activitate companii",
+					"item": [
+						{
+							"name": "get activitate companie",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{hostname}}/companii/activitate_companii?activitate_companie_id=10a80465-a1da-48e1-a117-9c987ffa141f",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"companii",
+										"activitate_companii"
+									],
+									"query": [
+										{
+											"key": "activitate_companie_id",
+											"value": "10a80465-a1da-48e1-a117-9c987ffa141f"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "adauga activitate companie",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"activitate_companie\" : \"client activ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostname}}/companii/activitate_companii/",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"companii",
+										"activitate_companii",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update activitate companie",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"activitate_companie_id\": \"10a80465-a1da-48e1-a117-9c987ffa141f\",\r\n        \"activitate_companie\": \"UPDATE\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5800/companii/activitate_companii/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5800",
+									"path": [
+										"companii",
+										"activitate_companii",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete activitate companie",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"activitate_companie_id\": \"4d57e888-695a-4429-bee0-3474174d9084\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5800/companii/activitate_companii/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5800",
+									"path": [
+										"companii",
+										"activitate_companii",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get toate activitatile companie",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{hostname}}/companii/activitate_companii/getAll",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"companii",
+										"activitate_companii",
+										"getAll"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Marime companii",
+					"item": [
+						{
+							"name": "get marime companie",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{hostname}}/companii/marime_companii?marime_companie_id=9bc0f1d8-acc6-4ddc-81b7-e65e7a18512f",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"companii",
+										"marime_companii"
+									],
+									"query": [
+										{
+											"key": "marime_companie_id",
+											"value": "9bc0f1d8-acc6-4ddc-81b7-e65e7a18512f"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create marime companie",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"marime_companie\" : \"mare\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostname}}/companii/marime_companii",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"companii",
+										"marime_companii"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update marime companie",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n        \"marime_companie_id\": \"f22151c0-9c72-4859-981a-d3f7e4c78201\",\r\n        \"marime_companie\": \"UPDATE\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostname}}/companii/marime_companii",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"companii",
+										"marime_companii"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete marime companie",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n     \"marime_companie_id\": \"f22151c0-9c72-4859-981a-d3f7e4c78201\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostname}}/companii/marime_companii",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"companii",
+										"marime_companii"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all marimi companie",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{hostname}}/companii/marime_companii/getAll?=",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"companii",
+										"marime_companii",
+										"getAll"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Main Companii",
+					"item": [
+						{
+							"name": "get companii",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{hostname}}/companii?companie_id=be06ca78-3577-4c55-9718-d73b00f9cead",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"companii"
+									],
+									"query": [
+										{
+											"key": "companie_id",
+											"value": "be06ca78-3577-4c55-9718-d73b00f9cead"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "adauga companie",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nume\" : \"Burdujeni Records\",\r\n    \"numar_inregistrare\" : \"test numar inregistrare\",\r\n    \"nisa_id\" : \"44b10ac2-ef74-4373-b846-b38333918a2a\",\r\n    \"marime_companie_id\" : \"631da2ac-2078-4934-9cbc-1bad51762222\",\r\n    \"activitate_companie_id\" : \"e90a4e58-4d23-4f3f-a2a1-7090a8f7934e\",\r\n    \"vanzari_totale\" : 6969420,\r\n    \"adresa_livrare\" : \"Calea Burdujeni \",\r\n    \"adresa_facturare\" : \"tesdf t\",\r\n    \"numar_angajati\" : 20,\r\n    \"cifra_afaceri\" : 222222,\r\n    \"locatie_gps\" : \"asdasd\",\r\n    \"angajat_responsabil\" : \"8e16fc91-e0b8-4d9e-bd44-b20ecce99032\",\r\n    \"punct_lucru_id\" : \"4260bc44-9376-4a7c-9796-e4f0ad5c0899\",\r\n    \"email\" : \"ceva@gmail.com\",\r\n    \"numar_telefon\" : \"07noidoi\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostname}}/companii",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"companii"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all companii",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{hostname}}/companii/getAll",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"companii",
+										"getAll"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update companie",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"companie_id\": \"a32f348e-5bee-44af-89ea-3f156aa31391\",\r\n    \"nume\" : \"Poligon Tech UPDATED2\",\r\n    \"numar_inregistrare\" : \"test numar inregistrare\",\r\n    \"nisa_id\" : \"9c7d8ec7-ec66-4910-9b78-56bd242956a8\",\r\n    \"marime_companie_id\" : \"9bc0f1d8-acc6-4ddc-81b7-e65e7a18512f\",\r\n    \"activitate_companie_id\" : \"27790647-5601-45ba-a44f-905a67438c04\",\r\n    \"vanzari_totale\" : 88888,\r\n    \"adresa_livrare\" : \"strada terst\",\r\n    \"adresa_facturare\" : \"tesdf t\",\r\n    \"numar_angajati\" : 20,\r\n    \"cifra_afaceri\" : 222222,\r\n    \"locatie_gps\" : \"asdasd\",\r\n    \"angajat_responsabil\" : \"d12c96f0-1433-4399-be22-8e46ba02ae41\",\r\n    \"punct_lucru_id\" : \"f1ceb2e2-77d5-421d-89df-0fdf63e1591c\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostname}}/companii",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"companii"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "sterge companie",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"companie_id\" : \"8c924522-9779-4075-93dc-2a797c1a1d87\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostname}}/companii",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"companii"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get pagination",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{hostname}}/companii/pagination?limita=10&last_id=ea152703-f9a5-4f01-b626-c0a0bb0745d0",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"companii",
+										"pagination"
+									],
+									"query": [
+										{
+											"key": "limita",
+											"value": "10"
+										},
+										{
+											"key": "last_id",
+											"value": "ea152703-f9a5-4f01-b626-c0a0bb0745d0"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "configurari route",
+			"item": [
+				{
+					"name": "tipuri actiuni",
+					"item": [
+						{
+							"name": "get tip actiune",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5800/configurari/tipActiune",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5800",
+									"path": [
+										"configurari",
+										"tipActiune"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "tipuri rezultate",
+					"item": [
+						{
+							"name": "get rezultate disponibile",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5800/configurari/tipRezultat",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5800",
+									"path": [
+										"configurari",
+										"tipRezultat"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "get configurari",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5800/configurari",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5800",
+							"path": [
+								"configurari"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "nise route",
+			"item": [
+				{
+					"name": "get nise",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/nise?nisa_id=9c7d8ec7-ec66-4910-9b78-56bd242956a8",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"nise"
+							],
+							"query": [
+								{
+									"key": "nisa_id",
+									"value": "9c7d8ec7-ec66-4910-9b78-56bd242956a8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "adauga nisa",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nume_nisa\" : \"Metalurgie\",\r\n    \"vanzari_totale\" : 36969,\r\n    \"persoana_responsabila\" : \"70676201-fff7-4d42-b1e7-c1b50c45e4e9\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/nise/",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"nise",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all nise",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/nise/getAll",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"nise",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update nisa",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"nisa_id\": \"ae72fdc4-6997-4cd3-8e1b-b14a726d8b48\",\r\n        \"nume_nisa\": \"Electronice updatat\",\r\n        \"vanzari_totale\": 100000000,\r\n        \"persoana_responsabila\": \"ee572e8e-5682-4f4b-a29f-df650f9d2e7e\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/nise",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"nise"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete nisa",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"nisa_id\": \"c95661a3-f9f6-45d5-bb52-60f96b67a26a\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/nise",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"nise"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "obiective route",
+			"item": [
+				{
+					"name": "tip obiective",
+					"item": [
+						{
+							"name": "get tip obiectiv",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "get all tipuri obiectiv",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "create tip obiectiv",
+							"request": {
+								"method": "POST",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "update tip obiectiv",
+							"request": {
+								"method": "PATCH",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "delete tip obiectiv",
+							"request": {
+								"method": "DELETE",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "get obiectiv",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5800/obiective?obiectiv_id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5800",
+							"path": [
+								"obiective"
+							],
+							"query": [
+								{
+									"key": "obiectiv_id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all obiective",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5800/obiective/getAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5800",
+							"path": [
+								"obiective",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "adauga obiectiv",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5800/obiective",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5800",
+							"path": [
+								"obiective"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update obiectiv",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5800/obiective",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5800",
+							"path": [
+								"obiective"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete obiectiv",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5800/obiective",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5800",
+							"path": [
+								"obiective"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "oportunitati route",
+			"item": [
+				{
+					"name": "Tip Oportunitati",
+					"item": [
+						{
+							"name": "get tip oportunitate",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5800/oportunitati/tip_oportunitate?tip_oportunitate_id=59e323f2-cc92-4752-a4a4-32492dc0a164",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5800",
+									"path": [
+										"oportunitati",
+										"tip_oportunitate"
+									],
+									"query": [
+										{
+											"key": "tip_oportunitate_id",
+											"value": "59e323f2-cc92-4752-a4a4-32492dc0a164"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all tipuri oportunitate",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5800/oportunitati/tip_oportunitate/getAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5800",
+									"path": [
+										"oportunitati",
+										"tip_oportunitate",
+										"getAll"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create tip oportunitate",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nume_tip_oportunitate\" : \"GENERALA\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5800/oportunitati/tip_oportunitate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5800",
+									"path": [
+										"oportunitati",
+										"tip_oportunitate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update tip oportunitate",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n        \"tip_oportunitate_id\": \"75a34964-159e-4eff-ad9f-31d2829e2315\",\r\n        \"nume_tip_oportunitate\": \"oportunitate smecheraa 3\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5800/oportunitati/tip_oportunitate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5800",
+									"path": [
+										"oportunitati",
+										"tip_oportunitate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete tip oportunitate",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n        \"tip_oportunitate_id\": \"7d79ab2f-4968-440a-8690-4ac4fd700feb\"\r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5800/oportunitati/tip_oportunitate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5800",
+									"path": [
+										"oportunitati",
+										"tip_oportunitate"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "get oportunitati",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5800/oportunitati",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5800",
+							"path": [
+								"oportunitati"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "produse route",
+			"item": [
+				{
+					"name": "get produse",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5800/produse",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5800",
+							"path": [
+								"produse"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "punct lucru route",
+			"item": [
+				{
+					"name": "get punct lucru",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/puncteLucru?punctLucruId=6ff5a9ca-f2ba-48f8-8e1a-7d77a15d60b9",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"puncteLucru"
+							],
+							"query": [
+								{
+									"key": "punctLucruId",
+									"value": "6ff5a9ca-f2ba-48f8-8e1a-7d77a15d60b9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Adaugare punct de lucru",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nume_punct_lucru\" : \"Aiud\",\r\n    \"adresa\" : \"Cel mai aproape de Cluj\",\r\n    \"locatie_gps\" : \"127 30\",\r\n    \"vanzari_totale\" : 1000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/puncteLucru",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"puncteLucru"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sterge punct lucru",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"punct_lucru_id\" : \"08500568-ba44-4b93-a8f6-7b0d2d386e4e\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/puncteLucru",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"puncteLucru"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update punct lucru",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"punct_lucru_id\": \"da469265-eea7-4ee3-8b37-f8a63a9c5cda\",\r\n    \"nume_punct_lucru\": \"update\",\r\n    \"adresa\": \"test adresa\",\r\n    \"locatie_gps\": \"test locatie gps\",\r\n    \"vanzari_totale\": 25\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hostname}}/puncteLucru",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"puncteLucru"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All puncte lucru",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/puncteLucru/getAll",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"puncteLucru",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get obiecte cu paginare",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/puncteLucru/pagination?limita=10&last_id=start",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"puncteLucru",
+								"pagination"
+							],
+							"query": [
+								{
+									"key": "limita",
+									"value": "10"
+								},
+								{
+									"key": "last_id",
+									"value": "start"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "vanzari route",
+			"item": [
+				{
+					"name": "get vanzari",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5800/vanzari",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5800",
+							"path": [
+								"vanzari"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "hostname\n",
+			"value": "localhost\n",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "hostname",
+			"value": "http://localhost:5800"
+		}
+	]
+}
