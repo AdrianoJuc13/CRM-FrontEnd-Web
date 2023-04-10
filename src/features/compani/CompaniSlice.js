@@ -14,9 +14,7 @@ const initialState = {
 export const fetchCompani = createAsyncThunk("user/fetchCompani", async () => {
   return axios
     .get(
-      `${"https://jsonplaceholder.typicode.com/users/"}${
-        initialState.currentId
-      }`
+      `${"http://63.250.60.35:5800/companii/pagination?limita=10&last_id="}${"start"}`
     )
     .then((response) => response.data);
 });

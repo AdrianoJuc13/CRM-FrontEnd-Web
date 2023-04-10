@@ -7,6 +7,8 @@ import plandeactiuneReducer from "./features/plandeactiune/PlandeactiuneSlice";
 import prospectareReducer from "./features/prospectare/ProspectareSlice";
 import obiectiveReducer from "./features/obiective/ObiectiveSlice";
 import rapoarteReducer from "./features/rapoarte/RapoarteSlice";
+import niseReducer from "./features/relations/NiseSlice";
+import PuncteLucruReducer from "./features/relations/PuncteLucruSlice";
 
 export const store = configureStore({
   reducer: {
@@ -18,5 +20,7 @@ export const store = configureStore({
     prospectare: prospectareReducer,
     obiective: obiectiveReducer,
     rapoarte: rapoarteReducer,
+    nise: niseReducer,
+    punctelucru: PuncteLucruReducer,
   },
 });

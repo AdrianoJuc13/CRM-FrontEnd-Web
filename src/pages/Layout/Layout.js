@@ -3,7 +3,21 @@ import SideMenu from "../../components/SideMenu/SideMenu";
 import TopSide from "../../components/TopSide/TopSide";
 import styles from "./Layout.module.scss";
 
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { fetchNise } from "../../features/relations/NiseSlice";
+import { fetchPuncteLucru } from "../../features/relations/PuncteLucruSlice";
+
 const Layout = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchNise());
+  });
+  useEffect(() => {
+    dispatch(fetchPuncteLucru());
+  });
+
   return (
     <div className={styles.layout}>
       <SideMenu />
