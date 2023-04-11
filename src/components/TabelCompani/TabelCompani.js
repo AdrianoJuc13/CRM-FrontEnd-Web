@@ -50,10 +50,13 @@ function Compani() {
           <div className={styles.hdata}>Punct de lucru</div>
         </div>
         <div className={styles.rows}>
+          {/* Loading screen */}
           {compani.loading && <div>Loading...</div>}
+          {/* error  */}
           {!compani.loading && compani.error ? (
             <div>Error: {compani.error}</div>
           ) : null}
+          {/* fullfield */}
           {compani &&
             compani.payload.map((item, index) => {
               return (
