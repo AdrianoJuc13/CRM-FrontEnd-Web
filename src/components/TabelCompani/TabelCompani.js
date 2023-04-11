@@ -10,6 +10,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCompani, openPopUp } from "../../features/compani/CompaniSlice";
 import PopUpCompanie from "../PopupCompanie/PopUpCompanie";
+import EditeazaCompanie from "../../pages/Compani/EditeazaCompanie/EditeazaCompanie";
 
 function Compani() {
   const dispatch = useDispatch();
@@ -89,6 +90,7 @@ function Compani() {
         <BsFillArrowRightSquareFill className={styles.arrow} />
       </div>
       <PopUpCompanie />
+      <EditeazaCompanie />
     </div>
   );
 }

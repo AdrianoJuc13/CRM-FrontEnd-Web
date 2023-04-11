@@ -3,6 +3,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const initialState = {
   isOpen: false,
+  isOpenDown: false,
   currentId: "",
   loading: false,
   payload: [],
@@ -34,6 +35,15 @@ const CompaniSlice = createSlice({
     changePage: (state, action) => {
       state.page = action.payload;
     },
+
+    openPopDown: (state, action) => {
+      state.isOpenDown = true;
+      state.currentId = action.payload;
+    },
+    closePopDown: (state, action) => {
+      state.isOpenDown = false;
+      state.currentId = "";
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchCompani.pending, (state) => {
@@ -52,6 +62,7 @@ const CompaniSlice = createSlice({
   },
 });
 
-export const { openPopUp, closePopUp, changePage } = CompaniSlice.actions;
+export const { openPopUp, closePopUp, changePage, openPopDown, closePopDown } =
+  CompaniSlice.actions;
 
 export default CompaniSlice.reducer;
