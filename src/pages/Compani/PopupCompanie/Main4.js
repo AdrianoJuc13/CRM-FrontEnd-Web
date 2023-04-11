@@ -1,6 +1,6 @@
 import React from "react";
 // import styles from "./PopUpCompanie.module.scss";
-import image from "../../assets/revenue-profit-margin-by-product.png";
+import image from "../../../assets/revenue-profit-margin-by-product.png";
 function Main4() {
   return (
     <div

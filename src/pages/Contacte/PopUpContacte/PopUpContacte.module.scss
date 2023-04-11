@@ -67,8 +67,36 @@
           line-height: 30px;
           cursor: pointer;
         }
+        .edit_btn {
+          display: flex;
+          align-items: center;
+          text-align: center;
+          justify-content: center;
+          margin-left: auto;
+          margin-right: 5%;
+          cursor: pointer;
+          //dimensions
+          border: none;
+          padding: 0.2%;
+
+          // styles
+          background: colors.$lightgreen;
+          color: colors.$mywhite;
+          font-size: small;
+          font-weight: 400;
+          font-family: "Poppins", sans-serif;
+
+          width: 221px;
+          height: 49px;
+
+          border-radius: 0.25rem;
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
       }
       .screen {
+        border-top: 1px solid colors.$grey100;
+        border-bottom: 1px solid colors.$grey100;
+
         position: relative;
         display: flex;
         flex-direction: column;
@@ -180,9 +208,15 @@
             border-bottom: 1px solid colors.$grey100;
             border-top: 1px solid colors.$grey100;
             border-radius: 1rem;
-            height: 30rem;
-            padding: 1rem;
+            min-height: 30rem;
+            padding: 2rem;
             background: rgb(223, 223, 223);
+
+            font-size: 1rem;
+            font-weight: 400;
+            font-family: "Poppins", sans-serif;
+            letter-spacing: 0.05em;
+            line-height: 30px;
           }
         }
       }

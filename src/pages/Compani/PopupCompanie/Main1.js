@@ -1,12 +1,27 @@
 import React from "react";
 import styles from "./PopUpCompanie.module.scss";
 
+import { FaReadme } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+
 import { BiHomeAlt } from "react-icons/bi";
 import { AiOutlinePhone } from "react-icons/ai";
 import { ImMap2 } from "react-icons/im";
-import { FaReadme } from "react-icons/fa";
 
 function Main1() {
+  const dispatch = useDispatch();
+  const { isOpenUp, page, currentId, payload } = useSelector(
+    (store) => store.compani
+  );
+
+  const getPayloadByName = (target) => {
+    var i = 0;
+    if (payload)
+      for (i = 0; i < payload.length; i++)
+        if (payload[i].companie_id === currentId) return payload[i][target];
+    return "-";
+  };
+
   return (
     <div className={styles.screen}>
       <div className={styles.zona}>
@@ -15,11 +30,15 @@ function Main1() {
           <div className={styles.title}>Date Companie</div>
         </div>
         <div className={styles.row2}>
-          <div className={styles.title}>Nume: Egger</div>
-          <div className={styles.title}>Numar inregistrare: Tipa</div>
+          <div className={styles.title}>Nume: {getPayloadByName("nume")}</div>
+          <div className={styles.title}>
+            Numar inregistrare: {getPayloadByName("numar_inregistrare")}
+          </div>
         </div>
         <div className={styles.row2}>
-          <div className={styles.title}>Numar fiscal (J): Manager</div>
+          <div className={styles.title}>
+            Numar fiscal (J): {getPayloadByName("nume")}
+          </div>
         </div>
       </div>
       <div className={styles.zona}>
@@ -28,8 +47,10 @@ function Main1() {
           <div className={styles.title}>Datele de contact</div>
         </div>
         <div className={styles.row2}>
-          <div className={styles.title}>Telefon: Alexandru</div>
-          <div className={styles.title}>Email: alexandrutipa@primagra.ro</div>
+          <div className={styles.title}>
+            Telefon: {getPayloadByName("numar_telefon")}
+          </div>
+          <div className={styles.title}>Email: {getPayloadByName("email")}</div>
         </div>
       </div>
       <div className={styles.zona}>
@@ -38,11 +59,15 @@ function Main1() {
           <div className={styles.title}>Sector</div>
         </div>
         <div className={styles.row2}>
-          <div className={styles.title}>Marime companie:</div>
-          <div className={styles.title}>Activitate companie:</div>
+          <div className={styles.title}>
+            Marime companie:{getPayloadByName("marime_companie_id")}
+          </div>
+          <div className={styles.title}>
+            Activitate companie:{getPayloadByName("activitate_companie_id")}
+          </div>
         </div>
         <div className={styles.row2}>
-          <div className={styles.title}>Nisa:</div>
+          <div className={styles.title}>Nisa:{getPayloadByName("nisa_id")}</div>
         </div>
       </div>
       <div className={styles.zona}>

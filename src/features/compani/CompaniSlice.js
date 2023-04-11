@@ -2,7 +2,7 @@ import axios from "axios";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const initialState = {
-  isOpen: false,
+  isOpenUp: false,
   isOpenDown: false,
   currentId: "",
   loading: false,
@@ -24,13 +24,14 @@ const CompaniSlice = createSlice({
   name: "compani",
   initialState,
   reducers: {
-    openPopUp: (state, action) => {
-      state.isOpen = true;
+    setIdPop: (state, action) => {
       state.currentId = action.payload;
     },
+    openPopUp: (state, action) => {
+      state.isOpenUp = true;
+    },
     closePopUp: (state, action) => {
-      state.isOpen = false;
-      state.currentId = "";
+      state.isOpenUp = false;
     },
     changePage: (state, action) => {
       state.page = action.payload;
@@ -38,11 +39,9 @@ const CompaniSlice = createSlice({
 
     openPopDown: (state, action) => {
       state.isOpenDown = true;
-      state.currentId = action.payload;
     },
     closePopDown: (state, action) => {
       state.isOpenDown = false;
-      state.currentId = "";
     },
   },
   extraReducers: (builder) => {
@@ -62,7 +61,13 @@ const CompaniSlice = createSlice({
   },
 });
 
-export const { openPopUp, closePopUp, changePage, openPopDown, closePopDown } =
-  CompaniSlice.actions;
+export const {
+  setIdPop,
+  openPopUp,
+  closePopUp,
+  changePage,
+  openPopDown,
+  closePopDown,
+} = CompaniSlice.actions;
 
 export default CompaniSlice.reducer;

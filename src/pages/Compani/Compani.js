@@ -1,7 +1,7 @@
 import React from "react";
 
 import styles from "./Compani.module.scss";
-import TabelCompani from "../../components/TabelCompani/TabelCompani";
+import TabelCompani from "./TabelCompani/TabelCompani";
 import { useNavigate } from "react-router-dom";
 
 function Compani() {

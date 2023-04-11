@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import {
   closePopUp,
+  openPopDown,
   // changePage,
 } from "../../../features/contacte/ContacteSlice";
 
@@ -13,11 +14,7 @@ import Main1 from "./Main1.js";
 
 function PopUpContacte() {
   const dispatch = useDispatch();
-  const {
-    isOpen,
-    currentId,
-    //  page
-  } = useSelector((store) => store.contacte);
+  const { isOpen } = useSelector((store) => store.contacte);
 
   return (
     <div
@@ -37,75 +34,19 @@ function PopUpContacte() {
             }}
           />
         </div>
-
-        {currentId}
-        {/* <div>
-          <h2>Detaliile companiei</h2>
-
-          {compani.loading && <div>Loading...</div>}
-
-          {!compani.loading && compani.error ? (
-            <div>Error: {compani.error}</div>
-          ) : null}
-
-          {!compani.loading && compani.payload.length ? (
-            <ul>
-              {compani.payload.map((compani) => (
-                <li key={compani.id}>{compani.name}</li>
-              ))}
-            </ul>
-          ) : // <div>{toString(compani.payload)}</div>
-          null}
-        </div> */}
         <div className={styles.main}>
-          {/* <div className={styles.buttons}>
+          <div className={styles.buttons}>
             <div
-              className={styles.button_name}
+              className={styles.edit_btn}
               onClick={() => {
-                dispatch(changePage(1));
+                dispatch(closePopUp());
+                dispatch(openPopDown());
               }}
-              style={page === 1 ? { borderBottom: "2px solid blue" } : null}
             >
-              ceva 1
+              Editeaza Compania
             </div>
-            <div
-              className={styles.button_name}
-              onClick={() => {
-                dispatch(changePage(2));
-              }}
-              style={page === 2 ? { borderBottom: "2px solid blue" } : null}
-            >
-              ceva 2
-            </div>
-            <div
-              className={styles.button_name}
-              onClick={() => {
-                dispatch(changePage(3));
-              }}
-              style={page === 3 ? { borderBottom: "2px solid blue" } : null}
-            >
-              ceva 3
-            </div>
-            <div
-              className={styles.button_name}
-              onClick={() => {
-                dispatch(changePage(4));
-              }}
-              style={page === 4 ? { borderBottom: "2px solid blue" } : null}
-            >
-              ceva 4
-            </div>
-          </div> */}
+          </div>
           <Main1 />
-          {/* {page === 1 ? (
-            <Main1 />
-          ) : page === 2 ? (
-            <Main2 />
-          ) : page === 3 ? (
-            <Main3 />
-          ) : page === 4 ? (
-            <Main4 />
-          ) : null} */}
         </div>
       </div>
     </div>

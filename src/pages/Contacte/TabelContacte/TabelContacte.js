@@ -14,6 +14,7 @@ import {
 } from "../../../features/contacte/ContacteSlice.js";
 
 import PopUpContacte from "../PopUpContacte/PopUpContacte";
+import PopDownContacte from "../PopDownContacte/PopDownContacte";
 
 function TabelContacte() {
   const dispatch = useDispatch();
@@ -66,6 +67,7 @@ function TabelContacte() {
         <BsFillArrowRightSquareFill className={styles.arrow} />
       </div>
       <PopUpContacte />
+      <PopDownContacte />
     </div>
   );
 }

@@ -1,27 +1,31 @@
 import React, { useEffect } from "react";
 import styles from "./TabelCompani.module.scss";
-// import lista from "./TabelData.json";
+import { useDispatch, useSelector } from "react-redux";
 
 import {
   BsFillArrowLeftSquareFill,
   BsFillArrowRightSquareFill,
 } from "react-icons/bs";
 
-import { useDispatch, useSelector } from "react-redux";
-import { fetchCompani, openPopUp } from "../../features/compani/CompaniSlice";
+import {
+  fetchCompani,
+  openPopUp,
+  setIdPop,
+} from "../../../features/compani/CompaniSlice";
+
 import PopUpCompanie from "../PopupCompanie/PopUpCompanie";
-import EditeazaCompanie from "../../pages/Compani/EditeazaCompanie/EditeazaCompanie";
+import EditeazaCompanie from "../EditeazaCompanie/EditeazaCompanie";
 
 function Compani() {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchCompani());
-  }, [dispatch]);
-
   const compani = useSelector((store) => store.compani);
   const nise = useSelector((store) => store.nise);
   const punctelucru = useSelector((store) => store.punctelucru);
+
+  useEffect(() => {
+    dispatch(fetchCompani());
+  }, [dispatch]);
 
   const returnNisaByID = (id) => {
     var i;
@@ -29,6 +33,7 @@ function Compani() {
       if (id === nise.payload[i].nisa_id) return nise.payload[i].nume_nisa;
     return "Nu are nisa";
   };
+
   const returnPunctLucruByID = (id) => {
     var i;
     for (i = 0; i < punctelucru.payload.length; i++) {
@@ -65,7 +70,8 @@ function Compani() {
                   key={index}
                   className={styles.row}
                   onClick={() => {
-                    dispatch(openPopUp(item.companie_id));
+                    dispatch(openPopUp());
+                    dispatch(setIdPop(item.companie_id));
                   }}
                 >
                   <div className={styles.td}>{index}</div>

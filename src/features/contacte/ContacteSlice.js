@@ -3,6 +3,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const initialState = {
   isOpen: false,
+  isOpenDown: false,
   currentId: "",
   loading: false,
   payload: [],
@@ -39,6 +40,14 @@ const ContacteSlice = createSlice({
     changePage: (state, action) => {
       state.page = action.payload;
     },
+    openPopDown: (state, action) => {
+      state.isOpenDown = true;
+      state.currentId = action.payload;
+    },
+    closePopDown: (state, action) => {
+      state.isOpenDown = false;
+      state.currentId = "";
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchContacte.pending, (state) => {
@@ -57,6 +66,7 @@ const ContacteSlice = createSlice({
   },
 });
 
-export const { openPopUp, closePopUp, changePage } = ContacteSlice.actions;
+export const { openPopDown, closePopDown, openPopUp, closePopUp, changePage } =
+  ContacteSlice.actions;
 
 export default ContacteSlice.reducer;
