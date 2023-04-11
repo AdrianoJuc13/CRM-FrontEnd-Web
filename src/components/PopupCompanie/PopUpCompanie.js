@@ -4,7 +4,11 @@ import { FaWindowClose } from "react-icons/fa";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import { closePopUp, changePage } from "../../features/compani/CompaniSlice";
+import {
+  closePopUp,
+  changePage,
+  openPopDown,
+} from "../../features/compani/CompaniSlice";
 import Main1 from "./Main1";
 import Main2 from "./Main2";
 import Main3 from "./Main3";
@@ -12,7 +16,7 @@ import Main4 from "./Main4";
 
 function PopUpCompanie() {
   const dispatch = useDispatch();
-  const { isOpen, currentId, page } = useSelector((store) => store.compani);
+  const { isOpen, page } = useSelector((store) => store.compani);
 
   return (
     <div
@@ -33,7 +37,7 @@ function PopUpCompanie() {
           />
         </div>
 
-        {currentId}
+        {/* {currentId} */}
         {/* <div>
           <h2>Detaliile companiei</h2>
 
@@ -91,7 +95,15 @@ function PopUpCompanie() {
             >
               Vanzari
             </div>
-            <div className={styles.edit_btn}>Editeaza Compania</div>
+            <div
+              className={styles.edit_btn}
+              onClick={() => {
+                dispatch(openPopDown());
+                dispatch(closePopUp());
+              }}
+            >
+              Editeaza Compania
+            </div>
           </div>
           {page === 1 ? (
             <Main1 />
