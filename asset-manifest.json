@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/CRM-FrontEnd-Web/static/css/main.a910bf33.css",
-    "main.js": "/CRM-FrontEnd-Web/static/js/main.a327053e.js",
+    "main.js": "/CRM-FrontEnd-Web/static/js/main.063bf3e0.js",
     "static/media/catalog_primagra.jpg": "/CRM-FrontEnd-Web/static/media/catalog_primagra.9cb99a48d9a9735cc3dd.jpg",
     "static/media/revenue-profit-margin-by-product.png": "/CRM-FrontEnd-Web/static/media/revenue-profit-margin-by-product.cc5535c9e0bdcf9affb2.png",
     "index.html": "/CRM-FrontEnd-Web/index.html",
     "main.a910bf33.css.map": "/CRM-FrontEnd-Web/static/css/main.a910bf33.css.map",
-    "main.a327053e.js.map": "/CRM-FrontEnd-Web/static/js/main.a327053e.js.map"
+    "main.063bf3e0.js.map": "/CRM-FrontEnd-Web/static/js/main.063bf3e0.js.map"
   },
   "entrypoints": [
     "static/css/main.a910bf33.css",
-    "static/js/main.a327053e.js"
+    "static/js/main.063bf3e0.js"
   ]
 }
