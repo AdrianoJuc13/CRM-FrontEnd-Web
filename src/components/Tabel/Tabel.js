@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Tabel.module.scss";
-// import PopUp from "../Popside/PopUp";
+import PopUp from "../Popside/PopUp";
 // import { useDispatch } from "react-redux";
 // import { openPopUp } from "../../features/rapoarte/RapoarteSlice";
 
@@ -39,7 +39,7 @@ function Tabel(props) {
               );
             })}
         </div>
-        {/* <PopUp /> */}
+        <PopUp />
       </div>
     </div>
   );

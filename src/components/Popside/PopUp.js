@@ -1,19 +1,9 @@
 import React from "react";
-
+import styles from "./Pop.module.scss";
 function PopUp() {
   return (
-    <div
-      style={{
-        position: "fixed",
-        left: "0",
-        top: "0px",
-        background: "rgba(0,0,0,0.3)",
-        width: "100vw",
-        height: "100vh",
-      }}
-    >
-      {" "}
-      modificat{" "}
+    <div style={styles.grey_screen}>
+      <div className={styles.pop_up}></div>
     </div>
   );
 }
