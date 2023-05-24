@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./Tabel.module.scss";
-import PopUp from "../Popside/PopUp";
-// import { useDispatch } from "react-redux";
-// import { openPopUp } from "../../features/rapoarte/RapoarteSlice";
+import PopSide from "../Popside/PopSide";
+import { useDispatch } from "react-redux";
+import { openPopUp } from "../../features/rapoarte/RapoarteSlice";
 
 function Tabel(props) {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   return (
     <div className={styles.tabel_rapoarte}>
       <div className={styles.main}>
@@ -26,7 +26,7 @@ function Tabel(props) {
                   key={index}
                   className={styles.row}
                   onClick={() => {
-                    // dispatch(openPopUp(item.companie_id));
+                    dispatch(openPopUp(item.companie_id));
                   }}
                 >
                   <div className={styles.td}>{item.name}</div>
@@ -39,7 +39,7 @@ function Tabel(props) {
               );
             })}
         </div>
-        <PopUp />
+        <PopSide />
       </div>
     </div>
   );
