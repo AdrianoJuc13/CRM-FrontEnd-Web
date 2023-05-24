@@ -11,7 +11,10 @@ function PopUp() {
         width: "100vw",
         height: "100vh",
       }}
-    ></div>
+    >
+      {" "}
+      modificat{" "}
+    </div>
   );
 }
 
