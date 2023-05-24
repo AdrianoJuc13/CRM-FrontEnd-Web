@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import styles from "./Rapoarte.module.scss";
+import styles from "../../styles/PaginaLayout1.module.scss";
 import Tabel from "../../components/Tabel/Tabel";
 import { useDispatch, useSelector } from "react-redux";
 import AddBtn from "../../components/Butoane/AddBtn";
@@ -16,7 +16,7 @@ function Rapoarte() {
 
   const rapoarte = useSelector((state) => state.rapoarte);
 
-  return (
+  return ( 
     <div className={styles.rapoarte}>
       <div className={styles.header}>
         <div className={styles.titlu}>Rapoarte</div>

@@ -3,28 +3,28 @@ import styles from "../../styles/PaginaLayout1.module.scss";
 import Tabel from "../../components/Tabel/Tabel";
 import { useDispatch, useSelector } from "react-redux";
 import AddBtn from "../../components/Butoane/AddBtn";
-import { fetchCompani } from "../../features/compani/CompaniSlice";
+import { fetchPlandeactiune } from "../../features/plandeactiune/PlandeactiuneSlice";
 
-function Compani() {
+function Plandeactiune() {
   const { header_tabel } = useSelector((state) => state.headers);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch( fetchCompani() );
+    dispatch(fetchPlandeactiune());
   }, [dispatch]);
 
-  const compani = useSelector((state) => state.compani);
+  const plandeactiune = useSelector((state) => state.plandeactiune);
 
   return ( 
     <div className={styles.rapoarte}>
       <div className={styles.header}>
-      <div className={styles.titlu}>Companii</div>
-        <AddBtn name="Adauga o noua companie" link="/adauga_raport" />
+        <div className={styles.titlu}>Plan de actiuni</div>
+        <AddBtn name="Creaza Actiune" link="/adauga_raport" />
       </div>
-      <Tabel headers={header_tabel["obiectivee"]} date={compani} />
+      <Tabel headers={header_tabel["plan_de_actiune"]} date={plandeactiune} />
     </div>
   );
 }
 
-export default Compani;
+export default Plandeactiune;
