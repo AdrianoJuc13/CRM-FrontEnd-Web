@@ -14,6 +14,7 @@ import {
 } from "../../../features/contacte/ContacteSlice.js";
 
 import PopUpContacte from "../PopUpContacte/PopUpContacte";
+import PopDownContacte from "../PopDownContacte/PopDownContacte";
 
 function TabelContacte() {
   const dispatch = useDispatch();
@@ -36,9 +37,11 @@ function TabelContacte() {
         </div>
         <div className={styles.rows}>
           {contacte.loading && <div>Loading...</div>}
+
           {!contacte.loading && contacte.error ? (
             <div>Error: {contacte.error}</div>
           ) : null}
+
           {contacte &&
             contacte.payload.map((item, index) => {
               return (
@@ -66,6 +69,7 @@ function TabelContacte() {
         <BsFillArrowRightSquareFill className={styles.arrow} />
       </div>
       <PopUpContacte />
+      <PopDownContacte />
     </div>
   );
 }
