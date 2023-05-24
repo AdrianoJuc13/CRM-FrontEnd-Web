@@ -16,7 +16,7 @@ function Rapoarte() {
 
   const rapoarte = useSelector((state) => state.rapoarte);
 
-  return (
+  return ( 
     <div className={styles.rapoarte}>
       <div className={styles.header}>
         <div className={styles.titlu}>Rapoarte</div>
