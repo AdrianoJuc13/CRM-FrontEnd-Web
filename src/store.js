@@ -9,6 +9,8 @@ import obiectiveReducer from "./features/obiective/ObiectiveSlice";
 import rapoarteReducer from "./features/rapoarte/RapoarteSlice";
 import niseReducer from "./features/relations/NiseSlice";
 import PuncteLucruReducer from "./features/relations/PuncteLucruSlice";
+import MarimiCompaniReducer from "./features/relations/MarimiCompaniSlice";
+import HeadersReducer from "./features/headers_tabel/HeadersSlice";
 
 export const store = configureStore({
   reducer: {
@@ -22,5 +24,7 @@ export const store = configureStore({
     rapoarte: rapoarteReducer,
     nise: niseReducer,
     punctelucru: PuncteLucruReducer,
+    marimicompani: MarimiCompaniReducer,
+    headers: HeadersReducer,
   },
 });

@@ -9,10 +9,14 @@ import { AiOutlinePhone } from "react-icons/ai";
 import { ImMap2 } from "react-icons/im";
 
 function Main1() {
+  // eslint-disable-next-line
   const dispatch = useDispatch();
+  // eslint-disable-next-line
   const { isOpenUp, page, currentId, payload } = useSelector(
     (store) => store.compani
   );
+  // eslint-disable-next-line
+  const marimicompani = useSelector((store) => store.marimicompani);
 
   const getPayloadByName = (target) => {
     var i = 0;
@@ -21,6 +25,13 @@ function Main1() {
         if (payload[i].companie_id === currentId) return payload[i][target];
     return "-";
   };
+
+  // const returnMarimiCompaniByID = (id) => {
+  //   var i;
+  //   for (i = 0; i < nise.payload.length; i++)
+  //     if (id === nise.payload[i].nisa_id) return nise.payload[i].nume_nisa;
+  //   return "Nu are nisa";
+  // };
 
   return (
     <div className={styles.screen}>

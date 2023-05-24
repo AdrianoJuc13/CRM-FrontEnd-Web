@@ -37,9 +37,11 @@ function TabelContacte() {
         </div>
         <div className={styles.rows}>
           {contacte.loading && <div>Loading...</div>}
+
           {!contacte.loading && contacte.error ? (
             <div>Error: {contacte.error}</div>
           ) : null}
+
           {contacte &&
             contacte.payload.map((item, index) => {
               return (

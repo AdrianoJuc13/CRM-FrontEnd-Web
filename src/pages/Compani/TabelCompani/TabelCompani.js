@@ -55,6 +55,7 @@ function Compani() {
           <div className={styles.hdata}>Telefon</div>
           <div className={styles.hdata}>Punct de lucru</div>
         </div>
+
         <div className={styles.rows}>
           {/* Loading screen */}
           {compani.loading && <div>Loading...</div>}
