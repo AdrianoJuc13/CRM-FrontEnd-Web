@@ -19,7 +19,7 @@ function Rapoarte() {
   return (
     <div className={styles.rapoarte}>
       <div className={styles.header}>
-        <div className={styles.titlu}>Rapoarte </div>
+        <div className={styles.titlu}>Rapoarte</div>
         <AddBtn name="Adauga Raport" link="/adauga_raport" />
       </div>
       <Tabel headers={header_tabel["rapoarte"]} date={rapoarte} />
