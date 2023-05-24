@@ -1,25 +1,28 @@
-import React from "react";
-import styles from "./Contacte.module.scss";
-import { useNavigate } from "react-router-dom";
-import TabelContacte from "./TabelContacte/TabelContacte";
+import React, { useEffect } from "react";
+import styles from "../../styles/PaginaLayout1.module.scss";
+import Tabel from "../../components/Tabel/Tabel";
+import { useDispatch, useSelector } from "react-redux";
+import AddBtn from "../../components/Butoane/AddBtn";
+import { fetchContacte } from "../../features/contacte/ContacteSlice";
 
 function Contacte() {
-  const navigate = useNavigate();
-  return (
-    <div className={styles.contacte}>
-      <div className={styles.header}>
-        <div className={styles.titlu}>Contacte </div>
+  const { header_tabel } = useSelector((state) => state.headers);
 
-        <button
-          className={styles.addbtn}
-          onClick={() => {
-            navigate("/adauga_contact");
-          }}
-        >
-          Adauga contact
-        </button>
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch( fetchContacte() );
+  }, [dispatch]);
+
+  const contacte = useSelector((state) => state.contacte);
+
+  return ( 
+    <div className={styles.rapoarte}>
+      <div className={styles.header}>
+      <div className={styles.titlu}>Contacte</div>
+        <AddBtn name="Adauga o noua companie" link="/adauga_raport" />
       </div>
-      <TabelContacte />
+      <Tabel headers={header_tabel["obiectivee"]} date={contacte} />
     </div>
   );
 }
