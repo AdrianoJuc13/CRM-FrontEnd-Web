@@ -11,7 +11,7 @@ import niseReducer from "./features/relations/NiseSlice";
 import PuncteLucruReducer from "./features/relations/PuncteLucruSlice";
 import MarimiCompaniReducer from "./features/relations/MarimiCompaniSlice";
 import HeadersReducer from "./features/headers_tabel/HeadersSlice";
-
+import CurrentReducer from "./features/current_actions/CurrentSlice";
 export const store = configureStore({
   reducer: {
     sidemenu: sidemenuReducer,
@@ -26,5 +26,6 @@ export const store = configureStore({
     punctelucru: PuncteLucruReducer,
     marimicompani: MarimiCompaniReducer,
     headers: HeadersReducer,
+    current: CurrentReducer,
   },
 });

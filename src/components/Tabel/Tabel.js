@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Tabel.module.scss";
 import PopSide from "../Popside/PopSide";
 import { useDispatch } from "react-redux";
-import { openPopUp } from "../../features/rapoarte/RapoarteSlice";
+import { openPop } from "../../features/current_actions/CurrentSlice";
 
 function Tabel(props) {
   const dispatch = useDispatch();
@@ -11,7 +11,11 @@ function Tabel(props) {
       <div className={styles.main}>
         <div className={styles.header}>
           {props.headers.map((item, index) => {
-            return <div className={styles.hdata}>{item}</div>;
+            return (
+              <div key={index} className={styles.hdata}>
+                {item}
+              </div>
+            );
           })}
         </div>
         <div className={styles.rows}>
@@ -26,7 +30,7 @@ function Tabel(props) {
                   key={index}
                   className={styles.row}
                   onClick={() => {
-                    dispatch(openPopUp(item.companie_id));
+                    dispatch(openPop(index));
                   }}
                 >
                   <div className={styles.td}>{item.name}</div>
@@ -39,7 +43,7 @@ function Tabel(props) {
               );
             })}
         </div>
-        <PopSide />
+        <PopSide date={props.date} />
       </div>
     </div>
   );

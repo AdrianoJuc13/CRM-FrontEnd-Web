@@ -8,9 +8,12 @@ const initialState = {
 };
 
 export const fetchNise = createAsyncThunk("/fetchNise", async () => {
-  return axios
-    .get("http://63.250.60.35:5800/nise/getAll")
-    .then((response) => response.data);
+  return (
+    axios
+      // .get("http://63.250.60.35:5800/nise/getAll")
+      .get("https://jsonplaceholder.typicode.com/users/")
+      .then((response) => response.data)
+  );
 });
 
 const NiseSlice = createSlice({

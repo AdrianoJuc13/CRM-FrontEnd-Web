@@ -2,12 +2,11 @@ import axios from "axios";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const initialState = {
-  isOpen: false,
-  isOpenDown: false,
-  currentId: "",
   loading: false,
   payload: [],
   error: "",
+
+  currentId: "",
   page: 1,
 };
 
@@ -28,27 +27,7 @@ export const fetchContacte = createAsyncThunk(
 const ContacteSlice = createSlice({
   name: "contacte",
   initialState,
-  reducers: {
-    openPopUp: (state, action) => {
-      state.isOpen = true;
-      state.currentId = action.payload;
-    },
-    closePopUp: (state, action) => {
-      state.isOpen = false;
-      state.currentId = "";
-    },
-    changePage: (state, action) => {
-      state.page = action.payload;
-    },
-    openPopDown: (state, action) => {
-      state.isOpenDown = true;
-      state.currentId = action.payload;
-    },
-    closePopDown: (state, action) => {
-      state.isOpenDown = false;
-      state.currentId = "";
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchContacte.pending, (state) => {
       state.loading = true;
