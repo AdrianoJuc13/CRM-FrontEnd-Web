@@ -11,15 +11,15 @@ function Compani() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch( fetchCompani() );
+    dispatch(fetchCompani());
   }, [dispatch]);
 
   const compani = useSelector((state) => state.compani);
 
-  return ( 
+  return (
     <div className={styles.rapoarte}>
       <div className={styles.header}>
-      <div className={styles.titlu}>Companii</div>
+        <div className={styles.titlu}>Companii</div>
         <AddBtn name="Adauga o noua companie" link="/adauga_raport" />
       </div>
       <Tabel headers={header_tabel["obiectivee"]} date={compani} />

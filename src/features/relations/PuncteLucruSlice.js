@@ -10,9 +10,12 @@ const initialState = {
 export const fetchPuncteLucru = createAsyncThunk(
   "/fetchPuncteLucru",
   async () => {
-    return axios
-      .get("http://63.250.60.35:5800/puncteLucru/getAll")
-      .then((response) => response.data);
+    return (
+      axios
+        // .get("http://63.250.60.35:5800/puncteLucru/getAll")
+        .get("https://jsonplaceholder.typicode.com/users/")
+        .then((response) => response.data)
+    );
   }
 );
 
