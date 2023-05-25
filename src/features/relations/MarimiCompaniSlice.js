@@ -10,9 +10,12 @@ const initialState = {
 export const fetchMarimiCompani = createAsyncThunk(
   "/fetchMarimiCompani",
   async () => {
-    return axios
-      .get("http://63.250.60.35:5800/companii/marime_companii/getAll?=")
-      .then((response) => response.data);
+    return (
+      axios
+        // .get("http://63.250.60.35:5800/companii/marime_companii/getAll?=")
+        .get("https://jsonplaceholder.typicode.com/users/")
+        .then((response) => response.data)
+    );
   }
 );
 

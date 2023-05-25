@@ -2,12 +2,11 @@ import axios from "axios";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const initialState = {
-  isOpenUp: false,
-  isOpenDown: false,
-  currentId: "",
   loading: false,
   payload: [],
   error: "",
+
+  currentId: "",
   page: 1,
 };
 
@@ -15,7 +14,9 @@ const initialState = {
 export const fetchCompani = createAsyncThunk("user/fetchCompani", async () => {
   return axios
     .get(
-      `${"https://jsonplaceholder.typicode.com/users/"}${ initialState.currentId}`
+      `${"https://jsonplaceholder.typicode.com/users/"}${
+        initialState.currentId
+      }`
       // `${"http://63.250.60.35:5800/companii/pagination?limita=10&last_id="}${"start"}`
     )
     .then((response) => response.data);
@@ -24,27 +25,7 @@ export const fetchCompani = createAsyncThunk("user/fetchCompani", async () => {
 const CompaniSlice = createSlice({
   name: "compani",
   initialState,
-  reducers: {
-    setIdPop: (state, action) => {
-      state.currentId = action.payload;
-    },
-    openPopUp: (state, action) => {
-      state.isOpenUp = true;
-    },
-    closePopUp: (state, action) => {
-      state.isOpenUp = false;
-    },
-    changePage: (state, action) => {
-      state.page = action.payload;
-    },
-
-    openPopDown: (state, action) => {
-      state.isOpenDown = true;
-    },
-    closePopDown: (state, action) => {
-      state.isOpenDown = false;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchCompani.pending, (state) => {
       state.loading = true;

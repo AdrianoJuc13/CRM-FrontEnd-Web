@@ -1,0 +1,26 @@
+@use "src/styles/colors";
+@use "src/styles/mixinHelper";
+@use "src/styles/fonts";
+
+.ecran_cu_pagini {
+  width: auto;
+  height: auto;
+  margin: 1vw 3vw;
+  height: 300px;
+  .header_butoane {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 4vw;
+    .header_titlu {
+      font-size: larger;
+      //   background: red;
+      cursor: pointer;
+    }
+    .header_titlu_activ {
+      border-bottom: 2px solid colors.$blue;
+    }
+  }
+}
+.ecran_fara_pagini {
+}
