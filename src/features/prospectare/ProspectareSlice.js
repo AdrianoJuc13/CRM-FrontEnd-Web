@@ -5,9 +5,6 @@ const initialState = {
   loading: false,
   payload: [],
   error: "",
-
-  currentId: "",
-  page: 1,
 };
 
 // Generates pending, fulfilled and rejected action types
@@ -15,11 +12,7 @@ export const fetchProspectare = createAsyncThunk(
   "user/fetchProspectare",
   async () => {
     return axios
-      .get(
-        `${"https://jsonplaceholder.typicode.com/users/"}${
-          initialState.currentId
-        }`
-      )
+      .get(`${"https://jsonplaceholder.typicode.com/users/"}`)
       .then((response) => response.data);
   }
 );
@@ -45,6 +38,6 @@ const ProspectareSlice = createSlice({
   },
 });
 
-export const { openPopUp, closePopUp, changePage } = ProspectareSlice.actions;
+// export const { openPopUp, closePopUp, changePage } = ProspectareSlice.actions;
 
 export default ProspectareSlice.reducer;

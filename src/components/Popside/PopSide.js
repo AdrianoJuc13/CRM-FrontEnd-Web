@@ -12,7 +12,9 @@ import EcranFaraPagini from "../Ecrane/EcranFaraPagini";
 function PopSide(props) {
   const dispatch = useDispatch();
   const [trigger, setTrigger] = useState(true);
-  const { isOpen, currentId } = useSelector((state) => state.current);
+  const { isOpen, currentId, currentName } = useSelector(
+    (state) => state.current
+  );
 
   //
   const pathname = window.location.pathname;
@@ -32,7 +34,7 @@ function PopSide(props) {
               props.date &&
               props.date.payload &&
               props.date.payload[currentId] &&
-              props.date.payload[currentId].name}
+              props.date.payload[currentId][currentName]}
           </div>
           <div className={styles.pop_butoane}>
             <BiEdit
@@ -54,7 +56,11 @@ function PopSide(props) {
         //   console.log(props.date.payload[currentId]);
         // }}
         >
-          {pathname === "/compani" ? <EcranCuPagini /> : <EcranFaraPagini />}
+          {pathname === "/compani" ? (
+            <EcranCuPagini date={props.date} />
+          ) : (
+            <EcranFaraPagini />
+          )}
         </div>
       </div>
       <div className={styles.pop_down}>
