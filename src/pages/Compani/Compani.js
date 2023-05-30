@@ -6,7 +6,7 @@ import AddBtn from "../../components/Butoane/AddBtn";
 import { fetchCompani } from "../../features/compani/CompaniSlice";
 
 function Compani() {
-  const { header_tabel } = useSelector((state) => state.headers);
+  const { header_name, header_key } = useSelector((state) => state.headers);
 
   const dispatch = useDispatch();
 
@@ -22,7 +22,13 @@ function Compani() {
         <div className={styles.titlu}>Companii</div>
         <AddBtn name="Adauga o noua companie" link="/adauga_raport" />
       </div>
-      <Tabel headers={header_tabel["obiectivee"]} date={compani} />
+      <Tabel
+        header_name={header_name["compani"]}
+        header_key={header_key["compani"]}
+        // detalii_name={detalii_name['compani']}
+        // detalii_key={detalii_key['compani']}
+        date={compani}
+      />
     </div>
   );
 }

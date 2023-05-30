@@ -5,19 +5,14 @@ const initialState = {
   loading: false,
   payload: [],
   error: "",
-
-  currentId: "",
-  page: 1,
 };
 
 // Generates pending, fulfilled and rejected action types
 export const fetchCompani = createAsyncThunk("user/fetchCompani", async () => {
   return axios
     .get(
-      `${"https://jsonplaceholder.typicode.com/users/"}${
-        initialState.currentId
-      }`
-      // `${"http://63.250.60.35:5800/companii/pagination?limita=10&last_id="}${"start"}`
+      // `${"https://jsonplaceholder.typicode.com/users/"}`
+      `${"http://136.255.168.27:5800/companii/pagination?limita=10&last_id="}${"start"}`
     )
     .then((response) => response.data);
 });
@@ -43,13 +38,13 @@ const CompaniSlice = createSlice({
   },
 });
 
-export const {
-  setIdPop,
-  openPopUp,
-  closePopUp,
-  changePage,
-  openPopDown,
-  closePopDown,
-} = CompaniSlice.actions;
+// export const {
+//   setIdPop,
+//   openPopUp,
+//   closePopUp,
+//   changePage,
+//   openPopDown,
+//   closePopDown,
+// } = CompaniSlice.actions;
 
 export default CompaniSlice.reducer;

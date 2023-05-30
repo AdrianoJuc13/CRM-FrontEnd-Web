@@ -5,9 +5,6 @@ const initialState = {
   loading: false,
   payload: [],
   error: "",
-
-  currentId: "",
-  page: 1,
 };
 
 // Generates pending, fulfilled and rejected action types
@@ -15,11 +12,7 @@ export const fetchOportunitati = createAsyncThunk(
   "user/fetchOportunitati",
   async () => {
     return axios
-      .get(
-        `${"https://jsonplaceholder.typicode.com/users/"}${
-          initialState.currentId
-        }`
-      )
+      .get(`${"https://jsonplaceholder.typicode.com/users/"}`)
       .then((response) => response.data);
   }
 );
@@ -45,6 +38,6 @@ const OportunitatiSlice = createSlice({
   },
 });
 
-export const { openPopUp, closePopUp, changePage } = OportunitatiSlice.actions;
+// export const { openPopUp, closePopUp, changePage } = OportunitatiSlice.actions;
 
 export default OportunitatiSlice.reducer;

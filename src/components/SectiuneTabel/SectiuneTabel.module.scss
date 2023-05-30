@@ -1,0 +1,41 @@
+@use "src/styles/colors";
+@use "src/styles/mixinHelper";
+@use "src/styles/fonts";
+
+.tabel {
+  margin-top: 4vh;
+  width: auto;
+  min-height: 100px;
+  .header {
+    height: 5vh;
+    background: whitesmoke;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2vw;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    .hd {
+      min-width: 15vw;
+      font-size: medium;
+      font-weight: 500;
+    }
+  }
+  .rows {
+    display: flex;
+    flex-direction: column;
+    .row {
+      display: flex;
+      flex-direction: row;
+
+      justify-content: space-between;
+
+      padding: 1vh 2vw;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+      .data {
+        min-width: 15vw;
+        font-size: small;
+      }
+    }
+  }
+}
