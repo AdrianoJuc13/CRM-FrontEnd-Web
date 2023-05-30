@@ -4,6 +4,7 @@ const initialState = {
   isOpen: false,
   currentId: -1,
   page: 0,
+  currentName: "",
 };
 
 const CurrentSlice = createSlice({
@@ -21,9 +22,13 @@ const CurrentSlice = createSlice({
     changePage: (state, action) => {
       state.page = action.payload;
     },
+    changeCurrentName: (state, action) => {
+      state.currentName = action.payload;
+    },
   },
 });
 
-export const { openPop, closePop, changePage } = CurrentSlice.actions;
+export const { openPop, closePop, changePage, changeCurrentName } =
+  CurrentSlice.actions;
 
 export default CurrentSlice.reducer;

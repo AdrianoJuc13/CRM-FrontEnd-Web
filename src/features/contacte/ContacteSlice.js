@@ -5,9 +5,6 @@ const initialState = {
   loading: false,
   payload: [],
   error: "",
-
-  currentId: "",
-  page: 1,
 };
 
 // Generates pending, fulfilled and rejected action types
@@ -15,11 +12,7 @@ export const fetchContacte = createAsyncThunk(
   "user/fetchContacte",
   async () => {
     return axios
-      .get(
-        `${"https://jsonplaceholder.typicode.com/users/"}${
-          initialState.currentId
-        }`
-      )
+      .get(`${"https://jsonplaceholder.typicode.com/users/"}`)
       .then((response) => response.data);
   }
 );
@@ -45,7 +38,7 @@ const ContacteSlice = createSlice({
   },
 });
 
-export const { openPopDown, closePopDown, openPopUp, closePopUp, changePage } =
-  ContacteSlice.actions;
+// export const { openPopDown, closePopDown, openPopUp, closePopUp, changePage } =
+//   ContacteSlice.actions;
 
 export default ContacteSlice.reducer;

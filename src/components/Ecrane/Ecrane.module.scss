@@ -6,7 +6,7 @@
   width: auto;
   height: auto;
   margin: 1vw 3vw;
-  height: 300px;
+
   .header_butoane {
     width: auto;
     display: flex;
@@ -20,6 +20,10 @@
     .header_titlu_activ {
       border-bottom: 2px solid colors.$blue;
     }
+  }
+  .screen_date {
+    overflow-y: auto;
+    height: 70vh;
   }
 }
 .ecran_fara_pagini {
