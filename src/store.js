@@ -12,8 +12,7 @@ import PuncteLucruReducer from "./features/relations/PuncteLucruSlice";
 import MarimiCompaniReducer from "./features/relations/MarimiCompaniSlice";
 import HeadersReducer from "./features/headers_tabel/HeadersSlice";
 import CurrentReducer from "./features/current_actions/CurrentSlice";
-import LoginReducer from "./features/login/LoginSlice";
-
+import AuthReducer from "./features/authentification/authentificationSlice";
 export const store = configureStore({
   reducer: {
     sidemenu: sidemenuReducer,
@@ -29,6 +28,6 @@ export const store = configureStore({
     marimicompani: MarimiCompaniReducer,
     headers: HeadersReducer,
     current: CurrentReducer,
-    login: LoginReducer,
+    authentification: AuthReducer,
   },
 });

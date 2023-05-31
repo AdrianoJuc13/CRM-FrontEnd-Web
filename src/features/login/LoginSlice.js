@@ -3,7 +3,8 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const initialState = {
   loading: false,
-  payload: [],
+  isLoggedIn: false,
+  token: "",
   error: "",
 };
 
