@@ -20,7 +20,7 @@ function Compani() {
     <div className={styles.rapoarte}>
       <div className={styles.header}>
         <div className={styles.titlu}>Companii</div>
-        <AddBtn name="Adauga o noua companie" link="/adauga_raport" />
+        <AddBtn name="Adauga o noua companie" link="/adauga_companie" />
       </div>
       <Tabel
         header_name={header_name["compani"]}
