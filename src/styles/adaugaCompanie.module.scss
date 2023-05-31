@@ -61,31 +61,6 @@
       gap: 5rem;
 
       flex-wrap: wrap;
-      .form_input {
-        display: flex;
-        flex-direction: column;
-        width: 276px;
-        height: 92px;
-        gap: 1rem;
-
-        .subheading {
-          font-family: "Poppins", sans-serif;
-          font-size: normal;
-          font-weight: 500;
-          line-height: 26px;
-        }
-        .input {
-          box-sizing: border-box;
-          display: flex;
-          align-items: center;
-          height: 52px;
-          width: 276px;
-          border-radius: 0.5rem;
-          background: white;
-          border: 1px solid black;
-          padding-left: 1rem;
-        }
-      }
       .form_select {
         display: flex;
         flex-direction: column;
