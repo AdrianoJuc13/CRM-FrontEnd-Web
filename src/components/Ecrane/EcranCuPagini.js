@@ -3,15 +3,18 @@ import styles from "./Ecrane.module.scss";
 import SectiuneField from "../SectiuneField/SectiuneField";
 // import SectionAdrese from "../SectionAdrese/SectionAdrese";
 import SectiuneTabel from "../SectiuneTabel/SectiuneTabel";
-import { useSelector } from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
+import { fetchOportunitati } from "../../features/oportunitati/OportunitatiSlice";
 function EcranCuPagini(props) {
   const [pages, setPages] = useState(1);
 
   const { detalii_name, detalii_key } = useSelector((state) => state.headers);
+  const { payload } = useSelector((state) => state.oportunitati);
 
   const names = detalii_name["compani"];
   const keys = detalii_key["compani"];
+
+  const dispatch = useDispatch();
 
   return (
     <div className={styles.ecran_cu_pagini}>
@@ -22,7 +25,7 @@ function EcranCuPagini(props) {
           }`}
           onClick={() => {
             setPages(1);
-            console.log(props.date);
+            // console.log(props.date);
           }}
         >
           Info
@@ -33,6 +36,8 @@ function EcranCuPagini(props) {
           }`}
           onClick={() => {
             setPages(2);
+            console.log(payload);
+            dispatch(fetchOportunitati());
           }}
         >
           Oportunitati
@@ -61,7 +66,7 @@ function EcranCuPagini(props) {
 
       <div className={styles.screen_date}>
         {pages === 1 ? (
-          <div>
+          <div className={styles.page_data}>
             <SectiuneField
               icon="BIEdit"
               titlu="Date fiscale"
@@ -100,102 +105,94 @@ function EcranCuPagini(props) {
             />
           </div>
         ) : pages === 2 ? (
-          <div>
-            <SectiuneTabel
-              data={[
-                "ceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-              ]}
-            />
-          </div>
-        ) : pages === 3 ? (
-          <div>
-            <div
-              style={{
-                fontSize: "2rem",
-                marginTop: "1rem",
-                display: "flex",
-              }}
-            >
-              <div style={{ flex: 1 }}>Vizite</div>
-              <select style={{ padding: "0.7rem 0.2rem" }}>
+          <div className={styles.page_data}>
+            <div className={styles.element_data}>
+              <div className={styles.titlu_data}>Oportunitati</div>
+              <select className={styles.select_data}>
                 <option>An</option>
                 <option>Luna</option>
                 <option>Zi</option>
               </select>
-              <div style={{ margin: "0 1rem" }}>:</div>
             </div>
-            <div style={{ fontSize: "1rem", marginTop: "1rem" }}>
-              Total activitati
-            </div>
-            <div
-              style={{
-                fontSize: "2rem",
-                // marginTop: "0.2rem",
-                fontWeight: "500",
-              }}
-            >
-              24
+            <div className={styles.element_data}>Total oportunitati</div>
+            <div className={styles.element_data}>
+              {payload ? payload.length : 0}
             </div>
             <SectiuneTabel
-              data={[
-                "ceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-                "altceva",
-              ]}
+              data={
+                payload
+                  ? payload.map((item) => {
+                      return [
+                        item["obiectiv_titlu"],
+                        item["oportunitate_data_creare_initiala"],
+                        item["oportunitate_data_emitere"],
+                        item["oportunitate_descriere"],
+                        item["oportunitate_due_date"],
+                      ];
+                    })
+                  : ["Empty"]
+              }
+              headers={["ceva 1", "ceva 2", "ceva 3", "ceva 4", "Status"]}
+            />
+          </div>
+        ) : pages === 3 ? (
+          <div className={styles.page_data}>
+            <div className={styles.element_data}>
+              <div className={styles.titlu_data}>Vizite</div>
+              <select className={styles.select_data}>
+                <option>An</option>
+                <option>Luna</option>
+                <option>Zi</option>
+              </select>
+            </div>
+            <div className={styles.element_data}>Total activitati</div>
+            <div className={styles.element_data}>24</div>
+            <SectiuneTabel
+              data={
+                payload
+                  ? payload.map((item) => {
+                      return [
+                        item["obiectiv_titlu"],
+                        item["oportunitate_data_creare_initiala"],
+                        item["oportunitate_data_emitere"],
+                        item["oportunitate_descriere"],
+                        item["oportunitate_due_date"],
+                      ];
+                    })
+                  : ["Empty"]
+              }
+              headers={["ceva 1", "ceva 2", "ceva 3", "ceva 4", "Status"]}
             />
           </div>
         ) : pages === 4 ? (
-          <div>grafic</div>
+          <div className={styles.page_data}>
+            <div className={styles.element_data}>
+              <div className={styles.titlu_data}>Vanzari</div>
+              <select className={styles.select_data}>
+                <option>An</option>
+                <option>Luna</option>
+                <option>Zi</option>
+              </select>
+            </div>
+            <div className={styles.element_data}>Total comenzi</div>
+            <div className={styles.element_data}>24</div>
+            <SectiuneTabel
+              data={
+                payload
+                  ? payload.map((item) => {
+                      return [
+                        item["obiectiv_titlu"],
+                        item["oportunitate_data_creare_initiala"],
+                        item["oportunitate_data_emitere"],
+                        item["oportunitate_descriere"],
+                        item["oportunitate_due_date"],
+                      ];
+                    })
+                  : ["Empty"]
+              }
+              headers={["ceva 1", "ceva 2", "ceva 3", "ceva 4", "Status"]}
+            />
+          </div>
         ) : null}
       </div>
     </div>

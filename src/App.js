@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-// import AdaugaCompanie from "./pages/Compani/AdaugaCompanie/AdaugaCompanie";
 import Compani from "./pages/Compani/Compani";
 import Error from "./pages/Error/Error";
 import Home from "./pages/Home/Home";
@@ -15,6 +14,7 @@ import Obiective from "./pages/Obiective/Obiective";
 import Rapoarte from "./pages/Rapoarte/Rapoarte";
 import Setari from "./pages/Setari/Setari";
 import Suport from "./pages/Suport/Suport";
+import AdaugaCompanie from "./pages/Compani/AdaugaCompanie";
 
 function App() {
   return (
@@ -27,15 +27,15 @@ function App() {
           <Route index element={<Home />} />
           <Route path="compani" element={<Compani />} />
           <Route path="contacte" element={<Contacte />} />
-          <Route path="oportunitati" element={<Oportunitati />} />
-          <Route path="plandeactiune" element={<PlanDeActiune/>} />
-          <Route path="prospectare" element={<Prospectare />} /> 
-          <Route path="obiective" element={<Obiective />} /> 
+          <Route path="oportunitati" element={<Oportunitati />}></Route>
+          <Route path="plandeactiune" element={<PlanDeActiune />} />
+          <Route path="prospectare" element={<Prospectare />} />
+          <Route path="obiective" element={<Obiective />} />
           <Route path="rapoarte" element={<Rapoarte />} />
         </Route>
 
         <Route path="/" element={<Layout2 />}>
-          {/* <Route path="adauga_companie" element={<AdaugaCompanie />} /> */}
+          <Route path="adauga_companie" element={<AdaugaCompanie />} />
         </Route>
 
         <Route path="/setari" element={<Setari />} />

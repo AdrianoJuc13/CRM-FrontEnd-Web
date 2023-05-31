@@ -6,6 +6,7 @@ import {
   openPop,
   changeCurrentName,
 } from "../../features/current_actions/CurrentSlice";
+import { fetchOportunitati } from "../../features/oportunitati/OportunitatiSlice";
 
 function Tabel(props) {
   const dispatch = useDispatch();
@@ -37,7 +38,7 @@ function Tabel(props) {
                   onClick={() => {
                     dispatch(openPop(index));
                     dispatch(changeCurrentName(`${props.header_key[0]}`));
-                    // console.log(props.header_key[0]);
+                    dispatch(fetchOportunitati());
                   }}
                 >
                   {props.header_key &&

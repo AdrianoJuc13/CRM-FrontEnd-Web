@@ -11,12 +11,12 @@ const initialState = {
 export const fetchCompani = createAsyncThunk("user/fetchCompani", async () => {
   return axios
     .get(
-      // `${"https://jsonplaceholder.typicode.com/users/"}`
-      `${"http://136.255.168.27:5800/companii/pagination?limita=10&last_id="}${"start"}`
+      `${
+        process.env.PUBLIC_URL
+      }/companii/pagination?limita=${"10"}&last_id="}${"start"}`
     )
     .then((response) => response.data);
 });
-
 const CompaniSlice = createSlice({
   name: "compani",
   initialState,
