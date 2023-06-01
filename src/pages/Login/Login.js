@@ -1,19 +1,29 @@
 import React, { useEffect, useState } from "react";
+
 import styles from "./Login.module.scss";
 import Logo from "./../../assets/logosimplu_1.png";
+
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { icons } from "../../styles/icons";
+
 import {
   clearError,
   fetchLogin,
 } from "../../features/authentification/authentificationSlice";
 
+import {
+  NotificationContainer,
+  NotificationManager,
+} from "react-notifications";
+import "react-notifications/lib/notifications.css";
+
 function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { isLoggedIn, error } = useSelector((state) => state.authentification);
-  const [errorTrigger, setErrorTrigger] = useState(false);
+
+  const { isLoggedIn, error, loading } = useSelector(
+    (state) => state.authentification
+  );
 
   const [login, setLogin] = useState({
     email: "matei.anutei24@gmail.com",
@@ -22,16 +32,24 @@ function Login() {
 
   useEffect(() => {
     if (isLoggedIn) navigate("/");
-  }, [isLoggedIn, navigate]);
-
-  useEffect(() => {
-    if (error) setErrorTrigger(true);
-
-    setTimeout(() => {
-      setErrorTrigger(false);
+    else if (error) {
+      NotificationManager.warning(
+        "Email sau parola gresita",
+        "Erroare la conectare",
+        4000
+      );
       dispatch(clearError());
-    }, 5000);
-  }, [error, dispatch]);
+    }
+  }, [isLoggedIn, navigate, error, loading, dispatch]);
+
+  // useEffect(() => {
+  //   if (error) setErrorTrigger(true);
+
+  //   // setTimeout(() => {
+  //   //   setErrorTrigger(false);
+  //   //   dispatch(clearError());
+  //   // }, 5000);
+  // }, [error, dispatch]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -43,16 +61,8 @@ function Login() {
 
     setLogin((values) => ({ ...values, [name]: value }));
   };
-
   return (
     <div className={styles.login}>
-      <div
-        className={`${styles.error} ${
-          errorTrigger ? styles.error_active : null
-        }`}
-      >
-        {icons.IoWarningOutline} {error}
-      </div>
       <div className={styles.header}>Login page</div>
       <form className={styles.form} onSubmit={handleSubmit}>
         <img className={styles.logo} src={Logo} alt="logo" />
@@ -87,6 +97,7 @@ function Login() {
       >
         Do you have an account ?
       </div>
+      <NotificationContainer />
     </div>
   );
 }

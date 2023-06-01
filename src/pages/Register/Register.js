@@ -2,14 +2,24 @@ import React, { useEffect, useState } from "react";
 import styles from "./Register.module.scss";
 import Logo from "./../../assets/logosimplu_1.png";
 import { useNavigate } from "react-router-dom";
-import { fetchRegister } from "../../features/authentification/authentificationSlice";
+import {
+  clearError,
+  fetchRegister,
+} from "../../features/authentification/authentificationSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { icons } from "../../styles/icons";
+
+import {
+  NotificationContainer,
+  NotificationManager,
+} from "react-notifications";
+import "react-notifications/lib/notifications.css";
+
 function Register() {
   const navigate = useNavigate();
   const [visible, setVisible] = useState("text");
   const dispatch = useDispatch();
-  const { isLoggedIn } = useSelector((state) => state.authentification);
+  const { isLoggedIn, error } = useSelector((state) => state.authentification);
 
   const [register, setRegister] = useState({
     email: "matei.anutei24@gmail.com",
@@ -21,10 +31,25 @@ function Register() {
     if (isLoggedIn) navigate("/");
   }, [isLoggedIn, navigate]);
 
+  useEffect(() => {
+    if (error) {
+      NotificationManager.warning(
+        "Posibil sa existe deja un cont cu acelasi email",
+        "Erroare la inregistrare",
+        4000
+      );
+      dispatch(clearError());
+    }
+  }, [error, dispatch]);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (register.password !== secondPassword) {
-      alert("Passwords don't match");
+      NotificationManager.warning(
+        "Parolele nu corespund",
+        "Erroare la inregistrare",
+        4000
+      );
     } else {
       console.log(register);
       dispatch(fetchRegister(register));
@@ -99,6 +124,8 @@ function Register() {
       >
         Do you already have an account ?
       </div>
+
+      <NotificationContainer />
     </div>
   );
 }
