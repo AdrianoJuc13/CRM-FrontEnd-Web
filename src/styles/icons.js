@@ -3,6 +3,7 @@ import { TbChartArea } from "react-icons/tb";
 import { MdOutlineSegment } from "react-icons/md";
 import { ImMap2 } from "react-icons/im";
 import { BsArrowLeftCircleFill } from "react-icons/bs";
+import { HiOutlineEyeSlash, HiOutlineEye } from "react-icons/hi2";
 
 export const icons = {
   BIEdit: <BiEdit />,
@@ -10,4 +11,6 @@ export const icons = {
   MdOutlineSegment: <MdOutlineSegment />,
   ImMap2: <ImMap2 />,
   BsArrowLeftCircleFill: <BsArrowLeftCircleFill />,
+  HiOutlineEyeSlash: <HiOutlineEyeSlash />,
+  HiOutlineEye: <HiOutlineEye />,
 };

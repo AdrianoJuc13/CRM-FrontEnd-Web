@@ -2,9 +2,14 @@ import React, { useState } from "react";
 import styles from "./Login.module.scss";
 import Logo from "./../../assets/logosimplu_1.png";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
+import { fetchLogin } from "../../features/authentification/authentificationSlice";
 
 function Login() {
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
   const [login, setLogin] = useState({
     email: "matei.anutei24@gmail.com",
     password: "test123",
@@ -12,7 +17,8 @@ function Login() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    alert(JSON.stringify(login));
+
+    dispatch(fetchLogin(login));
   };
 
   const handleChange = (event) => {
@@ -39,7 +45,7 @@ function Login() {
           type="email"
           name="email"
           placeholder="email"
-          // value={login.email}
+          value={login.email}
           onChange={handleChange}
         />
 
@@ -48,17 +54,11 @@ function Login() {
           type="password"
           placeholder="password"
           name="password"
-          // value={login.email}
+          value={login.email}
           onChange={handleChange}
         ></input>
 
-        <button
-          type="submit"
-          // onClick={() => {
-          //   navigate("/");
-          // }}
-          className={styles.btn}
-        >
+        <button type="submit" className={styles.btn} onClick={() => {}}>
           Login
         </button>
       </form>

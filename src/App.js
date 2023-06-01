@@ -16,30 +16,35 @@ import Setari from "./pages/Setari/Setari";
 import Suport from "./pages/Suport/Suport";
 import AdaugaCompanie from "./pages/Compani/AdaugaCompanie";
 
+import SecureLayout from "./utils/SecureLayout";
+
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login />} />
+
         <Route path="/register" element={<Register />} />
 
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="compani" element={<Compani />} />
-          <Route path="contacte" element={<Contacte />} />
-          <Route path="oportunitati" element={<Oportunitati />}></Route>
-          <Route path="plandeactiune" element={<PlanDeActiune />} />
-          <Route path="prospectare" element={<Prospectare />} />
-          <Route path="obiective" element={<Obiective />} />
-          <Route path="rapoarte" element={<Rapoarte />} />
-        </Route>
+        <Route path="/" element={<SecureLayout />}>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="compani" element={<Compani />} />
+            <Route path="contacte" element={<Contacte />} />
+            <Route path="oportunitati" element={<Oportunitati />} />
+            <Route path="plandeactiune" element={<PlanDeActiune />} />
+            <Route path="prospectare" element={<Prospectare />} />
+            <Route path="obiective" element={<Obiective />} />
+            <Route path="rapoarte" element={<Rapoarte />} />
+          </Route>
 
-        <Route path="/" element={<Layout2 />}>
-          <Route path="adauga_companie" element={<AdaugaCompanie />} />
-        </Route>
+          <Route path="/" element={<Layout2 />}>
+            <Route path="adauga_companie" element={<AdaugaCompanie />} />
+          </Route>
 
-        <Route path="/setari" element={<Setari />} />
-        <Route path="/suport" element={<Suport />} />
+          <Route path="/setari" element={<Setari />} />
+          <Route path="/suport" element={<Suport />} />
+        </Route>
 
         <Route path="*" element={<Error />} />
       </Routes>

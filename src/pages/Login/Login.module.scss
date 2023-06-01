@@ -11,7 +11,7 @@
   .header {
     font-size: 30px;
     color: colors.$mywhite;
-    margin: 0 auto 0 20px;
+    margin: 0 auto;
   }
   .form {
     display: flex;
@@ -27,7 +27,7 @@
     }
     .input {
       height: 30px;
-      width: 500px;
+      width: 30vw;
 
       border: none;
 

@@ -1,6 +1,5 @@
 import axios from "axios";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-
 const initialState = {
   loading: false,
   isLoggedIn: false,
@@ -14,33 +13,39 @@ const initialState = {
 export const fetchLogin = createAsyncThunk(
   "authentification/fetchLogin",
   async ({ email, password }) => {
-    return axios
-      .post(`${"http://136.255.168.27:5800/auth/login"}`, {
-        email: email,
-        password: password,
-      })
-      .then((response) => response.data);
+    return axios.post(`${"http://136.255.168.27:5800/auth/login"}`, {
+      email: email,
+      password: password,
+    });
   }
 );
 
 export const fetchRegister = createAsyncThunk(
   "authentification/fetchRegister",
   async ({ email, password }) => {
-    const response = await axios.post(
+    return axios.post(
       `${"http://136.255.168.27:5800/auth/register"}`,
       {
         email: email,
         password: password,
-      }
+      }.then((response) => response.data)
     );
-    return response.data;
   }
 );
-
 const AuthSlice = createSlice({
   name: "authentification",
   initialState,
-  reducers: {},
+  reducers: {
+    logOut: (state, action) => {
+      state.isLoggedIn = false;
+      state.loading = false;
+      state.isLoggedIn = false;
+      state.token = "";
+      state.uid = "";
+      state.username = "";
+      state.error = "";
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchLogin.pending, (state) => {
       state.loading = true;
@@ -83,5 +88,7 @@ const AuthSlice = createSlice({
     });
   },
 });
+
+export const { logOut } = AuthSlice.actions;
 
 export default AuthSlice.reducer;
