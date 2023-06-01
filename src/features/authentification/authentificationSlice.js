@@ -1,5 +1,6 @@
 import axios from "axios";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+
 const initialState = {
   loading: false,
   isLoggedIn: false,
@@ -13,25 +14,29 @@ const initialState = {
 export const fetchLogin = createAsyncThunk(
   "authentification/fetchLogin",
   async ({ email, password }) => {
-    return axios.post(`${"http://136.255.168.27:5800/auth/login"}`, {
-      email: email,
-      password: password,
-    });
+    return axios
+      .post(`${"http://136.255.168.27:5800/auth/login"}`, {
+        email: email,
+        password: password,
+      })
+      .then((response) => response.data);
   }
 );
 
 export const fetchRegister = createAsyncThunk(
   "authentification/fetchRegister",
   async ({ email, password }) => {
-    return axios.post(
+    const response = await axios.post(
       `${"http://136.255.168.27:5800/auth/register"}`,
       {
         email: email,
         password: password,
-      }.then((response) => response.data)
+      }
     );
+    return response.data;
   }
 );
+
 const AuthSlice = createSlice({
   name: "authentification",
   initialState,
@@ -43,6 +48,9 @@ const AuthSlice = createSlice({
       state.token = "";
       state.uid = "";
       state.username = "";
+      state.error = "";
+    },
+    clearError: (state, action) => {
       state.error = "";
     },
   },
@@ -89,6 +97,6 @@ const AuthSlice = createSlice({
   },
 });
 
-export const { logOut } = AuthSlice.actions;
+export const { logOut, clearError } = AuthSlice.actions;
 
 export default AuthSlice.reducer;

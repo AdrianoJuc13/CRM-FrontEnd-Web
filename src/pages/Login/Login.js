@@ -1,44 +1,61 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Login.module.scss";
 import Logo from "./../../assets/logosimplu_1.png";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-
-import { fetchLogin } from "../../features/authentification/authentificationSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { icons } from "../../styles/icons";
+import {
+  clearError,
+  fetchLogin,
+} from "../../features/authentification/authentificationSlice";
 
 function Login() {
   const navigate = useNavigate();
-
   const dispatch = useDispatch();
+  const { isLoggedIn, error } = useSelector((state) => state.authentification);
+  const [errorTrigger, setErrorTrigger] = useState(false);
+
   const [login, setLogin] = useState({
     email: "matei.anutei24@gmail.com",
     password: "test123",
   });
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  useEffect(() => {
+    if (isLoggedIn) navigate("/");
+  }, [isLoggedIn, navigate]);
 
+  useEffect(() => {
+    if (error) setErrorTrigger(true);
+
+    setTimeout(() => {
+      setErrorTrigger(false);
+      dispatch(clearError());
+    }, 5000);
+  }, [error, dispatch]);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
     dispatch(fetchLogin(login));
   };
 
   const handleChange = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
+    const { name, value } = event.target;
+
     setLogin((values) => ({ ...values, [name]: value }));
   };
 
   return (
     <div className={styles.login}>
+      <div
+        className={`${styles.error} ${
+          errorTrigger ? styles.error_active : null
+        }`}
+      >
+        {icons.IoWarningOutline} {error}
+      </div>
       <div className={styles.header}>Login page</div>
       <form className={styles.form} onSubmit={handleSubmit}>
-        <img
-          className={styles.logo}
-          src={Logo}
-          alt="logo"
-          onClick={() => {
-            navigate("/");
-          }}
-        />
+        <img className={styles.logo} src={Logo} alt="logo" />
 
         <input
           className={styles.input}
@@ -51,14 +68,14 @@ function Login() {
 
         <input
           className={styles.input}
-          type="password"
+          type="text"
           placeholder="password"
           name="password"
-          value={login.email}
+          value={login.password}
           onChange={handleChange}
-        ></input>
+        />
 
-        <button type="submit" className={styles.btn} onClick={() => {}}>
+        <button type="submit" className={styles.btn}>
           Login
         </button>
       </form>

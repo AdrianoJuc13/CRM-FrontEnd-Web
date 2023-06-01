@@ -4,12 +4,15 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 function LoadingView() {
-  const { isLoggedIn } = useSelector((state) => state.authentification);
   const navigate = useNavigate();
+
+  const { isLoggedIn } = useSelector((state) => state.authentification);
+
   useEffect(() => {
     if (!isLoggedIn) navigate("/login");
     else navigate("/");
   });
+
   return <div className={styles.screen}>Loading ..</div>;
 }
 

@@ -1,21 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Register.module.scss";
 import Logo from "./../../assets/logosimplu_1.png";
 import { useNavigate } from "react-router-dom";
 import { fetchRegister } from "../../features/authentification/authentificationSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { icons } from "../../styles/icons";
 function Register() {
   const navigate = useNavigate();
   const [visible, setVisible] = useState("text");
   const dispatch = useDispatch();
+  const { isLoggedIn } = useSelector((state) => state.authentification);
 
   const [register, setRegister] = useState({
     email: "matei.anutei24@gmail.com",
     password: "test123",
   });
-
   const [secondPassword, setSecondPassword] = useState("test123");
+
+  useEffect(() => {
+    if (isLoggedIn) navigate("/");
+  }, [isLoggedIn, navigate]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -49,14 +53,7 @@ function Register() {
     <div className={styles.register}>
       <div className={styles.header}>Register page</div>
       <form className={styles.form} onSubmit={handleSubmit}>
-        <img
-          className={styles.logo}
-          src={Logo}
-          alt="logo"
-          onClick={() => {
-            navigate("/");
-          }}
-        />
+        <img className={styles.logo} src={Logo} alt="logo" />
 
         <input
           className={styles.input}
