@@ -25,6 +25,8 @@ import { MdContactSupport } from "react-icons/md";
 
 import avatar from "./../../assets/avatar.png";
 
+import { logOut } from "../../features/authentification/authentificationSlice";
+
 function SideMenu() {
   const dispatch = useDispatch();
   const { isOpen } = useSelector((store) => store.sidemenu);
@@ -185,6 +187,9 @@ function SideMenu() {
           to="/login"
           className={styles.btn_section}
           style={location.pathname === "/login" ? { color: "white" } : null}
+          onClick={() => {
+            dispatch(logOut());
+          }}
         >
           <div className={styles.btn}>
             <BiLogOut />
