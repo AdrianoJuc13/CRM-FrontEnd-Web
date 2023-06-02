@@ -25,7 +25,14 @@ function Login() {
     <div className={styles.login}>
       <div className={styles.header}>Login page</div>
       <form className={styles.form} onSubmit={handleSubmit}>
-        <img className={styles.logo} src={Logo} alt="logo" />
+        <img
+          className={styles.logo}
+          src={Logo}
+          alt="logo"
+          onClick={() => {
+            navigate("/");
+          }}
+        />
 
         <input
           className={styles.input}
