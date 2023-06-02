@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./Home.module.scss";
 import catalog_primagra from "./../../assets/catalog_primagra.jpg";
-
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchLogin,
@@ -15,13 +14,14 @@ import { fetchCompanies } from "../../features/pages/companiesPage/companySlice"
 import { pageUp } from "../../features/pages/companiesPage/companySlice";
 
 function Home() {
+  const state = useSelector((state) => state);
+  const dispatch = useDispatch();
   return (
     <div className={styles.home}>
       <img
         src={catalog_primagra}
         alt="catalog_primagra"
         className={styles.image}
-
         onClick={async () => {
           dispatch(
             fetchLogin({
@@ -41,4 +41,3 @@ function Home() {
 }
 
 export default Home;
-
