@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import sidemenuReducer from "./features/sidemenu/SideMenuSlice";
-import companiReducer from "./features/compani/CompaniSlice";
+// import companiReducer from "./features/compani/CompaniSlice";
 import contacteReducer from "./features/contacte/ContacteSlice";
 import oportunitatiReducer from "./features/oportunitati/OportunitatiSlice";
 import plandeactiuneReducer from "./features/plandeactiune/PlandeactiuneSlice";
@@ -12,11 +12,16 @@ import PuncteLucruReducer from "./features/relations/PuncteLucruSlice";
 import MarimiCompaniReducer from "./features/relations/MarimiCompaniSlice";
 import HeadersReducer from "./features/headers_tabel/HeadersSlice";
 import CurrentReducer from "./features/current_actions/CurrentSlice";
+
 import AuthReducer from "./features/authentification/authentificationSlice";
+import configurationReducer from "./features/configuration/configurationSlice";
+import companiesPageReducer from "./features/pages/companiesPage/companySlice";
 export const store = configureStore({
   reducer: {
     sidemenu: sidemenuReducer,
-    compani: companiReducer,
+    // compani: companiReducer,
+
+    companiesPage: companiesPageReducer,
     contacte: contacteReducer,
     oportunitati: oportunitatiReducer,
     plandeactiune: plandeactiuneReducer,
@@ -29,5 +34,6 @@ export const store = configureStore({
     headers: HeadersReducer,
     current: CurrentReducer,
     authentification: AuthReducer,
+    configuration: configurationReducer,
   },
 });
