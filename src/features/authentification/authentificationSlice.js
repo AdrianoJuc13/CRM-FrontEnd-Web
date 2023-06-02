@@ -1,6 +1,6 @@
+import { store } from "../../store";
 import axios from "axios";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-
 const initialState = {
   loading: false,
   isLoggedIn: false,
@@ -14,8 +14,9 @@ const initialState = {
 export const fetchLogin = createAsyncThunk(
   "authentification/fetchLogin",
   async ({ email, password }) => {
+    const configState = store.getState().configuration;
     return axios
-      .post(`${"http://136.255.168.27:5800/auth/login"}`, {
+      .post(`${configState.backendHostname}/auth/login`, {
         email: email,
         password: password,
       })
@@ -26,8 +27,9 @@ export const fetchLogin = createAsyncThunk(
 export const fetchRegister = createAsyncThunk(
   "authentification/fetchRegister",
   async ({ email, password }) => {
+    const configState = store.getState().configuration;
     const response = await axios.post(
-      `${"http://136.255.168.27:5800/auth/register"}`,
+      `${configState.backendHostname}/auth/register`,
       {
         email: email,
         password: password,

@@ -6,6 +6,13 @@ import {
   fetchLogin,
   fetchRegister,
 } from "../../features/authentification/authentificationSlice";
+import {
+  changeItemsPerPage,
+  changeBackendHostname,
+} from "../../features/configuration/configurationSlice";
+import { fetchCompanies } from "../../features/pages/companiesPage/companySlice";
+import { pageUp } from "../../features/pages/companiesPage/companySlice";
+
 function Home() {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
@@ -15,14 +22,17 @@ function Home() {
         src={catalog_primagra}
         alt="catalog_primagra"
         className={styles.image}
-        onClick={() => {
+        onClick={async () => {
           dispatch(
-            fetchRegister({
-              email: "matei.anutei26@gmail.com",
+            fetchLogin({
+              email: "matei.anutei28@gmail.com",
               password: "test123",
             })
           );
-
+          dispatch(pageUp());
+          dispatch(fetchCompanies());
+          // //  dispatch(changeItemsPerPage({ number: 25 }));
+          // // dispatch(changeBackendHostname({ hostname: "hostname1" }));
           console.log(state);
         }}
       />
