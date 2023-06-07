@@ -17,6 +17,7 @@ import Suport from "./pages/Suport/Suport";
 import AdaugaCompanie from "./pages/Compani/AdaugaCompanie";
 
 import SecureLayout from "./utils/SecureLayout";
+import AdaugaContact from "./pages/Contacte/AdaugaContact";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
 
           <Route path="/" element={<Layout2 />}>
             <Route path="adauga_companie" element={<AdaugaCompanie />} />
+            <Route path="adauga_contact" element={<AdaugaContact />} />
           </Route>
 
           <Route path="/setari" element={<Setari />} />

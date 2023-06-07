@@ -11,18 +11,18 @@ function Contacte() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch( fetchContacte() );
+    dispatch(fetchContacte());
   }, [dispatch]);
 
   const contacte = useSelector((state) => state.contacte);
 
-  return ( 
+  return (
     <div className={styles.rapoarte}>
       <div className={styles.header}>
-      <div className={styles.titlu}>Contacte</div>
-        <AddBtn name="Adauga o noua companie" link="/adauga_raport" />
+        <div className={styles.titlu}>Contacte</div>
+        <AddBtn name="Adauga un nou contact" link="/adauga_contact" />
       </div>
-      <Tabel headers={header_tabel["obiectivee"]} date={contacte} />
+      {/* <Tabel headers={header_tabel["obiectivee"]} date={contacte} /> */}
     </div>
   );
 }

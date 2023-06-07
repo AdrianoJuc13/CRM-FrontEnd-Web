@@ -20,7 +20,7 @@ export const fetchCompanies = createAsyncThunk(
     const configState = store.getState().configuration;
     const companiesPageState = store.getState().companiesPage;
 
-    if (authState.isLoggedIn == false) throw Error("User is not logged in");
+    if (authState.isLoggedIn === false) throw Error("User is not logged in");
 
     const url = configState.backendHostname + "/companii/pagination";
     const headers = {
@@ -56,6 +56,9 @@ const CompaniesPageSlice = createSlice({
     pageDown(state) {
       if (state.currentPage >= 2) state.currentPage--;
     },
+    clearError(state) {
+      state.error = "";
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchCompanies.pending, (state) => {
@@ -64,7 +67,7 @@ const CompaniesPageSlice = createSlice({
     builder.addCase(fetchCompanies.fulfilled, (state, action) => {
       state.loading = false;
       console.log(action.payload);
-      if (action.payload.status == 200) {
+      if (action.payload.status === 200) {
         state.pagesLoaded++;
         state.companies = state.companies.concat(action.payload.data);
         state.hasMore = action.payload.hasMore;
@@ -80,5 +83,5 @@ const CompaniesPageSlice = createSlice({
   },
 });
 
-export const { pageUp, pageDown } = CompaniesPageSlice.actions;
+export const { pageUp, pageDown, clearError } = CompaniesPageSlice.actions;
 export default CompaniesPageSlice.reducer;

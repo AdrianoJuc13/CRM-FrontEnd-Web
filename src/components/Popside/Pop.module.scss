@@ -7,8 +7,10 @@
   background: rgba(0, 0, 0, 0.3);
   left: -100vw;
   top: 0vh;
-
   transition: 0.5s ease;
+
+  visibility: hidden;
+  transition: visibility 0;
 
   height: 300vh;
   width: 100vw;
@@ -58,8 +60,11 @@
 .grey_screen_move {
   top: -200vh;
   transition: top 0.5s ease;
+  transition: visibility 0;
 }
 .grey_screen_appear {
   left: 0;
   transition: 0.5s ease;
+  visibility: visible;
+  transition: visibility 0;
 }

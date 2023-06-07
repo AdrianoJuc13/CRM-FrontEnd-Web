@@ -3,18 +3,21 @@ import styles from "../../styles/PaginaLayout1.module.scss";
 import Tabel from "../../components/Tabel/Tabel";
 import { useDispatch, useSelector } from "react-redux";
 import AddBtn from "../../components/Butoane/AddBtn";
-import { fetchCompani } from "../../features/compani/CompaniSlice";
+import {
+  fetchCompanies,
+  pageUp,
+} from "../../features/pages/companiesPage/companySlice";
 
 function Compani() {
-  const { header_name, header_key } = useSelector((state) => state.headers);
-
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchCompani());
-  }, [dispatch]);
+  const { header_name, header_key } = useSelector((state) => state.headers);
+  const compani = useSelector((state) => state.companiesPage);
 
-  const compani = useSelector((state) => state.compani);
+  useEffect(() => {
+    dispatch(pageUp());
+    dispatch(fetchCompanies());
+  }, [dispatch]);
 
   return (
     <div className={styles.rapoarte}>
@@ -22,11 +25,16 @@ function Compani() {
         <div className={styles.titlu}>Companii</div>
         <AddBtn name="Adauga o noua companie" link="/adauga_companie" />
       </div>
+      {/* <div
+        onClick={() => {
+          console.log(compani);
+        }}
+      >
+        button
+      </div> */}
       <Tabel
         header_name={header_name["compani"]}
         header_key={header_key["compani"]}
-        // detalii_name={detalii_name['compani']}
-        // detalii_key={detalii_key['compani']}
         date={compani}
       />
     </div>
