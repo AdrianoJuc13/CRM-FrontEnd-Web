@@ -45,7 +45,7 @@ function Tabel(props) {
   }, [error, dispatch]);
 
   return (
-    <div className={styles.tabel_rapoarte}>
+    <div className={styles.tabel_style}>
       <div className={styles.main}>
         <div className={styles.header}>
           {props.header_name &&
@@ -65,7 +65,7 @@ function Tabel(props) {
           {props.date &&
             props.date.companies.map((item, index) => {
               if (
-                ((currentPage - 1) * 5 <= index && index < currentPage * 5) ||
+                ((currentPage - 1) * 15 <= index && index < currentPage * 15) ||
                 (index === 0 && currentPage === 1)
               )
                 return (
@@ -113,18 +113,14 @@ function Tabel(props) {
           <div style={{ width: "3.5rem" }} />
         )}
         {currentPage}
-        {hasMore ? (
-          <div
-            className={styles.right_arrow}
-            onClick={() => {
-              dispatch(pageUp());
-            }}
-          >
-            {icons.AiOutlineArrowRight}
-          </div>
-        ) : (
-          <div style={{ width: "3.5rem" }} />
-        )}
+        <div
+          className={styles.right_arrow}
+          onClick={() => {
+            dispatch(pageUp());
+          }}
+        >
+          {icons.AiOutlineArrowRight}
+        </div>
       </div>
     </div>
   );

@@ -49,12 +49,45 @@
     }
   }
   .pop_down {
-    position: relative;
-    background: red;
     width: 92vw;
     height: 90vh;
     left: 4vw;
     top: 115vh;
+
+    position: relative;
+    background: white;
+
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    .pop_header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 3vh 3vw;
+      .pop_titlu {
+        //style
+        font-size: large;
+        font-family: "Poppins", sans-serif;
+        letter-spacing: 0.05rem;
+        font-weight: 400;
+      }
+      .pop_butoane {
+        display: flex;
+        justify-content: space-between;
+        // width: 5vw;
+        .pop_edit {
+          font-size: x-large;
+          cursor: pointer;
+        }
+        .pop_exit {
+          cursor: pointer;
+          font-size: x-large;
+        }
+      }
+    }
   }
 }
 .grey_screen_move {

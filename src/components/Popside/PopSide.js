@@ -8,6 +8,7 @@ import { BiEdit } from "react-icons/bi";
 
 import EcranCuPagini from "../Ecrane/EcranCuPagini";
 import EcranFaraPagini from "../Ecrane/EcranFaraPagini";
+import PopDownEditeaza from "../PopDownEditeaza/PopDownEditeaza";
 
 function PopSide(props) {
   const dispatch = useDispatch();
@@ -64,12 +65,25 @@ function PopSide(props) {
         </div>
       </div>
       <div className={styles.pop_down}>
-        <div
-          onClick={() => {
-            setTrigger(true);
-          }}
-        >
-          move up
+        <div>
+          <div className={styles.pop_header}>
+            <div className={styles.pop_titlu}>
+              {props &&
+                props.date &&
+                props.date.payload &&
+                props.date.payload[currentId] &&
+                props.date.payload[currentId][currentName]}
+            </div>
+            <div className={styles.pop_butoane}>
+              <AiOutlineClose
+                className={styles.pop_exit}
+                onClick={() => {
+                  setTrigger(true);
+                }}
+              />
+            </div>
+          </div>
+          <PopDownEditeaza date={props.date} />
         </div>
       </div>
     </div>

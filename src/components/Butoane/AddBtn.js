@@ -10,8 +10,8 @@ function AddBtn(props) {
         navigate(`${props.link}`);
       }}
     >
-      {props.icon}
-      {props.name}
+      {props.icon ? <div className={styles.icon}>{props.icon}</div> : null}
+      <div className={styles.text}>{props.name}</div>
     </button>
   );
 }

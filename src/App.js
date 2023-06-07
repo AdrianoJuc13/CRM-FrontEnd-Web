@@ -11,13 +11,17 @@ import Oportunitati from "./pages/Oportunitati/Oportunitati";
 import PlanDeActiune from "./pages/Plandeactiune/Plandeactiune";
 import Prospectare from "./pages/Prospectare/Prospectare";
 import Obiective from "./pages/Obiective/Obiective";
+import AdaugaObiectiv from "./pages/Obiective/AdaugaObiectiv";
 import Rapoarte from "./pages/Rapoarte/Rapoarte";
 import Setari from "./pages/Setari/Setari";
 import Suport from "./pages/Suport/Suport";
 import AdaugaCompanie from "./pages/Compani/AdaugaCompanie";
-
+import AdaugaOportunitate from "./pages/Oportunitati/AdaugaOportunitate";
 import SecureLayout from "./utils/SecureLayout";
 import AdaugaContact from "./pages/Contacte/AdaugaContact";
+import AdaugaProspectare from "./pages/Prospectare/AdaugaProspectare";
+import AdaugaRaport from "./pages/Rapoarte/AdaugaRaport";
+import AdaugaPlanDeActiune from "./pages/Plandeactiune/AdaugaPlanDeActiune";
 
 function App() {
   return (
@@ -41,6 +45,17 @@ function App() {
           <Route path="/" element={<Layout2 />}>
             <Route path="adauga_companie" element={<AdaugaCompanie />} />
             <Route path="adauga_contact" element={<AdaugaContact />} />
+            <Route path="adauga_obiectiv" element={<AdaugaObiectiv />} />
+            <Route path="adauga_prospectare" element={<AdaugaProspectare />} />
+            <Route path="adauga_raport" element={<AdaugaRaport />} />
+            <Route
+              path="adauga_oportunitate"
+              element={<AdaugaOportunitate />}
+            />
+            <Route
+              path="adauga_plan_de_actiune"
+              element={<AdaugaPlanDeActiune />}
+            />
           </Route>
 
           <Route path="/setari" element={<Setari />} />

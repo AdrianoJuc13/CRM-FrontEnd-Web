@@ -6,7 +6,7 @@ import { icons } from "../../styles/icons";
 import AddBtn from "../../components/Butoane/AddBtn";
 import InputCuTitlu from "../../components/InputCuTitlu/InputCuTitlu";
 
-function AdaugaContact() {
+function AdaugaObiectiv() {
   const [formular, setFormular] = useState({});
   const { nume, companie_cod_fiscalj } = formular;
   const handleChange = (event) => {
@@ -84,4 +84,4 @@ function AdaugaContact() {
   );
 }
 
-export default AdaugaContact;
+export default AdaugaObiectiv;

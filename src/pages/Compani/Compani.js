@@ -20,7 +20,7 @@ function Compani() {
   }, [dispatch]);
 
   return (
-    <div className={styles.rapoarte}>
+    <div className={styles.pagina_principala}>
       <div className={styles.header}>
         <div className={styles.titlu}>Companii</div>
         <AddBtn name="Adauga o noua companie" link="/adauga_companie" />

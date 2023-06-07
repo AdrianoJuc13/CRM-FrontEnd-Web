@@ -2,8 +2,9 @@
 @use "src/styles/mixinHelper";
 @use "src/styles/fonts";
 
-.tabel_rapoarte {
+.tabel_style {
   width: 100%;
+  height: 93%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,12 +19,12 @@
     //   background: colors.$grey100;
     position: relative;
     width: 90%;
-    height: 46rem;
-    margin-top: 1.3rem;
     background: white;
 
     border-radius: 0.25rem;
 
+    margin-top: 1.3rem;
+    margin-bottom: 1rem;
     .header {
       display: flex;
       flex-direction: row;
@@ -65,19 +66,21 @@
     }
   }
   .arrows {
-    margin-top: 0.5rem;
+    margin-top: auto;
+    margin-bottom: 1rem;
+
+    width: 9rem;
+    gap: 1rem;
+
     color: white;
 
     font-size: 1rem;
     font-weight: 500;
 
-    gap: 1rem;
-
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 9rem;
 
     .left_arrow {
       cursor: pointer;
@@ -128,7 +131,7 @@
       background: colors.$grey100;
       color: white;
 
-      width: 3.5rem;
+      width: 3rem;
       transition: width 0.2s;
     }
   }

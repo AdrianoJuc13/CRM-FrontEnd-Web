@@ -16,13 +16,13 @@ function Plandeactiune() {
 
   const plandeactiune = useSelector((state) => state.plandeactiune);
 
-  return ( 
-    <div className={styles.rapoarte}>
+  return (
+    <div className={styles.pagina_principala}>
       <div className={styles.header}>
         <div className={styles.titlu}>Plan de actiuni</div>
-        <AddBtn name="Creaza Actiune" link="/adauga_raport" />
+        <AddBtn name="Creaza Actiune" link="/adauga_plan_de_actiune" />
       </div>
-      <Tabel headers={header_tabel["plan_de_actiune"]} date={plandeactiune} />
+      {/* <Tabel headers={header_tabel["plan_de_actiune"]} date={plandeactiune} /> */}
     </div>
   );
 }

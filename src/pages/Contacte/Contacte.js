@@ -17,7 +17,7 @@ function Contacte() {
   const contacte = useSelector((state) => state.contacte);
 
   return (
-    <div className={styles.rapoarte}>
+    <div className={styles.pagina_principala}>
       <div className={styles.header}>
         <div className={styles.titlu}>Contacte</div>
         <AddBtn name="Adauga un nou contact" link="/adauga_contact" />
