@@ -8,7 +8,10 @@ import InputCuTitlu from "../../components/InputCuTitlu/InputCuTitlu";
 
 function AdaugaContact() {
   const [formular, setFormular] = useState({});
-  const { nume, companie_cod_fiscalj } = formular;
+
+  const { nume, prenume, numar_telefon, adresa_email, functie, companie_nume } =
+    formular;
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormular((values) => ({ ...values, [name]: value }));
@@ -16,6 +19,7 @@ function AdaugaContact() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     alert(JSON.stringify(formular));
     console.log(formular);
   };
@@ -34,48 +38,65 @@ function AdaugaContact() {
       </div>
 
       <form className={styles.body} onSubmit={handleSubmit}>
+        <div className={styles.header}>Date personale</div>
         <div className={styles.row}>
           <InputCuTitlu
             type="text"
             value={nume}
-            placeholder="Nume"
-            label="Nume Societate"
+            placeholder="Ex: Ion"
+            label="Nume"
             name="nume"
+            onChange={handleChange}
+          />
+          <InputCuTitlu
+            type="text"
+            value={prenume}
+            placeholder="Ex: Popescu"
+            label="Prenume"
+            name="prenume"
             onChange={handleChange}
           />
 
           <InputCuTitlu
-            disabled
+            // disabled={true}
             type="text"
-            // value={CAEN}
-            placeholder="caen"
-            label="Cod Caen"
-            name="caen"
-            onChange={handleChange}
-          />
-        </div>
-        <div className={styles.header}>Date fiscale</div>
-        <div className={styles.row}>
-          <InputCuTitlu
-            disabled
-            type="text"
-            value={companie_cod_fiscalj}
-            placeholder="cod j"
-            label="Numar fiscal (J)"
-            name="companie_cod_fiscalj"
+            value={numar_telefon}
+            placeholder="Ex: 0751234567"
+            label="Telefon"
+            name="numar_telefon"
             onChange={handleChange}
           />
           <InputCuTitlu
             disabled={true}
-            label="Cod fiscal"
+            label="Email"
             type="text"
-            // value={companie_cod_ax}
-            placeholder="cod ax"
-            name="companie_cod_ax"
-            // onChange={handleChange}
+            value={adresa_email}
+            placeholder="Ex: exemplu@exemplu.com"
+            name="adresa_email"
+            onChange={handleChange}
           />
         </div>
-
+        <div className={styles.header}></div>
+        <div className={styles.row}>
+          <InputCuTitlu
+            disabled={true}
+            label="Functie"
+            type="text"
+            value={functie}
+            placeholder="Ex: Director de vanzari"
+            name="functie"
+            onChange={functie}
+          />
+          <InputCuTitlu
+            disabled={true}
+            label="Companie"
+            type="text"
+            value={companie_nume}
+            placeholder="Ex: Dedeman Constanta"
+            name="companie_nume"
+            onChange={handleChange}
+          />
+        </div>
         <button className={styles.btn_salveaza} type="submit">
           Salveaza
         </button>

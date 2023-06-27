@@ -22,7 +22,7 @@ function Plandeactiune() {
         <div className={styles.titlu}>Plan de actiuni</div>
         <AddBtn name="Creaza Actiune" link="/adauga_plan_de_actiune" />
       </div>
-      {/* <Tabel headers={header_tabel["plan_de_actiune"]} date={plandeactiune} /> */}
+      <Tabel table_column_name="plan_de_actiuni_tabel" />
     </div>
   );
 }

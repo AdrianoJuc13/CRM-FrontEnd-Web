@@ -4,11 +4,13 @@ import styles from "../../styles/pagini_adauga/adaugaContact.module.scss";
 import { icons } from "../../styles/icons";
 
 import AddBtn from "../../components/Butoane/AddBtn";
-import InputCuTitlu from "../../components/InputCuTitlu/InputCuTitlu";
+import { TextArea } from "../../components/TextArea/TextArea";
+import SelectCuTitlu from "../../components/SelectCuTitlu/SelectCuTitlu";
 
 function AdaugaProspectare() {
   const [formular, setFormular] = useState({});
-  const { nume, companie_cod_fiscalj } = formular;
+  const { status_id, tip_actiune_id, descriere } = formular;
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormular((values) => ({ ...values, [name]: value }));
@@ -30,49 +32,44 @@ function AdaugaProspectare() {
           link="/contacte"
         />
 
-        <div className={styles.titlu}>Formular pentru adaugat contacte</div>
+        <div className={styles.titlu}>
+          Formular pentru adaugat vizita de prospectare
+        </div>
       </div>
 
       <form className={styles.body} onSubmit={handleSubmit}>
         <div className={styles.row}>
-          <InputCuTitlu
+          <SelectCuTitlu
+            disabled={false}
             type="text"
-            value={nume}
-            placeholder="Nume"
-            label="Nume Societate"
-            name="nume"
+            value={tip_actiune_id}
+            placeholder="Tip de actiune"
+            label="Tip de Actiune"
+            name="tip_actiune_id"
             onChange={handleChange}
+            optiuni={["optiune 1", "optiune 2"]}
           />
 
-          <InputCuTitlu
-            disabled
+          <SelectCuTitlu
+            disabled={false}
             type="text"
-            // value={CAEN}
-            placeholder="caen"
-            label="Cod Caen"
-            name="caen"
+            value={status_id}
+            placeholder="Status"
+            label="Status"
+            name="status_id"
             onChange={handleChange}
+            optiuni={["da", "nu"]}
           />
         </div>
-        <div className={styles.header}>Date fiscale</div>
+        <div className={styles.header}>Date</div>
         <div className={styles.row}>
-          <InputCuTitlu
-            disabled
+          <TextArea
             type="text"
-            value={companie_cod_fiscalj}
-            placeholder="cod j"
-            label="Numar fiscal (J)"
-            name="companie_cod_fiscalj"
+            label="Descriere Actiune"
+            value={descriere}
+            placeholder="Ex: Aceasta actiune se desfasoara ..."
+            name="descriere"
             onChange={handleChange}
-          />
-          <InputCuTitlu
-            disabled={true}
-            label="Cod fiscal"
-            type="text"
-            // value={companie_cod_ax}
-            placeholder="cod ax"
-            name="companie_cod_ax"
-            // onChange={handleChange}
           />
         </div>
 

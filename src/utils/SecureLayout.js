@@ -6,7 +6,7 @@ import LoadingView from "./LoadingView/LoadingView";
 function SecureLayout() {
   const { isLoggedIn } = useSelector((state) => state.authentification);
 
-  return isLoggedIn ? <Outlet /> : <LoadingView />;
+  return !isLoggedIn ? <Outlet /> : <LoadingView />;
 }
 
 export default SecureLayout;

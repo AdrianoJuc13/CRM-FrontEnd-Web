@@ -22,7 +22,7 @@ function Prospectare() {
         <div className={styles.titlu}>Plan de prospectare</div>
         <AddBtn name="Adauga Vizita Prospectare" link="/adauga_prospectare" />
       </div>
-      {/* <Tabel headers={header_tabel["prospectare"]} date={prospectare} /> */}
+      <Tabel table_column_name="prospectare_tabel" />
     </div>
   );
 }

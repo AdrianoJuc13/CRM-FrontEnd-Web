@@ -37,6 +37,10 @@ function Tabel(props) {
     (state) => state.companiesPage
   );
 
+  const table_column_name = props.table_column_name;
+  const table_state = useSelector((store) => store.table);
+  const table_columns = table_state[table_column_name];
+
   useEffect(() => {
     if (error) {
       NotificationManager.warning(error, "Error", 4000);
@@ -48,8 +52,8 @@ function Tabel(props) {
     <div className={styles.tabel_style}>
       <div className={styles.main}>
         <div className={styles.header}>
-          {props.header_name &&
-            props.header_name.map((item, index) => {
+          {table_columns &&
+            table_columns.map((item, index) => {
               return (
                 <div key={index} className={styles.hdata}>
                   {item}
@@ -58,39 +62,42 @@ function Tabel(props) {
             })}
         </div>
         <div className={styles.rows}>
-          {props.date.loading && <div>Loading...</div>}
+          {/* {props.date.loading && <div>Loading...</div>}
           {!props.date.loading && props.date.error ? (
             <div>Error: {props.date.error}</div>
-          ) : null}
-          {props.date &&
-            props.date.companies.map((item, index) => {
-              if (
-                ((currentPage - 1) * 15 <= index && index < currentPage * 15) ||
-                (index === 0 && currentPage === 1)
-              )
-                return (
-                  <div
-                    key={index}
-                    className={styles.row}
-                    onClick={() => {
-                      dispatch(openPop(index));
-                      dispatch(changeCurrentName(`${props.header_key[0]}`));
-                      dispatch(fetchOportunitati());
-                    }}
-                  >
-                    {/* {index} */}
-                    {props.header_key &&
-                      props.header_key.map((_itam, indax) => {
-                        return (
-                          <div key={indax} className={styles.td}>
-                            {item[_itam] ? item[_itam] : "-"}
-                          </div>
-                        );
-                      })}
-                  </div>
-                );
-              else return null;
-            })}
+          ) : null} */}
+
+          {
+            // props.date &&
+            //   props.date.companies.map((item, index) => {
+            //     if (
+            //       ((currentPage - 1) * 15 <= index && index < currentPage * 15) ||
+            //       (index === 0 && currentPage === 1)
+            //     )
+            //       return (
+            //         <div
+            //           key={index}
+            //           className={styles.row}
+            //           onClick={() => {
+            //             dispatch(openPop(index));
+            //             dispatch(changeCurrentName(`${props.header_key[0]}`));
+            //             dispatch(fetchOportunitati());
+            //           }}
+            //         >
+            //           {/* {index} */}
+            //           {props.header_key &&
+            //             props.header_key.map((_itam, indax) => {
+            //               return (
+            //                 <div key={indax} className={styles.td}>
+            //                   {item[_itam] ? item[_itam] : "-"}
+            //                 </div>
+            //               );
+            //             })}
+            //         </div>
+            //       );
+            //     else return null;
+            //   })
+          }
         </div>
         <NotificationContainer />
         <PopSide

@@ -46,9 +46,9 @@ function SideMenu() {
     };
   }, []);
 
-  useEffect(() => {
-    if (mousePos.x > 280 && isOpen) dispatch(closeSideMenu());
-  }, [mousePos.x, dispatch, isOpen]);
+  // useEffect(() => {
+  //   if (mousePos.x > 280 && isOpen) dispatch(closeSideMenu());
+  // }, [mousePos.x, dispatch, isOpen]);
 
   return (
     <div className={isOpen ? styles.sidemenu_open : styles.sidemenu_closed}>

@@ -16,6 +16,8 @@ import CurrentReducer from "./features/current_actions/CurrentSlice";
 import AuthReducer from "./features/authentification/authentificationSlice";
 import configurationReducer from "./features/configuration/configurationSlice";
 import companiesPageReducer from "./features/pages/companiesPage/companySlice";
+import tableReducer from "./features/table/TableSlice";
+
 export const store = configureStore({
   reducer: {
     sidemenu: sidemenuReducer,
@@ -35,5 +37,6 @@ export const store = configureStore({
     current: CurrentReducer,
     authentification: AuthReducer,
     configuration: configurationReducer,
+    table: tableReducer,
   },
 });

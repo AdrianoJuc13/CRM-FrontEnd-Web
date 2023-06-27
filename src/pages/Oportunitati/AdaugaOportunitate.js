@@ -5,10 +5,13 @@ import { icons } from "../../styles/icons";
 
 import AddBtn from "../../components/Butoane/AddBtn";
 import InputCuTitlu from "../../components/InputCuTitlu/InputCuTitlu";
+import SelectCuTitlu from "../../components/SelectCuTitlu/SelectCuTitlu";
+import { TextArea } from "../../components/TextArea/TextArea";
 
 function AdaugaOportunitate() {
   const [formular, setFormular] = useState({});
-  const { nume, companie_cod_fiscalj } = formular;
+  const { titlu, tip_oportunitate_id, descriere } = formular;
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormular((values) => ({ ...values, [name]: value }));
@@ -27,52 +30,45 @@ function AdaugaOportunitate() {
             <div className={styles.arrow}>{icons.BsArrowLeftCircleFill}</div>
           }
           name={`Inapoi`}
-          link="/contacte"
+          link="/oportunitati"
         />
 
-        <div className={styles.titlu}>Formular pentru adaugat contacte</div>
+        <div className={styles.titlu}>
+          Formular pentru adaugat o oportunitate
+        </div>
       </div>
 
       <form className={styles.body} onSubmit={handleSubmit}>
+        <div className={styles.header}>Date</div>
         <div className={styles.row}>
           <InputCuTitlu
             type="text"
-            value={nume}
-            placeholder="Nume"
-            label="Nume Societate"
-            name="nume"
+            label="Titlu Oportunitate"
+            value={titlu}
+            placeholder="Titlu"
+            name="titlu"
             onChange={handleChange}
           />
-
-          <InputCuTitlu
-            disabled
+          <SelectCuTitlu
+            disabled={false}
+            label="Tip Oportunitate"
             type="text"
-            // value={CAEN}
-            placeholder="caen"
-            label="Cod Caen"
-            name="caen"
+            value={tip_oportunitate_id}
+            placeholder="Tip Client"
+            name="tip_oportunitate_id"
             onChange={handleChange}
+            optiuni={["optiune 1", "optiune 2", "optiune 3", "optiune 4"]}
           />
         </div>
-        <div className={styles.header}>Date fiscale</div>
+        <div className={styles.header}>Detalii</div>
         <div className={styles.row}>
-          <InputCuTitlu
-            disabled
+          <TextArea
             type="text"
-            value={companie_cod_fiscalj}
-            placeholder="cod j"
-            label="Numar fiscal (J)"
-            name="companie_cod_fiscalj"
+            label="Descriere Oportunitate"
+            value={descriere}
+            placeholder="Ex: Aceasta oportunitate se desfasoara ..."
+            name="descriere"
             onChange={handleChange}
-          />
-          <InputCuTitlu
-            disabled={true}
-            label="Cod fiscal"
-            type="text"
-            // value={companie_cod_ax}
-            placeholder="cod ax"
-            name="companie_cod_ax"
-            // onChange={handleChange}
           />
         </div>
 

@@ -29,7 +29,7 @@ function Oportunitati() {
         </div>
         <AddBtn name="Creaza oportunitate" link="/adauga_oportunitate" />
       </div>
-      {/* <Tabel headers={header_tabel["oportunitatii"]} date={oportunitati} /> */}
+      <Tabel table_column_name="oportunitatii_tabel" />
     </div>
   );
 }

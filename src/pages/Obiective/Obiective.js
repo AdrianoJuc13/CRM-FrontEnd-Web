@@ -22,7 +22,7 @@ function Obiective() {
         <div className={styles.titlu}>Obiective</div>
         <AddBtn name="Adauga un nou obiectiv" link="/adauga_obiectiv" />
       </div>
-      {/* <Tabel headers={header_tabel["obiectivee"]} date={obiective} /> */}
+      <Tabel table_column_name="obiective_tabel" />
     </div>
   );
 }
