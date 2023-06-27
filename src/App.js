@@ -17,20 +17,30 @@ import Setari from "./pages/Setari/Setari";
 import Suport from "./pages/Suport/Suport";
 import AdaugaCompanie from "./pages/Compani/AdaugaCompanie";
 import AdaugaOportunitate from "./pages/Oportunitati/AdaugaOportunitate";
-import SecureLayout from "./utils/SecureLayout";
 import AdaugaContact from "./pages/Contacte/AdaugaContact";
 import AdaugaProspectare from "./pages/Prospectare/AdaugaProspectare";
 import AdaugaRaport from "./pages/Rapoarte/AdaugaRaport";
 import AdaugaPlanDeActiune from "./pages/Plandeactiune/AdaugaPlanDeActiune";
+import { useSelector } from "react-redux";
+import { DefaultPage } from "./pages/Default/DefaultPage";
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/login" element={<Login />} />
+  const { isLoggedIn } = useSelector((state) => state.authentification);
 
-        <Route path="/register" element={<Register />} />
-        <Route path="/" element={<SecureLayout />}>
+  if (!isLoggedIn)
+    return (
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<DefaultPage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      </BrowserRouter>
+    );
+  else
+    return (
+      <BrowserRouter>
+        <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="compani" element={<Compani />} />
@@ -60,12 +70,11 @@ function App() {
 
           <Route path="/setari" element={<Setari />} />
           <Route path="/suport" element={<Suport />} />
-        </Route>
 
-        <Route path="*" element={<Error />} />
-      </Routes>
-    </BrowserRouter>
-  );
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </BrowserRouter>
+    );
 }
 
 export default App;
