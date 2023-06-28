@@ -1,0 +1,64 @@
+@use "../../styles/colors";
+@use "../../styles/mixinHelper.scss";
+@use "../../styles/fonts";
+
+.default {
+  background: colors.$darkgrey;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  .header {
+    font-size: 4rem;
+    color: colors.$mywhite;
+    margin: 0 auto;
+  }
+  .container {
+    display: flex;
+    height: 80vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    gap: 20px;
+    &__logo {
+      margin-bottom: 30px;
+      width: 200px;
+    }
+  }
+  .buttons_area {
+    display: flex;
+    flex-direction: row;
+
+    width: 100%;
+    margin: 6rem auto;
+    gap: 15rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    .btn {
+      height: 5rem;
+      width: 15rem;
+      font-size: 20px;
+      border: none;
+      background: black;
+      color: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 1rem;
+    }
+    @media only screen and (max-width: 680px) {
+      gap: 4rem;
+    }
+  }
+  .footer {
+    cursor: pointer;
+    font-size: 20px;
+  }
+  .footer:hover {
+    color: colors.$mywhite;
+  }
+}

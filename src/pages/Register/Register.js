@@ -19,7 +19,9 @@ function Register() {
   const navigate = useNavigate();
   const [visible, setVisible] = useState("text");
   const dispatch = useDispatch();
-  const { isLoggedIn, error } = useSelector((state) => state.authentification);
+  const { isLoggedIn, error } = useSelector(
+    (state) => state.authentificationState
+  );
 
   const [register, setRegister] = useState({
     email: "matei.anutei24@gmail.com",

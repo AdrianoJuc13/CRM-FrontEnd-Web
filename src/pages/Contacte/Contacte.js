@@ -6,23 +6,21 @@ import AddBtn from "../../components/Butoane/AddBtn";
 import { fetchContacte } from "../../features/contacte/ContacteSlice";
 
 function Contacte() {
-  const { header_tabel } = useSelector((state) => state.headers);
-
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch( fetchContacte() );
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchContacte());
+  // }, [dispatch]);
 
-  const contacte = useSelector((state) => state.contacte);
+  // const contacte = useSelector((state) => state.contacte);
 
-  return ( 
-    <div className={styles.rapoarte}>
+  return (
+    <div className={styles.pagina_principala}>
       <div className={styles.header}>
-      <div className={styles.titlu}>Contacte</div>
-        <AddBtn name="Adauga o noua companie" link="/adauga_raport" />
+        <div className={styles.titlu}>Contacte</div>
+        <AddBtn name="Adauga un nou contact" link="/adauga_contact" />
       </div>
-      <Tabel headers={header_tabel["obiectivee"]} date={contacte} />
+      <Tabel table_column_name="contacte_tabel" />
     </div>
   );
 }

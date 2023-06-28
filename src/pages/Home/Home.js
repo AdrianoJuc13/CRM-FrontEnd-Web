@@ -6,12 +6,10 @@ import {
   fetchLogin,
   fetchRegister,
 } from "../../features/authentification/authentificationSlice";
-import {
-  changeItemsPerPage,
-  changeBackendHostname,
-} from "../../features/configuration/configurationSlice";
-import { fetchCompanies } from "../../features/pages/companiesPage/companySlice";
-import { pageUp } from "../../features/pages/companiesPage/companySlice";
+
+import { addCompany } from "../../features/company/actions/crud/addCompany";
+import { updateCompany } from "../../features/company/actions/crud/updateCompany";
+import { deleteCompany } from "../../features/company/actions/crud/deleteCompany";
 
 function Home() {
   const state = useSelector((state) => state);
@@ -23,16 +21,17 @@ function Home() {
         alt="catalog_primagra"
         className={styles.image}
         onClick={async () => {
+          // dispatch(
+          //   fetchLogin({
+          //     email: "matei.anutei24@gmail.com",
+          //     password: "test123",
+          //   })
+          // );
           dispatch(
-            fetchLogin({
-              email: "matei.anutei28@gmail.com",
-              password: "test123",
+            deleteCompany({
+              companieId: "6e0043d4-c216-4a4e-866b-1800bed0ce74",
             })
           );
-          dispatch(pageUp());
-          dispatch(fetchCompanies());
-          // //  dispatch(changeItemsPerPage({ number: 25 }));
-          // // dispatch(changeBackendHostname({ hostname: "hostname1" }));
           console.log(state);
         }}
       />
