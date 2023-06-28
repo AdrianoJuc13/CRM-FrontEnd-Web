@@ -16,37 +16,25 @@ import { icons } from "../../styles/icons";
 
 //universal imports
 import PopSide from "../Popside/PopSide";
-import {
-  openPop,
-  changeCurrentName,
-} from "../../features/current_actions/CurrentSlice";
-
-//specific imports
-import {
-  clearError,
-  pageDown,
-  pageUp,
-} from "../../features/pages/companiesPage/companySlice";
-import { fetchOportunitati } from "../../features/oportunitati/OportunitatiSlice";
 
 function Tabel(props) {
   const dispatch = useDispatch();
 
   //specific defines
-  const { currentPage, error, hasMore } = useSelector(
-    (state) => state.companiesPage
-  );
+  // const { currentPage, error, hasMore } = useSelector(
+  //   (state) => state.companiesPage
+  // );
 
   const table_column_name = props.table_column_name;
-  const table_state = useSelector((store) => store.table);
+  const table_state = useSelector((store) => store.tableState);
   const table_columns = table_state[table_column_name];
 
-  useEffect(() => {
-    if (error) {
-      NotificationManager.warning(error, "Error", 4000);
-      dispatch(clearError());
-    }
-  }, [error, dispatch]);
+  // useEffect(() => {
+  //   if (error) {
+  //     NotificationManager.warning(error, "Error", 4000);
+  //     dispatch(clearError());
+  //   }
+  // }, [error, dispatch]);
 
   return (
     <div className={styles.tabel_style}>
@@ -106,7 +94,7 @@ function Tabel(props) {
           // detalii_key={props.detalii_key}
         />
       </div>
-      <div className={styles.arrows}>
+      {/* <div className={styles.arrows}>
         {currentPage !== 1 ? (
           <div
             className={styles.left_arrow}
@@ -128,7 +116,7 @@ function Tabel(props) {
         >
           {icons.AiOutlineArrowRight}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

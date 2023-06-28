@@ -2,21 +2,16 @@ import React, { useEffect } from "react";
 import Tabel from "../../components/Tabel/Tabel";
 import { useDispatch, useSelector } from "react-redux";
 import AddBtn from "../../components/Butoane/AddBtn";
-import {
-  fetchCompanies,
-  pageUp,
-} from "../../features/pages/companiesPage/companySlice";
 
 import styles from "../../styles/PaginaLayout1.module.scss";
+
+// imports of all actions for company state
+import { fetchCompanies } from "../../features/company/actions/crud/fetchCompanies";
 
 function Compani() {
   const dispatch = useDispatch();
 
-  const { header_name, header_key } = useSelector((state) => state.headers);
-  const compani = useSelector((state) => state.companiesPage);
-
   useEffect(() => {
-    dispatch(pageUp());
     dispatch(fetchCompanies());
   }, [dispatch]);
 
@@ -38,7 +33,7 @@ function Compani() {
         header_key={header_key["compani"]}
         date={compani}
       /> */}
-      <Tabel table_column_name="companii_tabel" />
+      <Tabel table_column_name="companii_tabel" state_name="companies" />
     </div>
   );
 }

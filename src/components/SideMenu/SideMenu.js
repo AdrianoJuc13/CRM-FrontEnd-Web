@@ -29,8 +29,7 @@ import { logOut } from "../../features/authentification/authentificationSlice";
 
 function SideMenu() {
   const dispatch = useDispatch();
-  const { isOpen } = useSelector((store) => store.sidemenu);
-
+  const { isOpen } = useSelector((store) => store.sideMenuState);
   const [mousePos, setMousePos] = useState({});
   const location = useLocation();
 

@@ -4,8 +4,8 @@ const initialState = {
   isOpen: false,
 };
 
-const modalSlice = createSlice({
-  name: "sidemenu",
+const sideMenuSlice = createSlice({
+  name: "sideMenu",
   initialState,
   reducers: {
     openSideMenu: (state, action) => {
@@ -17,6 +17,6 @@ const modalSlice = createSlice({
   },
 });
 
-export const { openSideMenu, closeSideMenu } = modalSlice.actions;
+export const { openSideMenu, closeSideMenu } = sideMenuSlice.actions;
 
-export default modalSlice.reducer;
+export default sideMenuSlice.reducer;

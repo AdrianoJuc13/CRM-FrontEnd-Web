@@ -22,7 +22,7 @@ function Login() {
   const dispatch = useDispatch();
 
   const { isLoggedIn, error, loading } = useSelector(
-    (state) => state.authentification
+    (state) => state.authentificationState
   );
 
   const [login, setLogin] = useState({
