@@ -27,8 +27,7 @@ import avatar from "./../../assets/avatar.png";
 
 function SideMenu() {
   const dispatch = useDispatch();
-  const { isOpen } = useSelector((store) => store.sidemenu);
-
+  const { isOpen } = useSelector((store) => store.sideMenuState);
   const [mousePos, setMousePos] = useState({});
   const location = useLocation();
 

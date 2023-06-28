@@ -1,4 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+
 import Compani from "./pages/Compani/Compani";
 import Error from "./pages/Error/Error";
 import Home from "./pages/Home/Home";

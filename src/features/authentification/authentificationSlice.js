@@ -14,7 +14,7 @@ const initialState = {
 export const fetchLogin = createAsyncThunk(
   "authentification/fetchLogin",
   async ({ email, password }) => {
-    const configState = store.getState().configuration;
+    const configState = store.getState().configurationState;
     return axios
       .post(`${configState.backendHostname}/auth/login`, {
         email: email,
@@ -27,7 +27,7 @@ export const fetchLogin = createAsyncThunk(
 export const fetchRegister = createAsyncThunk(
   "authentification/fetchRegister",
   async ({ email, password }) => {
-    const configState = store.getState().configuration;
+    const configState = store.getState().configurationState;
     const response = await axios.post(
       `${configState.backendHostname}/auth/register`,
       {

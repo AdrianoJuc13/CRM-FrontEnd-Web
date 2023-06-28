@@ -3,7 +3,7 @@ import styles from "../../styles/PaginaLayout1.module.scss";
 import Tabel from "../../components/Tabel/Tabel";
 import { useDispatch, useSelector } from "react-redux";
 import AddBtn from "../../components/Butoane/AddBtn";
-import { fetchCompani } from "../../features/compani/CompaniSlice";
+import { fetchCompanies } from "../../features/company/actions/fetchCompanies";
 
 function Compani() {
   const { header_name, header_key } = useSelector((state) => state.headers);
@@ -11,7 +11,7 @@ function Compani() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchCompani());
+    dispatch(fetchCompanies());
   }, [dispatch]);
 
   const compani = useSelector((state) => state.compani);

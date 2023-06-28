@@ -5,7 +5,7 @@ const initialState = {
 };
 
 const modalSlice = createSlice({
-  name: "sidemenu",
+  name: "sideMenu",
   initialState,
   reducers: {
     openSideMenu: (state, action) => {
