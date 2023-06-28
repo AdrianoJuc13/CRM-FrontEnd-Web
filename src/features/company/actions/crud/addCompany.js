@@ -1,11 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { store } from "../../../store";
+import { store } from "../../../../store";
 import axios from "axios";
 
-export const updateCompany = createAsyncThunk(
-  "companies/updateCompany",
+export const addCompany = createAsyncThunk(
+  "companies/createCompany",
   async ({
-    companieId,
     nume,
     numarInregistrare,
     nisaId,
@@ -40,7 +39,6 @@ export const updateCompany = createAsyncThunk(
     console.log("Headers " + headers);
     console.log("url " + url);
     const data = {
-      companie_id: companieId,
       nume: nume,
       numar_inregistrare: numarInregistrare,
       nisa_id: nisaId,
@@ -57,9 +55,9 @@ export const updateCompany = createAsyncThunk(
       email: email,
       numar_telefon: numarTelefon,
     };
-
+    console.log(data);
     const config = {
-      method: "patch",
+      method: "post",
       url: url,
       headers: headers,
       data: data,

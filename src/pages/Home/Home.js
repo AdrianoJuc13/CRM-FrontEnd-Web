@@ -7,9 +7,9 @@ import {
   fetchRegister,
 } from "../../features/authentification/authentificationSlice";
 
-import { addCompany } from "../../features/company/actions/addCompany";
-import { updateCompany } from "../../features/company/actions/updateCompany";
-import { deleteCompany } from "../../features/company/actions/deleteCompany";
+import { addCompany } from "../../features/company/actions/crud/addCompany";
+import { updateCompany } from "../../features/company/actions/crud/updateCompany";
+import { deleteCompany } from "../../features/company/actions/crud/deleteCompany";
 
 function Home() {
   const state = useSelector((state) => state);

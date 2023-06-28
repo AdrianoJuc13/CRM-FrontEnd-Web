@@ -2,10 +2,13 @@ import axios from "axios";
 import { createSlice } from "@reduxjs/toolkit";
 
 //import async thunk actions
-import { fetchCompanies } from "./actions/fetchCompanies";
-import { addCompany } from "./actions/addCompany";
-import { updateCompany } from "./actions/updateCompany";
-import { deleteCompany } from "./actions/deleteCompany";
+import { fetchCompanies } from "./actions/crud/fetchCompanies";
+import { addCompany } from "./actions/crud/addCompany";
+import { updateCompany } from "./actions/crud/updateCompany";
+import { deleteCompany } from "./actions/crud/deleteCompany";
+
+//import ASYNC THUNK ACTIONS HANDLERS FOR ADD COMPANY
+import { addCompanyPending } from "./handle_async_thunk/addCompany/pending";
 
 const initialState = {
   loading: false,
@@ -92,10 +95,8 @@ const CompaniesSlice = createSlice({
     });
 
     //add company async thunk reducers
-    builder.addCase(addCompany.pending, (state) => {
-      state.loadingAddCompany = true;
-      state.errorAddCompany = "";
-    });
+    builder.addCase(addCompany.pending, addCompanyPending());
+
     builder.addCase(addCompany.fulfilled, (state, action) => {
       state.loadingAddCompany = false;
       state.errorAddCompany = "";

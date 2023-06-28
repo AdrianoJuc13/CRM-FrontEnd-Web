@@ -1,4 +1,4 @@
-import { store } from "../../../store";
+import { store } from "../../../../store";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 const axios = require("axios");

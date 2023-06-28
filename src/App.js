@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-
 import Compani from "./pages/Compani/Compani";
 import Error from "./pages/Error/Error";
 import Home from "./pages/Home/Home";
@@ -27,9 +26,9 @@ import { useSelector } from "react-redux";
 import { DefaultPage } from "./pages/Default/DefaultPage";
 
 function App() {
-  const { isLoggedIn } = useSelector((state) => state.authentification);
+  const { isLoggedIn } = useSelector((state) => state.authentificationState);
 
-  if (!isLoggedIn)
+  if (isLoggedIn)
     return (
       <BrowserRouter>
         <Routes>

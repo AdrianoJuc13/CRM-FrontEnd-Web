@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { store } from "../../../store";
+import { store } from "../../../../store";
 import axios from "axios";
 
 export const deleteCompany = createAsyncThunk(

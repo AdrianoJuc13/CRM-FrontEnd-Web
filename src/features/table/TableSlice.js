@@ -59,10 +59,10 @@ const initialState = {
 
   nise_tabel: ["Nume", "Persoana Responsabila", "Vanzari Totale"],
 };
-const CompaniSlice = createSlice({
-  name: "Tebel",
+const tableSlice = createSlice({
+  name: "table",
   initialState,
   reducers: {},
 });
 
-export default CompaniSlice.reducer;
+export default tableSlice.reducer;
