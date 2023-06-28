@@ -9,6 +9,7 @@ export const getNumberOfCompanies = createAsyncThunk(
     const state = store.getState();
     const authState = state.authentificationState;
     const companiesState = state.companiesState;
+    const configState = state.configurationState;
     if (authState.isLoggedIn == false) throw Error("User is not logged in");
 
     const url = configState.backendHostname + "/companii/getNumber";
@@ -26,7 +27,7 @@ export const getNumberOfCompanies = createAsyncThunk(
       })
       .then((response) => {
         {
-          response.data;
+          return response.data;
         }
       });
   }

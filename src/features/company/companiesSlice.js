@@ -1,13 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+//import actions for pagination
+import pageUp from "../utils/table_state_management/pageUp";
+import PageDown from "../utils/table_state_management/pageDown";
+import setItemsPerPage from "../utils/table_state_management/setItemsPerPage";
+
 //import async thunk actions
 import { fetchCompanies } from "./actions/crud/fetchCompanies";
 import { addCompany } from "./actions/crud/addCompany";
 import { updateCompany } from "./actions/crud/updateCompany";
 import { deleteCompany } from "./actions/crud/deleteCompany";
+import { getNumberOfCompanies } from "./actions/getNumberOfCompanies";
 
 //import ASYNC THUNK ACTIONS HANDLERS FOR ADD COMPANY
-import { addCompanyPending } from "./handle_async_thunk/addCompany/pending";
+import addCompanyPending from "./handle_async_thunk/addCompany/pending";
 import addCompanyFulfilled from "./handle_async_thunk/addCompany/fulfilled";
 import addCompanyRejected from "./handle_async_thunk/addCompany/rejected";
 
@@ -26,16 +32,35 @@ import fetchCompaniesPending from "./handle_async_thunk/fetchCompanies/pending";
 import fetchCompaniesFulfilled from "./handle_async_thunk/fetchCompanies/fulfilled";
 import fetchCompaniesRejected from "./handle_async_thunk/fetchCompanies/rejected";
 
+//import ASYNC THUNK ACTIONS HANDLERS FOR FETCH NUMBER OF COMPANIES
+import fetchNumberOfCompaniesPending from "./handle_async_thunk/getNumberOfCompanies/pending";
+import fetchNumberOfCompaniesFulfilled from "./handle_async_thunk/getNumberOfCompanies/fulfilled";
+import fetchNumberOfCompaniesRejected from "./handle_async_thunk/getNumberOfCompanies/rejected";
+
 const initialState = {
-  loading: false,
-  companies: [],
+  // numarul total  de pagini de companii din baza de date
+  numberOfTotalPages: 0,
+  //numarul total de companii din baza de date
+  numberOfTotalItems: 0,
+  // acest parametru ne spune daca mai exista pagini de luat din baza de date
+  numberOfTotalPagesError: "",
+  numberOfTotalPagesLoading: false,
+
+  //number of companies per page
   itemsPerPage: 5,
 
+  //companiile de pe pagina curenta
+  currentPageItems: [],
+  // numarul paginii curente
   currentPage: 1,
-  maximumPage: 1,
 
-  hasMore: true,
-  error: "",
+  // toate companiile incarcate din baza de date
+  itemsLoaded: [],
+  // numarul paginilor incarcate din baza de date
+  pagesLoaded: [],
+
+  loadingFetchCompanies: false,
+  errorFetchCompanies: "",
 
   loadingAddCompany: false,
   errorAddCompany: "",
@@ -53,32 +78,14 @@ const CompaniesSlice = createSlice({
   name: "companies",
   initialState,
   reducers: {
-    setItemsPerPage(state, action) {
-      const itemsNumber = action.payload.itemsNumber;
-      if (typeof itemsNumber != "number") {
-        throw Error("the number of items must pe of type number");
-      }
-      if (itemsNumber < 0) {
-        throw Error("invaild value for number of items");
-      }
-      state.itemsPerPage = itemsNumber;
+    pageUpCompanies(state, action) {
+      pageUp(state, action);
     },
-    pageUp(state, action) {
-      if (state.hasMore === true) {
-        if (state.currentPage < state.maximumPage) {
-          state.currentPage++;
-        } else if (
-          state.currentPage == state.maximumPage &&
-          state.loading == false
-        ) {
-          state.currentPage++;
-        }
-      } else {
-        state.error = "There are no more pages to load";
-      }
+    pageDownCompanies(state, action) {
+      PageDown(state, action);
     },
-    pageDown(state) {
-      if (state.currentPage >= 2) state.currentPage--;
+    setItemsPerPageCompanies(state, action) {
+      setItemsPerPage(state, action);
     },
   },
 
@@ -102,8 +109,23 @@ const CompaniesSlice = createSlice({
     builder.addCase(deleteCompany.pending, deleteCompanyPending());
     builder.addCase(deleteCompany.fulfilled, deleteCompanyFulfilled());
     builder.addCase(deleteCompany.rejected, deleteCompanyRejected());
+
+    //get number of companies async thunk reducers
+    builder.addCase(
+      getNumberOfCompanies.pending,
+      fetchNumberOfCompaniesPending()
+    );
+    builder.addCase(
+      getNumberOfCompanies.fulfilled,
+      fetchNumberOfCompaniesFulfilled()
+    );
+    builder.addCase(
+      getNumberOfCompanies.rejected,
+      fetchNumberOfCompaniesRejected()
+    );
   },
 });
 
-export const { pageUp, pageDown } = CompaniesSlice.actions;
+export const { pageUpCompanies, pageDownCompanies, setItemsPerPageCompanies } =
+  CompaniesSlice.actions;
 export default CompaniesSlice.reducer;
