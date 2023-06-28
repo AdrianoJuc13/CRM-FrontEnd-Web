@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../../styles/adaugaCompanie.module.scss";
+import styles from "../../styles/pagini_adauga/adaugaCompanie.module.scss";
 
 import AddBtn from "../../components/Butoane/AddBtn";
 
@@ -7,25 +7,18 @@ import { icons } from "../../styles/icons";
 // import axios from "axios";
 import InputCuTitlu from "../../components/InputCuTitlu/InputCuTitlu";
 import SelectCuTitlu from "../../components/SelectCuTitlu/SelectCuTitlu";
+import SaveBtn from "../../components/Butoane/SaveBtn";
 
 function AdaugaCompanie() {
-  const [formular, setFormular] = useState({
-    nume: "Burdujeni Records de test",
-    // numar_inregistrare: "test numar inregistrare",
-    // vanzari_totale: 6969420,
-    adresa_livrare: "Calea Burdujeni ",
-    adresa_facturare: "tesdf t",
-    // numar_angajati: 20,
-    // cifra_afaceri: 222222,
-    // locatie_gps: "asdasd",
-    nisa_id: "2ab1b898-8acc-4953-975e-5c4795033dfb",
-    marime_companie_id: "3dfe4ec2-9a1a-4d97-be36-f5c1dde181c9",
-    activitate_companie_id: "d26448d2-d9d9-4522-9c78-a05721aa90ac",
-    angajat_responsabil: "266caa08-f7c7-4620-8168-0198f33aa63b",
-    punct_lucru_id: "b0fbaff2-943b-4d21-a834-01942bf2a7c1",
-  });
-  const { nume, companie_cod_fiscalj, adresa_livrare, adresa_facturare } =
-    formular;
+  const [formular, setFormular] = useState({});
+  const {
+    nume,
+    companie_cod_fiscalj,
+    adresa_livrare,
+    adresa_facturare,
+    companie_cod_ax,
+    punct_lucru_id,
+  } = formular;
 
   const [formularContact, setFormularContact] = useState({});
 
@@ -77,7 +70,7 @@ function AdaugaCompanie() {
   };
 
   return (
-    <div className={styles.compani}>
+    <div className={styles.pagina_adauga}>
       <div className={styles.header_top}>
         <AddBtn
           icon={
@@ -93,6 +86,7 @@ function AdaugaCompanie() {
       <form className={styles.body} onSubmit={handleSubmit}>
         <div className={styles.row}>
           <InputCuTitlu
+            disabled={false}
             type="text"
             value={nume}
             placeholder="Nume"
@@ -102,7 +96,7 @@ function AdaugaCompanie() {
           />
 
           <InputCuTitlu
-            disabled
+            disabled={true}
             type="text"
             // value={CAEN}
             placeholder="caen"
@@ -114,7 +108,7 @@ function AdaugaCompanie() {
         <div className={styles.header}>Date fiscale</div>
         <div className={styles.row}>
           <InputCuTitlu
-            disabled
+            disabled={false}
             type="text"
             value={companie_cod_fiscalj}
             placeholder="cod j"
@@ -126,10 +120,10 @@ function AdaugaCompanie() {
             disabled={true}
             label="Cod fiscal"
             type="text"
-            // value={companie_cod_ax}
+            value={companie_cod_ax}
             placeholder="cod ax"
             name="companie_cod_ax"
-            // onChange={handleChange}
+            onChange={handleChange}
           />
 
           <InputCuTitlu
@@ -157,9 +151,9 @@ function AdaugaCompanie() {
             disabled={false}
             label="Punct de lucru"
             type="text"
-            // value={punct_lucru_id}
+            value={punct_lucru_id}
             placeholder="pct. de lucru"
-            // name="punct_lucru_id"
+            name="punct_lucru_id"
             onChange={handleChange}
             optiuni={["optiune 1", "optiune 2", "optiune 3", "optiune 4"]}
           />
@@ -167,9 +161,9 @@ function AdaugaCompanie() {
             disabled={false}
             label="Angajat responsabil"
             type="text"
-            // value={punct_lucru_id}
+            value={punct_lucru_id}
             placeholder="Angajat responsabil"
-            // name="punct_lucru_id"
+            name="punct_lucru_id"
             onChange={handleChange}
             optiuni={["optiune 1", "optiune 2", "optiune 3", "optiune 4"]}
           />
@@ -177,19 +171,19 @@ function AdaugaCompanie() {
             disabled={false}
             label="Segment de piata"
             type="text"
-            // value={punct_lucru_id}
+            value={punct_lucru_id}
             placeholder="Segment de piata"
-            // name="punct_lucru_id"
+            name="punct_lucru_id"
             onChange={handleChange}
             optiuni={["optiune 1", "optiune 2", "optiune 3", "optiune 4"]}
           />
           <SelectCuTitlu
-            disabled={false}
+            disabled={true}
             label="Tip Client"
             type="text"
-            // value={punct_lucru_id}
+            value={punct_lucru_id}
             placeholder="Tip Client"
-            // name="punct_lucru_id"
+            name="punct_lucru_id"
             onChange={handleChange}
             optiuni={["optiune 1", "optiune 2", "optiune 3", "optiune 4"]}
           />
@@ -252,9 +246,7 @@ function AdaugaCompanie() {
           </div>
         </div>
 
-        <button className={styles.btn_salveaza} type="submit">
-          Salveaza
-        </button>
+        <SaveBtn />
       </form>
     </div>
   );

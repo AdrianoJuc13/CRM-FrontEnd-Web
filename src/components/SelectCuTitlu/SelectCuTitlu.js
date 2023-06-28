@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./SelectCuTiltu.module.scss";
 
-const SelectCuTiltu = ({
+const SelectCuTitlu = ({
   value,
   label,
   name,
@@ -31,4 +31,4 @@ const SelectCuTiltu = ({
   </div>
 );
 
-export default SelectCuTiltu;
+export default SelectCuTitlu;

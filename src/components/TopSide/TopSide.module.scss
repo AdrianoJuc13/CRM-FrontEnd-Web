@@ -5,8 +5,9 @@
 .topside {
   background: colors.$mywhite;
 
+  height: 5vh;
   width: auto;
-  height: 2.8rem;
+
   display: flex;
   flex-direction: row;
   justify-content: flex-start;

@@ -16,13 +16,13 @@ function Prospectare() {
 
   const prospectare = useSelector((state) => state.prospectare);
 
-  return ( 
-    <div className={styles.rapoarte}>
+  return (
+    <div className={styles.pagina_principala}>
       <div className={styles.header}>
         <div className={styles.titlu}>Plan de prospectare</div>
-        <AddBtn name="Adauga Vizita Prospectare" link="/adauga_raport" />
+        <AddBtn name="Adauga Vizita Prospectare" link="/adauga_prospectare" />
       </div>
-      <Tabel headers={header_tabel["prospectare"]} date={prospectare} />
+      <Tabel table_column_name="prospectare_tabel" />
     </div>
   );
 }

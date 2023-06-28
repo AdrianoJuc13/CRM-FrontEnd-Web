@@ -16,13 +16,13 @@ function Rapoarte() {
 
   const rapoarte = useSelector((state) => state.rapoarte);
 
-  return ( 
-    <div className={styles.rapoarte}>
+  return (
+    <div className={styles.pagina_principala}>
       <div className={styles.header}>
         <div className={styles.titlu}>Rapoarte</div>
         <AddBtn name="Adauga Raport" link="/adauga_raport" />
       </div>
-      <Tabel headers={header_tabel["rapoarte"]} date={rapoarte} />
+      {/* <Tabel headers={header_tabel["rapoarte"]} date={rapoarte} /> */}
     </div>
   );
 }
