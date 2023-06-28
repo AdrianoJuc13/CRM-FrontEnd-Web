@@ -1,4 +1,3 @@
-import axios from "axios";
 import { createSlice } from "@reduxjs/toolkit";
 
 //import async thunk actions
@@ -9,6 +8,23 @@ import { deleteCompany } from "./actions/crud/deleteCompany";
 
 //import ASYNC THUNK ACTIONS HANDLERS FOR ADD COMPANY
 import { addCompanyPending } from "./handle_async_thunk/addCompany/pending";
+import addCompanyFulfilled from "./handle_async_thunk/addCompany/fulfilled";
+import addCompanyRejected from "./handle_async_thunk/addCompany/rejected";
+
+//import ASYNC THUNK ACTIONS HANDLERS FOR UPDATE COMPANY
+import updateCompanyPending from "./handle_async_thunk/updateCompany/pending";
+import updateCompanyFulfilled from "./handle_async_thunk/updateCompany/fulfilled";
+import updateCompanyRejected from "./handle_async_thunk/updateCompany/rejected";
+
+//import ASYNC THUNK ACTIONS HANDLERS FOR DELETE COMPANY
+import deleteCompanyPending from "./handle_async_thunk/deleteCompany/pending";
+import deleteCompanyFulfilled from "./handle_async_thunk/deleteCompany/fulfilled";
+import deleteCompanyRejected from "./handle_async_thunk/deleteCompany/rejected";
+
+//import ASYNC THUNK ACTIONS HANDLERS FOR FETCH COMPANY
+import fetchCompaniesPending from "./handle_async_thunk/fetchCompanies/pending";
+import fetchCompaniesFulfilled from "./handle_async_thunk/fetchCompanies/fulfilled";
+import fetchCompaniesRejected from "./handle_async_thunk/fetchCompanies/rejected";
 
 const initialState = {
   loading: false,
@@ -65,86 +81,27 @@ const CompaniesSlice = createSlice({
       if (state.currentPage >= 2) state.currentPage--;
     },
   },
+
   extraReducers: (builder) => {
     //fetch companies async thunk reducers
-    //FETCH PENDING
-    builder.addCase(fetchCompanies.pending, (state) => {
-      state.loading = true;
-      state.error = "";
-    });
-    //FETCH FULFILLED
-    builder.addCase(fetchCompanies.fulfilled, (state, action) => {
-      state.loading = false;
-      state.error = "";
-      console.log(action.payload);
-      if (action.payload.status == 200) {
-        state.pagesLoaded++;
-        state.companies = state.companies.concat(action.payload.data);
-        state.hasMore = action.payload.hasMore;
-        state.lastId = state.companies[state.companies.length - 1].companie_id;
-      } else {
-        state.error = "There was an error while fetching companies";
-      }
-      // state.payload = action.payload.companies;
-      state.error = "";
-    });
-    //FETCH REJECTED
-    builder.addCase(fetchCompanies.rejected, (state, action) => {
-      state.loading = false;
-      state.error = action.error.message;
-    });
+    builder.addCase(fetchCompanies.pending, fetchCompaniesPending());
+    builder.addCase(fetchCompanies.fulfilled, fetchCompaniesFulfilled());
+    builder.addCase(fetchCompanies.rejected, fetchCompaniesRejected());
 
     //add company async thunk reducers
     builder.addCase(addCompany.pending, addCompanyPending());
-
-    builder.addCase(addCompany.fulfilled, (state, action) => {
-      state.loadingAddCompany = false;
-      state.errorAddCompany = "";
-      if (action.payload.status != 200) {
-        state.errorAddCompany = "There was an error while adding your company";
-      }
-    });
-    builder.addCase(addCompany.rejected, (state, action) => {
-      state.loadingAddCompany = false;
-      state.errorAddCompany = action.error.message;
-    });
+    builder.addCase(addCompany.fulfilled, addCompanyFulfilled());
+    builder.addCase(addCompany.rejected, addCompanyRejected());
 
     //update company async thunk reducers
-    builder.addCase(updateCompany.pending, (state) => {
-      state.loadingUpdateCompany = true;
-      state.errorUpdateCompany = "";
-    });
-    builder.addCase(updateCompany.fulfilled, (state, action) => {
-      console.log(action.payload);
-      state.loadingUpdateCompany = false;
-      state.errorUpdateCompany = "";
-      if (action.payload.status != 200) {
-        state.errorUpdateCompany =
-          "There was an error while updating your company";
-      }
-    });
-    builder.addCase(updateCompany.rejected, (state, action) => {
-      state.loadingUpdateCompany = false;
-      state.state.errorUpdateCompany = action.error.message;
-    });
+    builder.addCase(updateCompany.pending, updateCompanyPending());
+    builder.addCase(updateCompany.fulfilled, updateCompanyFulfilled());
+    builder.addCase(updateCompany.rejected, updateCompanyRejected());
 
     //delete company async thunk reducers
-    builder.addCase(deleteCompany.pending, (state) => {
-      state.loadingDeleteCompany = true;
-      state.errorDeleteCompany = "";
-    });
-    builder.addCase(deleteCompany.fulfilled, (state, action) => {
-      state.loadingDeleteCompany = false;
-      state.errorDeleteCompany = "";
-      if (action.payload.status != 200) {
-        state.errorDeleteCompany =
-          "There was an error while deleting your company";
-      }
-    });
-    builder.addCase(deleteCompany.rejected, (state, action) => {
-      state.loadingDeleteCompany = false;
-      state.errorDeleteCompany = action.error.message;
-    });
+    builder.addCase(deleteCompany.pending, deleteCompanyPending());
+    builder.addCase(deleteCompany.fulfilled, deleteCompanyFulfilled());
+    builder.addCase(deleteCompany.rejected, deleteCompanyRejected());
   },
 });
 
