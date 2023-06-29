@@ -10,7 +10,7 @@ import { fetchCompanies } from "../../features/company/actions/crud/fetchCompani
 
 function Compani() {
   const dispatch = useDispatch();
-
+  const authState = useSelector((state) => state.authentificationState);
   useEffect(() => {
     dispatch(fetchCompanies());
   }, [dispatch]);

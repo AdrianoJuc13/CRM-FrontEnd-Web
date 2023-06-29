@@ -88,11 +88,11 @@ function Tabel(props) {
           }
         </div>
         <NotificationContainer />
-        <PopSide
+        {/* <PopSide
           date={props.date}
           // detalii_name={props.detalii_name}
           // detalii_key={props.detalii_key}
-        />
+        /> */}
       </div>
       {/* <div className={styles.arrows}>
         {currentPage !== 1 ? (
