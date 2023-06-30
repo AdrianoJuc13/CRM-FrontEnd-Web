@@ -16,7 +16,7 @@ import AdaugaObiectiv from "./pages/Obiective/AdaugaObiectiv";
 import Rapoarte from "./pages/Rapoarte/Rapoarte";
 import Setari from "./pages/Setari/Setari";
 import Suport from "./pages/Suport/Suport";
-import AdaugaCompanie from "./pages/Compani/AdaugaCompanie";
+import AdaugaCompanie from "./pages/Compani/AdaugaCompanie/AdaugaCompanie";
 import AdaugaOportunitate from "./pages/Oportunitati/AdaugaOportunitate";
 import AdaugaContact from "./pages/Contacte/AdaugaContact";
 import AdaugaProspectare from "./pages/Prospectare/AdaugaProspectare";

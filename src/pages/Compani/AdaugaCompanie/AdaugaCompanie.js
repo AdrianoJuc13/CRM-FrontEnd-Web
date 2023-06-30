@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import styles from "../../styles/pagini_adauga/adaugaCompanie.module.scss";
+import styles from "./adaugaCompanie.module.scss";
 
-import AddBtn from "../../components/Butoane/AddBtn";
+import AddBtn from "../../../components/Butoane/AddBtn";
 
-import { icons } from "../../styles/icons";
+import { icons } from "../../../styles/icons";
+
 // import axios from "axios";
-import InputCuTitlu from "../../components/InputCuTitlu/InputCuTitlu";
-import SelectCuTitlu from "../../components/SelectCuTitlu/SelectCuTitlu";
-import SaveBtn from "../../components/Butoane/SaveBtn";
+import InputCuTitlu from "../../../components/InputCuTitlu/InputCuTitlu";
+import SelectCuTitlu from "../../../components/SelectCuTitlu/SelectCuTitlu";
+import SaveBtn from "../../../components/Butoane/SaveBtn";
 
 function AdaugaCompanie() {
   const [formular, setFormular] = useState({});

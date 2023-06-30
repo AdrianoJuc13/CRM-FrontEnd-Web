@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import styles from "../../styles/PaginaLayout1.module.scss";
+import styles from "../../styles/GeneralPagesFormat.module.scss";
 import Tabel from "../../components/Tabel/Tabel";
 import { useDispatch, useSelector } from "react-redux";
 import AddBtn from "../../components/Butoane/AddBtn";

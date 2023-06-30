@@ -50,7 +50,40 @@ const initialState = {
   itemsPerPage: 5,
 
   //companiile de pe pagina curenta
-  currentPageItems: [],
+  currentPageItems: [
+    {
+      companie_id: "be06ca78-3577-4c55-9718-d73b00f9cead",
+      nume: "Poligon Tech",
+      numar_inregistrare: "test numar inregistrare",
+      nisa_id: "9c7d8ec7-ec66-4910-9b78-56bd242956a8",
+      marime_companie_id: "9bc0f1d8-acc6-4ddc-81b7-e65e7a18512f",
+      activitate_companie_id: "27790647-5601-45ba-a44f-905a67438c04",
+      vanzari_totale: 88888,
+      adresa_livrare: "strada terst",
+      adresa_facturare: "tesdf t",
+      numar_angajati: 20,
+      cifra_afaceri: 222222,
+      locatie_gps: "asdasd",
+      angajat_responsabil: "d12c96f0-1433-4399-be22-8e46ba02ae41",
+      punct_lucru_id: "f1ceb2e2-77d5-421d-89df-0fdf63e1591c",
+    },
+    {
+      companie_id: "a32f348e-5bee-44af-89ea-3f156aa31391",
+      nume: "Poligon Tech UPDATED2",
+      numar_inregistrare: "test numar inregistrare",
+      nisa_id: "9c7d8ec7-ec66-4910-9b78-56bd242956a8",
+      marime_companie_id: "9bc0f1d8-acc6-4ddc-81b7-e65e7a18512f",
+      activitate_companie_id: "27790647-5601-45ba-a44f-905a67438c04",
+      vanzari_totale: 88888,
+      adresa_livrare: "strada terst",
+      adresa_facturare: "tesdf t",
+      numar_angajati: 20,
+      cifra_afaceri: 222222,
+      locatie_gps: "asdasd",
+      angajat_responsabil: "d12c96f0-1433-4399-be22-8e46ba02ae41",
+      punct_lucru_id: "f1ceb2e2-77d5-421d-89df-0fdf63e1591c",
+    },
+  ],
   // numarul paginii curente
   currentPage: 1,
 
@@ -58,6 +91,12 @@ const initialState = {
   itemsLoaded: [],
   // numarul paginilor incarcate din baza de date
   pagesLoaded: [],
+
+  // trigger-ul popup-ului pentru a-l afisa pe ecran
+  isPopupOpen: false,
+
+  // state-ul companiei selectate
+  currentCompanyState: {},
 
   loadingFetchCompanies: false,
   errorFetchCompanies: "",
@@ -86,6 +125,20 @@ const CompaniesSlice = createSlice({
     },
     setItemsPerPageCompanies(state, action) {
       setItemsPerPage(state, action);
+    },
+    clearErrorCompanies(state, action) {
+      state.error = "";
+    },
+    closePopUp(state, action) {
+      state.isPopupOpen = false;
+    },
+    openPopup(state, action) {
+      state.isPopupOpen = true;
+    },
+    setCurrentCompanyState(state, action) {
+      // const uidNumber = action.payload
+      const index = action.payload;
+      state.currentCompanyState = state.currentPageItems[index];
     },
   },
 
@@ -126,6 +179,13 @@ const CompaniesSlice = createSlice({
   },
 });
 
-export const { pageUpCompanies, pageDownCompanies, setItemsPerPageCompanies } =
-  CompaniesSlice.actions;
+export const {
+  pageUpCompanies,
+  pageDownCompanies,
+  setItemsPerPageCompanies,
+  clearErrorCompanies,
+  closePopUp,
+  openPopup,
+  setCurrentCompanyState,
+} = CompaniesSlice.actions;
 export default CompaniesSlice.reducer;

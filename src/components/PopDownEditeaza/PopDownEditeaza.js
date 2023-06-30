@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./PopDownEditeaza.module.scss";
 import SaveBtn from "../Butoane/SaveBtn";
 import SectiuneFieldEdit from "../SectiuneFieldEdit/SectiuneFieldEdit";
 
 function PopDownEditeaza(props) {
-  const [formular, setFormular] = useState({});
+  // const [formular, setFormular] = useState({});
 
   function handleSubmit(e) {
     alert("");
