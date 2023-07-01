@@ -25,10 +25,11 @@ import { MdContactSupport } from "react-icons/md";
 
 import avatar from "./../../assets/avatar.png";
 
+import { logOut } from "../../features/authentification/authentificationSlice";
+
 function SideMenu() {
   const dispatch = useDispatch();
-  const { isOpen } = useSelector((store) => store.sidemenu);
-
+  const { isOpen } = useSelector((store) => store.sideMenuState);
   const [mousePos, setMousePos] = useState({});
   const location = useLocation();
 
@@ -44,9 +45,9 @@ function SideMenu() {
     };
   }, []);
 
-  useEffect(() => {
-    if (mousePos.x > 280 && isOpen) dispatch(closeSideMenu());
-  }, [mousePos.x, dispatch, isOpen]);
+  // useEffect(() => {
+  //   if (mousePos.x > 280 && isOpen) dispatch(closeSideMenu());
+  // }, [mousePos.x, dispatch, isOpen]);
 
   return (
     <div className={isOpen ? styles.sidemenu_open : styles.sidemenu_closed}>
@@ -185,6 +186,9 @@ function SideMenu() {
           to="/login"
           className={styles.btn_section}
           style={location.pathname === "/login" ? { color: "white" } : null}
+          onClick={() => {
+            dispatch(logOut());
+          }}
         >
           <div className={styles.btn}>
             <BiLogOut />

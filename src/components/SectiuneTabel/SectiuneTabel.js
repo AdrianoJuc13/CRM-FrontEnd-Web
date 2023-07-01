@@ -5,22 +5,28 @@ function SectiuneTabel(props) {
   return (
     <div className={styles.tabel}>
       <div className={styles.header}>
-        <div className={styles.hd}>Ceva1</div>
-        <div className={styles.hd}>Ceva2</div>
-        <div className={styles.hd}>Ceva3</div>
-        <div className={styles.hd}>Ceva4</div>
-        <div className={styles.hd}>Status</div>
+        {props.headers &&
+          props.headers.map((item, index) => {
+            return (
+              <div key={index} className={styles.hd}>
+                {item}
+              </div>
+            );
+          })}
       </div>
       <div className={styles.rows}>
         {props.data &&
           props.data.map((item, index) => {
             return (
               <div key={index} className={styles.row}>
-                <div className={styles.data}>{item}</div>
-                <div className={styles.data}>date</div>
-                <div className={styles.data}>date</div>
-                <div className={styles.data}>date</div>
-                <div className={styles.data}>date</div>
+                {item &&
+                  item.map((itam, indax) => {
+                    return (
+                      <div key={indax} className={styles.data}>
+                        {itam}
+                      </div>
+                    );
+                  })}
               </div>
             );
           })}

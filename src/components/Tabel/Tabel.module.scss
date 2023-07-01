@@ -2,8 +2,9 @@
 @use "src/styles/mixinHelper";
 @use "src/styles/fonts";
 
-.tabel_rapoarte {
+.tabel_style {
   width: 100%;
+  height: 93%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,12 +19,12 @@
     //   background: colors.$grey100;
     position: relative;
     width: 90%;
-    height: 46rem;
-    margin-top: 1.3rem;
     background: white;
 
     border-radius: 0.25rem;
 
+    margin-top: 1.3rem;
+    margin-bottom: 1rem;
     .header {
       display: flex;
       flex-direction: row;
@@ -62,6 +63,76 @@
           display: flex;
         }
       }
+    }
+  }
+  .arrows {
+    margin-top: auto;
+    margin-bottom: 1rem;
+
+    width: 9rem;
+    gap: 1rem;
+
+    color: white;
+
+    font-size: 1rem;
+    font-weight: 500;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    .left_arrow {
+      cursor: pointer;
+
+      background: white;
+      color: black;
+
+      margin: 0 auto;
+      height: 1.5rem;
+      width: 3rem;
+
+      border-bottom-left-radius: 1rem;
+      border-top-left-radius: 1rem;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      transition: width 0.2s;
+    }
+    .right_arrow {
+      cursor: pointer;
+
+      background: white;
+      color: black;
+
+      margin: 0 auto;
+      width: 3rem;
+      height: 1.5rem;
+
+      border-bottom-right-radius: 1rem;
+      border-top-right-radius: 1rem;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      transition: width 0.2s;
+    }
+    .left_arrow:hover {
+      background: colors.$grey100;
+      color: white;
+      width: 3.5rem;
+
+      transition: width 0.2s;
+    }
+    .right_arrow:hover {
+      background: colors.$grey100;
+      color: white;
+
+      width: 3rem;
+      transition: width 0.2s;
     }
   }
 }

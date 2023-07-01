@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Butoane.module.scss";
-
 function AddBtn(props) {
   const navigate = useNavigate();
   return (
@@ -11,7 +10,8 @@ function AddBtn(props) {
         navigate(`${props.link}`);
       }}
     >
-      {props.name}
+      {props.icon ? <div className={styles.icon}>{props.icon}</div> : null}
+      <div className={styles.text}>{props.name}</div>
     </button>
   );
 }

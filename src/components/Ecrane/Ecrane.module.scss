@@ -24,6 +24,24 @@
   .screen_date {
     overflow-y: auto;
     height: 70vh;
+    .page_data {
+      display: flex;
+      flex-direction: column;
+
+      .element_data {
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 2rem;
+        .titlu_data {
+          font-size: 2rem;
+        }
+        .select_data {
+          padding: 0.7rem 0.2rem;
+        }
+      }
+    }
   }
 }
 .ecran_fara_pagini {

@@ -1,31 +1,23 @@
 import { configureStore } from "@reduxjs/toolkit";
-import sidemenuReducer from "./features/sidemenu/SideMenuSlice";
-import companiReducer from "./features/compani/CompaniSlice";
-import contacteReducer from "./features/contacte/ContacteSlice";
-import oportunitatiReducer from "./features/oportunitati/OportunitatiSlice";
-import plandeactiuneReducer from "./features/plandeactiune/PlandeactiuneSlice";
-import prospectareReducer from "./features/prospectare/ProspectareSlice";
-import obiectiveReducer from "./features/obiective/ObiectiveSlice";
-import rapoarteReducer from "./features/rapoarte/RapoarteSlice";
-import niseReducer from "./features/relations/NiseSlice";
-import PuncteLucruReducer from "./features/relations/PuncteLucruSlice";
-import MarimiCompaniReducer from "./features/relations/MarimiCompaniSlice";
-import HeadersReducer from "./features/headers_tabel/HeadersSlice";
-import CurrentReducer from "./features/current_actions/CurrentSlice";
-export const store = configureStore({
-  reducer: {
-    sidemenu: sidemenuReducer,
-    compani: companiReducer,
-    contacte: contacteReducer,
-    oportunitati: oportunitatiReducer,
-    plandeactiune: plandeactiuneReducer,
-    prospectare: prospectareReducer,
-    obiective: obiectiveReducer,
-    rapoarte: rapoarteReducer,
-    nise: niseReducer,
-    punctelucru: PuncteLucruReducer,
-    marimicompani: MarimiCompaniReducer,
-    headers: HeadersReducer,
-    current: CurrentReducer,
-  },
+import { persistReducer, persistStore } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+
+import rootReducer from "./features/combineReducers";
+
+const persistConfig = {
+  key: "root",
+  storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+const store = configureStore({
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
+
+const persistedStore = persistStore(store);
+export { store, persistedStore };

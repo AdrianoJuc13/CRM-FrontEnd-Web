@@ -12,7 +12,11 @@ export const fetchOportunitati = createAsyncThunk(
   "user/fetchOportunitati",
   async () => {
     return axios
-      .get(`${"https://jsonplaceholder.typicode.com/users/"}`)
+      .get(
+        `http://136.255.168.27:5800/oportunitati/pagination?limita=${
+          Number.MAX_SAFE_INTEGER
+        }&last_id=${"start"}`
+      )
       .then((response) => response.data);
   }
 );
