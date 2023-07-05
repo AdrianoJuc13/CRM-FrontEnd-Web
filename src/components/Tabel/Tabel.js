@@ -18,8 +18,13 @@ function Tabel(props) {
   const dispatch = useDispatch();
 
   const table_column_name = props.table_column_name;
+  const table_column_key_name = props.table_column_key;
+
   const table_state = useSelector((store) => store.tableState);
+
   const table_columns = table_state[table_column_name];
+  const table_columns_keys = table_state[table_column_key_name];
+
   const {
     itemsPerPage,
     currentPageItems,
@@ -78,20 +83,6 @@ function Tabel(props) {
         <div className={styles.rows}>
           {loading && <div>Loading...</div>}
           {loading && error ? <div>Error: {error}</div> : null}
-          <div
-            className={styles.row}
-            onClick={() => {
-              dispatch(props.setCurrentState(1));
-              dispatch(props.openPopup());
-            }}
-          >
-            <div className={styles.td}>{"item[] "}</div>
-            <div className={styles.td}>{"item[] "}</div>
-            <div className={styles.td}>{"item[] "}</div>
-            <div className={styles.td}>{"item[] "}</div>
-            <div className={styles.td}>{"item[] "}</div>
-            <div className={styles.td}>{"item[] "}</div>
-          </div>
           {currentPageItems &&
             currentPageItems.map((item, index) => {
               return (
@@ -107,14 +98,14 @@ function Tabel(props) {
                     // dispatch(fetchOportunitati());
                   }}
                 >
-                  {/* {props.header_key &&
-                      props.header_key.map((_itam, indax) => {
-                        return (
-                          <div key={indax} className={styles.td}>
-                            {item[_itam] ? item[_itam] : "-"}
-                          </div>
-                        );
-                      })} */}
+                  {table_columns_keys &&
+                    table_columns_keys.map((_itam, indax) => {
+                      return (
+                        <div key={indax} className={styles.td}>
+                          {item[_itam] ? item[_itam] : "-"}
+                        </div>
+                      );
+                    })}
                 </div>
               );
             })}

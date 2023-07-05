@@ -6,12 +6,7 @@ export const Page_1 = () => {
   const { currentCompanyState } = useSelector((state) => state.companiesState);
 
   return (
-    <div
-      className="page_data"
-      onClick={() => {
-        console.log(currentCompanyState);
-      }}
-    >
+    <div className="page_data">
       <SectiuneField
         icon="BIEdit"
         titlu="Date fiscale"

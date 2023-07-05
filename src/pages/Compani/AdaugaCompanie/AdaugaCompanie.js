@@ -1,14 +1,14 @@
 import React, { useState } from "react";
+
+//styling
 import styles from "./adaugaCompanie.module.scss";
-
-import AddBtn from "../../../components/Butoane/AddBtn";
-
 import { icons } from "../../../styles/icons";
 
-// import axios from "axios";
+//my imports
 import InputCuTitlu from "../../../components/InputCuTitlu/InputCuTitlu";
 import SelectCuTitlu from "../../../components/SelectCuTitlu/SelectCuTitlu";
 import SaveBtn from "../../../components/Butoane/SaveBtn";
+import BackBtn from "../../../components/Butoane/BackBtn";
 
 function AdaugaCompanie() {
   const [formular, setFormular] = useState({});
@@ -73,7 +73,7 @@ function AdaugaCompanie() {
   return (
     <div className={styles.pagina_adauga}>
       <div className={styles.header_top}>
-        <AddBtn
+        <BackBtn
           icon={
             <div className={styles.arrow}>{icons.BsArrowLeftCircleFill}</div>
           }

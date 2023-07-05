@@ -1,0 +1,93 @@
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 250vh;
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  transition: all 0.3s ease-in-out;
+  .inner_view {
+    position: absolute;
+    width: 90%;
+    height: 90vh;
+    top: 5vh;
+    background: white;
+    overflow-y: auto;
+    .close_btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      border: 1px solid black;
+      border-radius: 0.5rem;
+      width: 4rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: 0.1s all ease-in-out;
+      &:hover {
+        width: 4.4rem;
+        transition: 0.1s all ease-in-out;
+        background: grey;
+        color: white;
+      }
+    }
+    .edit_btn {
+      position: absolute;
+      top: 1rem;
+      right: 7rem;
+      border: 1px solid black;
+      border-radius: 0.5rem;
+      width: 4rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: 0.1s all ease-in-out;
+      &:hover {
+        width: 4.4rem;
+        transition: 0.1s all ease-in-out;
+        background: grey;
+        color: white;
+      }
+    }
+  }
+  .inner_edit {
+    position: absolute;
+    width: 90%;
+    height: 90vh;
+    bottom: 5vh;
+    background: white;
+    overflow-y: auto;
+    .close_btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      border: 1px solid black;
+      border-radius: 0.5rem;
+      width: 4rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: 0.1s all ease-in-out;
+      &:hover {
+        width: 4.4rem;
+        transition: 0.1s all ease-in-out;
+        background: grey;
+        color: white;
+      }
+    }
+  }
+}
+.move_popup {
+  top: -150vh;
+  transition: all 0.3s ease-in-out;
+}

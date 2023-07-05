@@ -1,10 +1,15 @@
-import { store, persistedStore } from "./store";
+//react
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
-import "./global_styles.css";
+
+//redux
+import { store, persistedStore } from "./store";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
+
+//my imports
+import App from "./App";
+import "./global_styles.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

@@ -14,7 +14,7 @@ function SectiuneFieldEdit(props) {
       <div className={styles.field}>
         {props.details &&
           props.details.map((item, index) => {
-            console.log(typeof item[1]);
+            // console.log(typeof item[1]);
             return (
               <div key={index} className={styles.section_item}>
                 <InputCuTitlu

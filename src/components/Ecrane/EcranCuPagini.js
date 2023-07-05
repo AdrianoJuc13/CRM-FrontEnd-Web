@@ -25,7 +25,6 @@ function EcranCuPagini(props) {
           }`}
           onClick={() => {
             setPages(1);
-            // console.log(props.date);
           }}
         >
           Info
@@ -36,7 +35,6 @@ function EcranCuPagini(props) {
           }`}
           onClick={() => {
             setPages(2);
-            console.log(payload);
             dispatch(fetchOportunitati());
           }}
         >

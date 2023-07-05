@@ -7,7 +7,7 @@ import styles from "../../styles/GeneralPagesFormat.module.scss";
 //---------------------------------
 
 // redux imports
-import { fetchCompanies } from "../../features/company/actions/crud/fetchCompanies";
+// import { fetchCompanies } from "../../features/company/actions/crud/fetchCompanies";
 import { setItemsPerPageCompanies } from "../../features/company/companiesSlice";
 import {
   clearErrorCompanies,
@@ -29,7 +29,7 @@ function Compani() {
 
   // default request for companies
   useEffect(() => {
-    dispatch(fetchCompanies());
+    // dispatch(fetchCompanies());
   }, [dispatch]);
   //---------------------------------
 
@@ -45,6 +45,7 @@ function Compani() {
       {/* Main table with the corensponding elements */}
       <Tabel
         table_column_name="companii_tabel"
+        table_column_key="company_keys_table"
         state_name="companies"
         setItemsPerPage={setItemsPerPageCompanies}
         clearErrorState={clearErrorCompanies}
