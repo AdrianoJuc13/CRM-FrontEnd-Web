@@ -44,8 +44,8 @@ function Contacts() {
 
       {/* Main table with the corensponding elements */}
       <Tabel
-        table_column_name="contacts_table"
-        table_column_key="contacts_keys_table"
+        table_column_name="contact_table"
+        table_column_key="contact_keys_table"
         state_name="contacts"
         setItemsPerPage={setItemsPerPageContacts}
         clearErrorState={clearErrorContacts}

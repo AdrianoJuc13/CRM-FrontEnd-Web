@@ -1,6 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { useSelector } from "react-redux";
 
+// Layout
 import Layout2 from "./Layout/Layout2";
 import Layout from "./Layout/Layout";
 
@@ -36,7 +37,7 @@ function App() {
   const { isLoggedIn } = useSelector((state) => state.authentificationState);
 
   // Checking the user logged in status
-  if (!isLoggedIn)
+  if (isLoggedIn)
     return (
       <BrowserRouter>
         <Routes>
@@ -66,7 +67,7 @@ function App() {
             <Route path="adauga_companie" element={<AdaugaCompanie />} />
             <Route path="adauga_contact" element={<AddContact />} />
             <Route path="adauga_oportunitate" element={<AddOpportunity />} />
-            <Route path="adauga_plan_de_actiune" element={<AddActionPlan />} />
+            <Route path="adauga_actiune" element={<AddActionPlan />} />
             <Route
               path="adauga_prospectare"
               element={<AddProspectingVisit />}

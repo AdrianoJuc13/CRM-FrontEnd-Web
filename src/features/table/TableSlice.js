@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   // Companies---------------------------------------
-  companii_tabel: [
+  company_tabel: [
     "Nume",
     "Email",
     "Vanzari",
@@ -29,22 +29,14 @@ const initialState = {
   // ------------------------------------------------
 
   // Contacts ----------------------------------------
-  contacts_table: [
-    "Nume",
-    "Prenume",
-    "Email",
-    "Telefon",
-    "Companie",
-    "Functie",
-  ],
-  contacts_keys_table: [
+  contact_table: ["Nume", "Prenume", "Email", "Telefon", "Companie", "Functie"],
+  contact_keys_table: [
     "angajat_nume",
     "angajat_prenume",
     "angajat_email",
     "angajat_numar_telefon",
     "angajat_id",
     "angajat_functie",
-
     // "angajat_tip",
     // "angajat_punct_lucru_id",
     // "tip_angajat_id",
@@ -59,20 +51,25 @@ const initialState = {
   // ------------------------------------------------
 
   // Oportunities -----------------------------------
-  oportunities_table: [
+  oportunity_table: [
     "Titlu",
     "Tip",
     "Descriere",
     "Identificat de",
     "Data Emitere",
   ],
-  oportunities_keys_table: [
-    "nume",
-    "c2-----------",
-    "c3-----------",
-    "c4-----------",
-    "c5-----------",
-    "c6-----------",
+  oportunity_keys_table: [
+    "oportunitate_id",
+    "descriere",
+    "titlu_oportunitate",
+    "tip_oportunitate",
+    "data_creare_initiala",
+    // "data_emitere",
+    // "perioada_desfasurare",
+    // "data_limita",
+    // "obiectiv_id",
+    // "identificat_de",
+    // "vanzari_totale",
   ],
   // ------------------------------------------------
 
@@ -86,12 +83,16 @@ const initialState = {
     "Oportunitate",
   ],
   action_plan_keys_table: [
-    "nume",
-    "c2-----------",
-    "c3-----------",
-    "c4-----------",
-    "c5-----------",
-    "c6-----------",
+    "actiune_id",
+    "tip_actiune",
+    "status",
+    "receptor_id",
+    "emitator_id",
+    "descriere",
+    // "data_creare_initiala",
+    // "data_emitere",
+    // "due_date",
+    // "oportunitate_id",
   ],
   // ------------------------------------------------
 
@@ -105,12 +106,16 @@ const initialState = {
     "Oportunitate",
   ],
   prospecting_visit_keys_table: [
-    "nume",
-    "c2-----------",
-    "c3-----------",
-    "c4-----------",
-    "c5-----------",
-    "c6-----------",
+    "actiune_id",
+    "tip_actiune",
+    "status",
+    "receptor_id",
+    "emitator_id",
+    "descriere",
+    // "data_creare_initiala",
+    // "data_emitere",
+    // "due_date",
+    // "oportunitate_id",
   ],
   // ------------------------------------------------
 
@@ -126,24 +131,27 @@ const initialState = {
     "Data Limita",
   ],
   objective_keys_table: [
-    "nume",
-    "c2-----------",
-    "c3-----------",
-    "c4-----------",
-    "c5-----------",
-    "c6-----------",
+    "obiectiv_id",
+    "tip_obiectiv",
+    "titlu_obiectiv",
+    "nisa_id",
+    "punct_lucru_id",
+    // "companie_id",
+    // "vanzari_totale",
+    // "data_creare_initiala",
+    // "data_emitere",
+    // "numar_luni",
+    // "data_limita",
   ],
   // ------------------------------------------------
 
   // Raports ----------------------------------------
-  reports_table: ["Tip", "Titlu"],
-  reports_keys_table: [
-    "nume",
-    "c2-----------",
-    "c3-----------",
-    "c4-----------",
-    "c5-----------",
-    "c6-----------",
+  report_table: ["Tip", "Valoare", "id actiune", "Descriere"],
+  report_keys_table: [
+    "tip_rezultat",
+    "valoare",
+    "actiune_id",
+    "rezultat_descriere",
   ],
   // ------------------------------------------------
 

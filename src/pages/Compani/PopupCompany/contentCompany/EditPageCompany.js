@@ -4,13 +4,13 @@ import "./style.scss";
 import SaveBtn from "../../../../components/Butoane/SaveBtn";
 import SectiuneFieldEdit from "../../../../components/SectiuneFieldEdit/SectiuneFieldEdit";
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
 export const EditPageCompany = () => {
   const { currentCompanyState } = useSelector((state) => state.companiesState);
   const [formular, setFormular] = useState(currentCompanyState);
   const {
-    activitate_companie_id,
+    // activitate_companie_id,
     adresa_facturare,
     adresa_livrare,
     angajat_responsabil,
@@ -20,7 +20,7 @@ export const EditPageCompany = () => {
     marime_companie_id,
     nisa_id,
     numar_angajati,
-    numar_inregistrare,
+    // numar_inregistrare,
     nume,
     punct_lucru_id,
     vanzari_totale,

@@ -10,6 +10,9 @@ import companiesPageReducer from "./company/companiesSlice";
 import contactsPageReducer from "./contact/contactsSlice";
 import opportunitiesPageReducer from "./opportunity/opportunitiesSlice";
 import actionPlanPageReducer from "./actionplan/actionPlanSlice";
+import prospectingPageReducer from "./prospecting/prospectingSlice";
+import objectivePageReducer from "./objective/objectiveSlice";
+import reportPageReducer from "./report/reportSlice";
 
 const rootReducer = combineReducers({
   authentificationState: AuthReducer,
@@ -22,6 +25,9 @@ const rootReducer = combineReducers({
   contactsState: contactsPageReducer,
   opportunitiesState: opportunitiesPageReducer,
   actionPlanState: actionPlanPageReducer,
+  prospectingState: prospectingPageReducer,
+  objectivesState: objectivePageReducer,
+  reportsState: reportPageReducer,
 });
 
 export default rootReducer;

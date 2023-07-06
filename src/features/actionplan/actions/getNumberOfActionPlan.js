@@ -5,12 +5,12 @@ const axios = require("axios");
 
 export const getNumberOfActionPlan = createAsyncThunk(
   "actionplan/getNumberOfActionPlan",
-  async ({}) => {
+  async () => {
     const state = store.getState();
     const authState = state.authentificationState;
     const actionPlanState = state.actionPlanState;
     const configState = state.configurationState;
-    if (authState.isLoggedIn == false) throw Error("User is not logged in");
+    if (authState.isLoggedIn === false) throw Error("User is not logged in");
 
     const url = configState.backendHostname + "/actionplan/getNumber";
     const headers = {
@@ -26,9 +26,7 @@ export const getNumberOfActionPlan = createAsyncThunk(
         params: params,
       })
       .then((response) => {
-        {
-          return response.data;
-        }
+        return response.data;
       });
   }
 );

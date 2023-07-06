@@ -4,10 +4,10 @@ import "./style.scss";
 //---------------------------
 
 //my imports
-import { Page_1 } from "./pagesForCompany/Page_1";
-import { Page_2 } from "./pagesForCompany/Page_2";
-import { Page_3 } from "./pagesForCompany/Page_3";
-import { Page_4 } from "./pagesForCompany/Page_4";
+import { Page1 } from "./pagesForCompany/Page1";
+import { Page2 } from "./pagesForCompany/Page2";
+import { Page3 } from "./pagesForCompany/Page3";
+import { Page4 } from "./pagesForCompany/Page4";
 //---------------------------
 
 export const ViewPageCompany = () => {
@@ -64,13 +64,13 @@ export const ViewPageCompany = () => {
         {/* the data */}
         <div className="screen_date">
           {pages === 1 ? (
-            <Page_1 />
+            <Page1 />
           ) : pages === 2 ? (
-            <Page_2 />
+            <Page2 />
           ) : pages === 3 ? (
-            <Page_3 />
+            <Page3 />
           ) : pages === 4 ? (
-            <Page_4 />
+            <Page4 />
           ) : null}
         </div>
       </div>

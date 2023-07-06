@@ -9,35 +9,35 @@ import InputCuTitlu from "../../../components/InputCuTitlu/InputCuTitlu";
 import SelectCuTitlu from "../../../components/SelectCuTitlu/SelectCuTitlu";
 import SaveBtn from "../../../components/Butoane/SaveBtn";
 import BackBtn from "../../../components/Butoane/BackBtn";
+import { PickerDate } from "../../../components/PickerDate/PickerDate";
 
 function AddProspectingVisit() {
   const [formular, setFormular] = useState({});
   const {
-    nume,
-    companie_cod_fiscalj,
-    adresa_livrare,
-    adresa_facturare,
-    companie_cod_ax,
-    punct_lucru_id,
+    tip_actiune,
+    status,
+    receptor_id,
+    emitator_id,
+    descriere,
+    data_creare_initiala,
+    data_emitere,
+    due_date,
+    oportunitate_id,
   } = formular;
-
-  const [formularContact, setFormularContact] = useState({});
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormular((values) => ({ ...values, [name]: value }));
   };
-  const handleChangeContact = (event) => {
-    const { name, value } = event.target;
-    setFormularContact((values) => ({ ...values, [name]: value }));
+
+  const handleChangeDate = (date, dateString, name) => {
+    setFormular((values) => ({ ...values, [name]: dateString }));
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     alert(JSON.stringify(formular));
-    alert(JSON.stringify(formularContact));
     console.log(formular);
-    console.log(formularContact);
 
     //--------------------------------------------------------------------------------------------------
 
@@ -86,165 +86,88 @@ function AddProspectingVisit() {
 
       <form className={styles.body} onSubmit={handleSubmit}>
         <div className={styles.row}>
-          <InputCuTitlu
+          <SelectCuTitlu
             disabled={false}
+            label="Tip de actiune"
             type="text"
-            value={nume}
-            placeholder="Nume"
-            label="Nume Societate"
-            name="nume"
+            value={tip_actiune}
+            placeholder="Ex: Research"
+            name="tip_actiune"
             onChange={handleChange}
+            optiuni={["Research", "Vizita"]}
+          />
+          <SelectCuTitlu
+            disabled={false}
+            label="Status"
+            type="text"
+            value={status}
+            placeholder="Status"
+            name="status"
+            onChange={handleChange}
+            optiuni={["In proces", "Finalizat", "Neinceput"]}
           />
 
-          <InputCuTitlu
-            disabled={true}
+          <SelectCuTitlu
+            disabled={false}
+            label="Receptor id"
+            placeholder="receptor_id"
             type="text"
-            // value={CAEN}
-            placeholder="caen"
-            label="Cod Caen"
-            name="caen"
+            value={receptor_id}
+            name="receptor_id"
             onChange={handleChange}
+            optiuni={["Vasile", "George", "Andrei "]}
+          />
+
+          <SelectCuTitlu
+            disabled={false}
+            label="Emitator"
+            placeholder="Emitator ID"
+            type="text"
+            value={emitator_id}
+            name="emitator_id"
+            onChange={handleChange}
+            optiuni={["Andrei ", "Vasile", "George"]}
           />
         </div>
         <div className={styles.header}>Date fiscale</div>
         <div className={styles.row}>
           <InputCuTitlu
             disabled={false}
+            label="Descriere"
+            placeholder="Descriere"
             type="text"
-            value={companie_cod_fiscalj}
-            placeholder="cod j"
-            label="Numar fiscal (J)"
-            name="companie_cod_fiscalj"
+            value={descriere}
+            name="descriere"
             onChange={handleChange}
           />
-          <InputCuTitlu
-            disabled={true}
-            label="Cod fiscal"
-            type="text"
-            value={companie_cod_ax}
-            placeholder="cod ax"
-            name="companie_cod_ax"
-            onChange={handleChange}
+          <PickerDate
+            label="Data creearii"
+            handleChangeDate={handleChangeDate}
+            name="data_creare_initiala"
+            value={data_creare_initiala}
+          />
+          <PickerDate
+            label="Data emitere"
+            handleChangeDate={handleChangeDate}
+            name="data_emitere"
+            value={data_emitere}
+          />
+          <PickerDate
+            label="Data limita"
+            handleChangeDate={handleChangeDate}
+            name="due_date"
+            value={due_date}
           />
 
           <InputCuTitlu
-            disabled={false}
-            label="Adresa Sociala"
-            type="text"
-            value={adresa_facturare}
-            placeholder="cod ax"
-            name="adresa_facturare"
-            onChange={handleChange}
-          />
-          <InputCuTitlu
-            disabled={false}
-            label="Adresa Livrare"
-            type="text"
-            value={adresa_livrare}
-            placeholder="cod ax"
-            name="adresa_livrare"
-            onChange={handleChange}
-          />
-        </div>
-        <div className={styles.header}>Segment</div>
-        <div className={styles.row}>
-          <SelectCuTitlu
-            disabled={false}
-            label="Punct de lucru"
-            type="text"
-            value={punct_lucru_id}
-            placeholder="pct. de lucru"
-            name="punct_lucru_id"
-            onChange={handleChange}
-            optiuni={["optiune 1", "optiune 2", "optiune 3", "optiune 4"]}
-          />
-          <SelectCuTitlu
-            disabled={false}
-            label="Angajat responsabil"
-            type="text"
-            value={punct_lucru_id}
-            placeholder="Angajat responsabil"
-            name="punct_lucru_id"
-            onChange={handleChange}
-            optiuni={["optiune 1", "optiune 2", "optiune 3", "optiune 4"]}
-          />
-          <SelectCuTitlu
-            disabled={false}
-            label="Segment de piata"
-            type="text"
-            value={punct_lucru_id}
-            placeholder="Segment de piata"
-            name="punct_lucru_id"
-            onChange={handleChange}
-            optiuni={["optiune 1", "optiune 2", "optiune 3", "optiune 4"]}
-          />
-          <SelectCuTitlu
             disabled={true}
-            label="Tip Client"
+            label="Oportunitate"
             type="text"
-            value={punct_lucru_id}
-            placeholder="Tip Client"
-            name="punct_lucru_id"
+            value={oportunitate_id}
+            placeholder="OportunitateId"
+            name="oportunitate_id"
             onChange={handleChange}
-            optiuni={["optiune 1", "optiune 2", "optiune 3", "optiune 4"]}
           />
-        </div>
-        <div className={styles.header}>Persona de contact</div>
-        <div className={styles.tabel}>
-          <div className={styles.theader}>
-            <div className={styles.hdata}>Nume</div>
-            <div className={styles.hdata}>Prenume</div>
-            <div className={styles.hdata}>Email</div>
-            <div className={styles.hdata}>Functia</div>
-            <div className={styles.hdata}>Telefon</div>
-          </div>
-          <div className={styles.theader}>
-            <div className={styles.hdata}>
-              <input
-                className={styles.input}
-                name="nume"
-                value={formularContact.nume || ""}
-                placeholder="nume"
-                onChange={handleChangeContact}
-              />
-            </div>
-            <div className={styles.hdata}>
-              <input
-                className={styles.input}
-                name="prenume"
-                value={formularContact.prenume || ""}
-                placeholder="prenume"
-                onChange={handleChangeContact}
-              />
-            </div>
-            <div className={styles.hdata}>
-              <input
-                className={styles.input}
-                name="adresa_email"
-                value={formularContact.adresa_email || ""}
-                placeholder="adresa_email"
-                onChange={handleChangeContact}
-              />
-            </div>
-            <div className={styles.hdata}>
-              <input
-                className={styles.input}
-                name="descriere"
-                value={formularContact.descriere || ""}
-                placeholder="descriere"
-                onChange={handleChangeContact}
-              />
-            </div>
-            <div className={styles.hdata}>
-              <input
-                className={styles.input}
-                name="numar_telefon"
-                value={formularContact.numar_telefon || ""}
-                placeholder="numar_telefon"
-                onChange={handleChangeContact}
-              />
-            </div>
-          </div>
         </div>
 
         <SaveBtn />

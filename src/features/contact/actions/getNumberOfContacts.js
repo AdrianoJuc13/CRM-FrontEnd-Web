@@ -5,12 +5,12 @@ const axios = require("axios");
 
 export const getNumberOfContacts = createAsyncThunk(
   "contacts/getNumberOfContacts",
-  async ({}) => {
+  async () => {
     const state = store.getState();
     const authState = state.authentificationState;
     const contactsState = state.contactsState;
     const configState = state.configurationState;
-    if (authState.isLoggedIn == false) throw Error("User is not logged in");
+    if (authState.isLoggedIn === false) throw Error("User is not logged in");
 
     const url = configState.backendHostname + "/contacte/getNumber";
     const headers = {
@@ -26,9 +26,7 @@ export const getNumberOfContacts = createAsyncThunk(
         params: params,
       })
       .then((response) => {
-        {
-          return response.data;
-        }
+        return response.data;
       });
   }
 );

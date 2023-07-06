@@ -9,35 +9,36 @@ import InputCuTitlu from "../../../components/InputCuTitlu/InputCuTitlu";
 import SelectCuTitlu from "../../../components/SelectCuTitlu/SelectCuTitlu";
 import SaveBtn from "../../../components/Butoane/SaveBtn";
 import BackBtn from "../../../components/Butoane/BackBtn";
+import { PickerDate } from "../../../components/PickerDate/PickerDate";
 
 function AddObjectives() {
   const [formular, setFormular] = useState({});
   const {
-    nume,
-    companie_cod_fiscalj,
-    adresa_livrare,
-    adresa_facturare,
-    companie_cod_ax,
+    tip_obiectiv,
+    titlu_obiectiv,
+    nisa_id,
     punct_lucru_id,
+    companie_id,
+    vanzari_totale,
+    data_creare_initiala,
+    data_emitere,
+    numar_luni,
+    data_limita,
   } = formular;
-
-  const [formularContact, setFormularContact] = useState({});
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormular((values) => ({ ...values, [name]: value }));
   };
-  const handleChangeContact = (event) => {
-    const { name, value } = event.target;
-    setFormularContact((values) => ({ ...values, [name]: value }));
+
+  const handleChangeDate = (date, dateString, name) => {
+    setFormular((values) => ({ ...values, [name]: dateString }));
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     alert(JSON.stringify(formular));
-    alert(JSON.stringify(formularContact));
     console.log(formular);
-    console.log(formularContact);
 
     //--------------------------------------------------------------------------------------------------
 
@@ -78,10 +79,10 @@ function AddObjectives() {
             <div className={styles.arrow}>{icons.BsArrowLeftCircleFill}</div>
           }
           name={`Inapoi`}
-          link="/contacte"
+          link="/obiective"
         />
 
-        <div className={styles.titlu}>Formular pentru adaugat contacte</div>
+        <div className={styles.titlu}>Formular pentru adaugat obiective</div>
       </div>
 
       <form className={styles.body} onSubmit={handleSubmit}>
@@ -89,20 +90,20 @@ function AddObjectives() {
           <InputCuTitlu
             disabled={false}
             type="text"
-            value={nume}
-            placeholder="Nume"
-            label="Nume Societate"
-            name="nume"
+            value={tip_obiectiv}
+            placeholder="Tip obiectiv"
+            label="Tip Obiectiv"
+            name="tip_obiectiv"
             onChange={handleChange}
           />
 
           <InputCuTitlu
             disabled={true}
             type="text"
-            // value={CAEN}
+            value={titlu_obiectiv}
             placeholder="caen"
-            label="Cod Caen"
-            name="caen"
+            label="Titlu Obiectiv"
+            name="titlu_obiectiv"
             onChange={handleChange}
           />
         </div>
@@ -111,38 +112,38 @@ function AddObjectives() {
           <InputCuTitlu
             disabled={false}
             type="text"
-            value={companie_cod_fiscalj}
+            value={nisa_id}
             placeholder="cod j"
-            label="Numar fiscal (J)"
-            name="companie_cod_fiscalj"
+            label="Nisa"
+            name="nisa_id"
             onChange={handleChange}
           />
           <InputCuTitlu
             disabled={true}
-            label="Cod fiscal"
+            label="Pct. de lucru"
             type="text"
-            value={companie_cod_ax}
+            value={punct_lucru_id}
             placeholder="cod ax"
-            name="companie_cod_ax"
+            name="punct_lucru_id"
             onChange={handleChange}
           />
 
           <InputCuTitlu
             disabled={false}
-            label="Adresa Sociala"
+            label="companie ID"
             type="text"
-            value={adresa_facturare}
+            value={companie_id}
             placeholder="cod ax"
-            name="adresa_facturare"
+            name="companie_id"
             onChange={handleChange}
           />
           <InputCuTitlu
             disabled={false}
-            label="Adresa Livrare"
+            label="Vanzari totale"
             type="text"
-            value={adresa_livrare}
+            value={vanzari_totale}
             placeholder="cod ax"
-            name="adresa_livrare"
+            name="vanzari_totale"
             onChange={handleChange}
           />
         </div>
@@ -152,29 +153,25 @@ function AddObjectives() {
             disabled={false}
             label="Punct de lucru"
             type="text"
-            value={punct_lucru_id}
+            value={data_creare_initiala}
             placeholder="pct. de lucru"
-            name="punct_lucru_id"
+            name="data_creare_initiala"
             onChange={handleChange}
             optiuni={["optiune 1", "optiune 2", "optiune 3", "optiune 4"]}
           />
-          <SelectCuTitlu
-            disabled={false}
-            label="Angajat responsabil"
-            type="text"
-            value={punct_lucru_id}
-            placeholder="Angajat responsabil"
-            name="punct_lucru_id"
-            onChange={handleChange}
-            optiuni={["optiune 1", "optiune 2", "optiune 3", "optiune 4"]}
+          <PickerDate
+            label="Data Emitere"
+            value={data_emitere}
+            name="data_emitere"
+            handleChangeDate={handleChangeDate}
           />
           <SelectCuTitlu
             disabled={false}
             label="Segment de piata"
             type="text"
-            value={punct_lucru_id}
+            value={numar_luni}
             placeholder="Segment de piata"
-            name="punct_lucru_id"
+            name="numar_luni"
             onChange={handleChange}
             optiuni={["optiune 1", "optiune 2", "optiune 3", "optiune 4"]}
           />
@@ -182,69 +179,12 @@ function AddObjectives() {
             disabled={true}
             label="Tip Client"
             type="text"
-            value={punct_lucru_id}
+            value={data_limita}
             placeholder="Tip Client"
-            name="punct_lucru_id"
+            name="data_limita"
             onChange={handleChange}
             optiuni={["optiune 1", "optiune 2", "optiune 3", "optiune 4"]}
           />
-        </div>
-        <div className={styles.header}>Persona de contact</div>
-        <div className={styles.tabel}>
-          <div className={styles.theader}>
-            <div className={styles.hdata}>Nume</div>
-            <div className={styles.hdata}>Prenume</div>
-            <div className={styles.hdata}>Email</div>
-            <div className={styles.hdata}>Functia</div>
-            <div className={styles.hdata}>Telefon</div>
-          </div>
-          <div className={styles.theader}>
-            <div className={styles.hdata}>
-              <input
-                className={styles.input}
-                name="nume"
-                value={formularContact.nume || ""}
-                placeholder="nume"
-                onChange={handleChangeContact}
-              />
-            </div>
-            <div className={styles.hdata}>
-              <input
-                className={styles.input}
-                name="prenume"
-                value={formularContact.prenume || ""}
-                placeholder="prenume"
-                onChange={handleChangeContact}
-              />
-            </div>
-            <div className={styles.hdata}>
-              <input
-                className={styles.input}
-                name="adresa_email"
-                value={formularContact.adresa_email || ""}
-                placeholder="adresa_email"
-                onChange={handleChangeContact}
-              />
-            </div>
-            <div className={styles.hdata}>
-              <input
-                className={styles.input}
-                name="descriere"
-                value={formularContact.descriere || ""}
-                placeholder="descriere"
-                onChange={handleChangeContact}
-              />
-            </div>
-            <div className={styles.hdata}>
-              <input
-                className={styles.input}
-                name="numar_telefon"
-                value={formularContact.numar_telefon || ""}
-                placeholder="numar_telefon"
-                onChange={handleChangeContact}
-              />
-            </div>
-          </div>
         </div>
 
         <SaveBtn />

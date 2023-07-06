@@ -5,12 +5,12 @@ const axios = require("axios");
 
 export const getNumberOfCompanies = createAsyncThunk(
   "companies/getNumberOfCompanies",
-  async ({}) => {
+  async () => {
     const state = store.getState();
     const authState = state.authentificationState;
     const companiesState = state.companiesState;
     const configState = state.configurationState;
-    if (authState.isLoggedIn == false) throw Error("User is not logged in");
+    if (authState.isLoggedIn === false) throw Error("User is not logged in");
 
     const url = configState.backendHostname + "/companii/getNumber";
     const headers = {
@@ -26,9 +26,7 @@ export const getNumberOfCompanies = createAsyncThunk(
         params: params,
       })
       .then((response) => {
-        {
-          return response.data;
-        }
+        return response.data;
       });
   }
 );

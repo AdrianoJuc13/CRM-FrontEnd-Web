@@ -3,7 +3,7 @@ export default function fetchContactFulfilled() {
     state.loading = false;
     state.error = "";
     console.log(action.payload);
-    if (action.payload.status == 200) {
+    if (action.payload.status === 200) {
       state.pagesLoaded++;
       state.contacts = state.contacts.concat(action.payload.data);
       state.hasMore = action.payload.hasMore;

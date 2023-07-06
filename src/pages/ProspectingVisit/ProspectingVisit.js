@@ -1,5 +1,8 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react"; // , { useEffect }
+import {
+  // useDispatch,
+  useSelector,
+} from "react-redux";
 //---------------------------------
 
 //styles imports
@@ -7,28 +10,29 @@ import styles from "../../styles/GeneralPagesFormat.module.scss";
 //---------------------------------
 
 // redux imports
-import { setItemsPerPageCompanies } from "../../features/company/companiesSlice";
+import { setItemsPerPageProspecting } from "../../features/prospecting/prospectingSlice";
 import {
-  clearErrorCompanies,
+  clearErrorProspecting,
   openPopup,
-  setCurrentCompanyState,
+  setCurrentProspectingState,
   closePopUp,
-} from "../../features/company/companiesSlice";
+} from "../../features/prospecting/prospectingSlice";
 //---------------------------------
 
 // my imports
 import AddBtn from "../../components/Butoane/AddBtn";
 import Tabel from "../../components/Tabel/Tabel";
 import { PopUp } from "./Popup/PopUp";
+// import { fetchProspecting } from "../../features/prospecting/actions/crud/fetchProspecting";
 //---------------------------------
 
 function ProspectingVisit() {
   // const dispatch = useDispatch();
-  const { isPopupOpen } = useSelector((state) => state.companiesState);
+  const { isPopupOpen } = useSelector((state) => state.prospectingState);
 
   // default request for companies
   // useEffect(() => {
-  //   dispatch(fetchContacts());
+  //   dispatch(fetchProspecting());
   // }, [dispatch]);
   //---------------------------------
 
@@ -37,19 +41,22 @@ function ProspectingVisit() {
       {/* Top part contains title and add new element page */}
       <div className={styles.header}>
         <div className={styles.titlu}>Vizite de prospectare</div>
-        <AddBtn name="Adauga un contact" link="/adauga_contact" />
+        <AddBtn
+          name="Adauga o vizita de prospectare"
+          link="/adauga_prospectare"
+        />
       </div>
       {/* ------------------------------------- */}
 
       {/* Main table with the corensponding elements */}
       <Tabel
-        table_column_name="contacte_tabel"
-        table_column_key="contacts_keys_table"
-        state_name="companies"
-        setItemsPerPage={setItemsPerPageCompanies}
-        clearErrorState={clearErrorCompanies}
+        table_column_name="prospecting_visit_table"
+        table_column_key="prospecting_visit_keys_table"
+        state_name="prospecting"
+        setItemsPerPage={setItemsPerPageProspecting}
+        clearErrorState={clearErrorProspecting}
         openPopup={openPopup}
-        setCurrentState={setCurrentCompanyState}
+        setCurrentState={setCurrentProspectingState}
       />
       {/* ------------------------------------- */}
 

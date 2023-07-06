@@ -1,5 +1,8 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react"; // , { useEffect }
+import {
+  //  useDispatch,
+  useSelector,
+} from "react-redux";
 //---------------------------------
 
 //styles imports
@@ -7,28 +10,29 @@ import styles from "../../styles/GeneralPagesFormat.module.scss";
 //---------------------------------
 
 // redux imports
-import { setItemsPerPageCompanies } from "../../features/company/companiesSlice";
+import { setItemsPerPageActionPlan } from "../../features/actionplan/actionPlanSlice";
 import {
-  clearErrorCompanies,
+  clearErrorActionPlan,
   openPopup,
-  setCurrentCompanyState,
+  setCurrentActionPlanState,
   closePopUp,
-} from "../../features/company/companiesSlice";
+} from "../../features/actionplan/actionPlanSlice";
 //---------------------------------
 
 // my imports
 import AddBtn from "../../components/Butoane/AddBtn";
 import Tabel from "../../components/Tabel/Tabel";
 import { PopUp } from "./Popup/PopUp";
+// import { fetchActionPlan } from "../../features/actionplan/actions/crud/fetchActionPlan";
 //---------------------------------
 
 function ActionPlan() {
   // const dispatch = useDispatch();
-  const { isPopupOpen } = useSelector((state) => state.companiesState);
+  const { isPopupOpen } = useSelector((state) => state.actionPlanState);
 
-  // default request for companies
+  // default request for action plan
   // useEffect(() => {
-  //   dispatch(fetchContacts());
+  //   dispatch(fetchActionPlan());
   // }, [dispatch]);
   //---------------------------------
 
@@ -37,19 +41,19 @@ function ActionPlan() {
       {/* Top part contains title and add new element page */}
       <div className={styles.header}>
         <div className={styles.titlu}>Plan de actiuni</div>
-        <AddBtn name="Adauga un contact" link="/adauga_contact" />
+        <AddBtn name="Adauga o actiune" link="/adauga_actiune" />
       </div>
       {/* ------------------------------------- */}
 
       {/* Main table with the corensponding elements */}
       <Tabel
-        table_column_name="contacte_tabel"
-        table_column_key="contacts_keys_table"
-        state_name="companies"
-        setItemsPerPage={setItemsPerPageCompanies}
-        clearErrorState={clearErrorCompanies}
+        table_column_name="action_plan_table"
+        table_column_key="action_plan_keys_table"
+        state_name="actionPlan"
+        setItemsPerPage={setItemsPerPageActionPlan}
+        clearErrorState={clearErrorActionPlan}
         openPopup={openPopup}
-        setCurrentState={setCurrentCompanyState}
+        setCurrentState={setCurrentActionPlanState}
       />
       {/* ------------------------------------- */}
 
