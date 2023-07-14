@@ -14,15 +14,16 @@ function SectiuneFieldEdit(props) {
       <div className={styles.field}>
         {props.details &&
           props.details.map((item, index) => {
+            // console.log(typeof item[1]);
             return (
               <div key={index} className={styles.section_item}>
                 <InputCuTitlu
                   value={item[1]}
                   label={item[0]}
-                  name={"name"}
+                  name={item[2]}
                   placeholder={"placeholder"}
                   type={"text"}
-                  //  onChange={props.handle}
+                  onChange={props.handle}
                   disabled={false}
                 />
                 {/* aci este de modificat */}

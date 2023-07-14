@@ -11,13 +11,13 @@ export const fetchCompanies = createAsyncThunk(
     const configState = state.configurationState;
     const companiesState = state.companiesState;
 
-    if (authState.isLoggedIn == false) throw Error("User is not logged in");
+    if (authState.isLoggedIn === false) throw Error("User is not logged in");
 
     if (page > companiesState.lastCompanyIds.length + 1 || page < 1) {
       throw Error("Page requested is incorect");
     }
 
-    const last_id = companiesState.lastCompanyIds[page - 1];
+    // const last_id = companiesState.lastCompanyIds[page - 1];
 
     const url = configState.backendHostname + "/companii/pagination";
     const headers = {

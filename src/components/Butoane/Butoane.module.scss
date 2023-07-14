@@ -34,6 +34,40 @@
     flex: 4;
   }
 }
+
+.backbtn {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  //dimensions
+  border: none;
+  padding: 0.2%;
+
+  margin-right: 5%;
+
+  // styles
+  background: colors.$lightgreen;
+  color: colors.$mywhite;
+  font-size: small;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+
+  width: 221px;
+  height: 49px;
+
+  border-radius: 0.25rem;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  .icon {
+    flex: 1;
+  }
+  .text {
+    flex: 4;
+  }
+}
+
 .btn_salveaza {
   display: flex;
   justify-content: center;

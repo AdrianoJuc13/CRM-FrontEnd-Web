@@ -1,31 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./Pop.module.scss";
-import { useDispatch, useSelector } from "react-redux";
+// import {
+//   useDispatch,
+//   useSelector
+// } from "react-redux";
 // import { closePop } from "../../features/current_actions/CurrentSlice";
 
-import { AiOutlineClose } from "react-icons/ai";
-import { BiEdit } from "react-icons/bi";
+// import { AiOutlineClose } from "react-icons/ai";
+// import { BiEdit } from "react-icons/bi";
 
-import EcranCuPagini from "../Ecrane/EcranCuPagini";
-import EcranFaraPagini from "../Ecrane/EcranFaraPagini";
-import PopDownEditeaza from "../PopDownEditeaza/PopDownEditeaza";
+// import EcranCuPagini from "../Ecrane/EcranCuPagini";
+// import EcranFaraPagini from "../Ecrane/EcranFaraPagini";
+// import PopDownEditeaza from "../PopDownEditeaza/PopDownEditeaza";
 
-function PopSide(props) {
-  const dispatch = useDispatch();
-  const [trigger, setTrigger] = useState(true);
-  // const { isOpen, currentId, currentName } = useSelector(
-  //   (state) => state.current
-  // );
+function PopSide() {
+  // const dispatch = useDispatch();
 
-  //
-  const pathname = window.location.pathname;
+  // const pathname = window.location.pathname;
 
   return (
     <div
-      className={
-        `${styles.grey_screen}`
-        // ${trigger ? null : styles.grey_screen_move}
-      }
+    // className={`${styles.grey_screen}
+    //   ${trigger ? null : styles.grey_screen_move}`}
     >
       <div className={styles.pop_up}>
         <div className={styles.pop_header}>
@@ -56,11 +52,11 @@ function PopSide(props) {
         //   console.log(props.date.payload[currentId]);
         // }}
         >
-          {pathname === "/compani" ? (
+          {/* {pathname === "/compani" ? (
             <EcranCuPagini date={props.date} />
           ) : (
             <EcranFaraPagini />
-          )}
+          )} */}
         </div>
       </div>
       <div className={styles.pop_down}>

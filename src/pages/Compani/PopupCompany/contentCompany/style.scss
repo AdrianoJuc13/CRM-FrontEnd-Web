@@ -1,0 +1,71 @@
+@use "src/styles/colors";
+@use "src/styles/mixinHelper";
+@use "src/styles/fonts";
+
+.view_page {
+  padding: 0 3rem;
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  .header_butoane {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 4vw;
+    .header_titlu {
+      font-size: larger;
+      //   background: red;
+      cursor: pointer;
+    }
+    .header_titlu_activ {
+      border-bottom: 2px solid colors.$blue;
+    }
+  }
+  .screen_date {
+    overflow-y: auto;
+    height: 70vh;
+    .page_data {
+      display: flex;
+      flex-direction: column;
+
+      .element_data {
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 2rem;
+        .titlu_data {
+          font-size: 2rem;
+        }
+        .select_data {
+          padding: 0.7rem 0.2rem;
+        }
+      }
+    }
+  }
+}
+.edit_page {
+  padding: 0 3rem;
+  padding-top: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  .pop_header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .pop_titlu {
+      //style
+      font-size: large;
+      font-family: "Poppins", sans-serif;
+      letter-spacing: 0.05rem;
+      font-weight: 400;
+    }
+  }
+  form {
+    height: 100%;
+    margin: 1vw 3vw;
+  }
+}

@@ -14,7 +14,24 @@
   font-family: "Poppins", sans-serif;
   letter-spacing: 0.05rem;
   font-weight: 400;
-
+  .table_funtionalities_area {
+    // background: red;
+    width: 90%;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    .select_items_per_page {
+      height: 2rem;
+      width: 3rem;
+      border-radius: 0.2rem;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      option {
+        cursor: pointer;
+      }
+    }
+  }
   .main {
     //   background: colors.$grey100;
     position: relative;
@@ -131,7 +148,7 @@
       background: colors.$grey100;
       color: white;
 
-      width: 3rem;
+      width: 3.5rem;
       transition: width 0.2s;
     }
   }

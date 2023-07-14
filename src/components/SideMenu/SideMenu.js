@@ -1,4 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, {
+  useEffect,
+  // ,useState
+} from "react";
 import styles from "./SideMenu_copy.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -30,12 +33,12 @@ import { logOut } from "../../features/authentification/authentificationSlice";
 function SideMenu() {
   const dispatch = useDispatch();
   const { isOpen } = useSelector((store) => store.sideMenuState);
-  const [mousePos, setMousePos] = useState({});
+  // const [mousePos, setMousePos] = useState({});
   const location = useLocation();
 
   useEffect(() => {
     const handleMouseMove = (event) => {
-      setMousePos({ x: event.clientX, y: event.clientY });
+      // setMousePos({ x: event.clientX, y: event.clientY });
     };
 
     window.addEventListener("mousemove", handleMouseMove);
@@ -69,93 +72,113 @@ function SideMenu() {
         </button>
       </div>
       {/* ------------------------------------------------ */}
-      <Link
-        to="/"
-        className={styles.btn_section}
-        style={location.pathname === "/" ? { color: "white" } : null}
-      >
-        <div className={styles.btn}>
+      <Link to="/" className={styles.btn_section}>
+        <div
+          className={styles.btn}
+          style={
+            location.pathname === "/"
+              ? { background: "rgba(255,255,255,0.3)", borderRadius: "0.5rem" }
+              : null
+          }
+        >
           <BiHomeAlt />
         </div>
         <div className={styles.btn_title}>Home</div>
       </Link>
       {/* ------------------------------------------------ */}
-      <Link
-        to="/compani"
-        className={styles.btn_section}
-        style={location.pathname === "/compani" ? { color: "white" } : null}
-      >
-        <div className={styles.btn}>
+      <Link to="/compani" className={styles.btn_section}>
+        <div
+          className={styles.btn}
+          style={
+            location.pathname === "/compani"
+              ? { background: "rgba(255,255,255,0.3)", borderRadius: "0.5rem" }
+              : null
+          }
+        >
           <FaRegBuilding />
         </div>
         <div className={styles.btn_title}>Companii</div>
       </Link>
       {/* ------------------------------------------------ */}
-      <Link
-        to="/contacte"
-        className={styles.btn_section}
-        style={location.pathname === "/contacte" ? { color: "white" } : null}
-      >
-        <div className={styles.btn}>
+      <Link to="/contacte" className={styles.btn_section}>
+        <div
+          className={styles.btn}
+          style={
+            location.pathname === "/contacte"
+              ? { background: "rgba(255,255,255,0.3)", borderRadius: "0.5rem" }
+              : null
+          }
+        >
           <BsPeople />
         </div>
         <div className={styles.btn_title}>Contacte</div>
       </Link>
       {/* ------------------------------------------------ */}
-      <Link
-        to="/Oportunitati"
-        className={styles.btn_section}
-        style={
-          location.pathname === "/oportunitati" ? { color: "white" } : null
-        }
-      >
-        <div className={styles.btn}>
+      <Link to="/oportunitati" className={styles.btn_section}>
+        <div
+          className={styles.btn}
+          style={
+            location.pathname === "/oportunitati"
+              ? { background: "rgba(255,255,255,0.3)", borderRadius: "0.5rem" }
+              : null
+          }
+        >
           <RxTarget />
         </div>
         <div className={styles.btn_title}>Oportunitati</div>
       </Link>
       {/* ------------------------------------------------ */}
-      <Link
-        to="/plandeactiune"
-        className={styles.btn_section}
-        style={
-          location.pathname === "/plandeactiune" ? { color: "white" } : null
-        }
-      >
-        <div className={styles.btn}>
+      <Link to="/plandeactiune" className={styles.btn_section}>
+        <div
+          className={styles.btn}
+          style={
+            location.pathname === "/plandeactiune"
+              ? { background: "rgba(255,255,255,0.3)", borderRadius: "0.5rem" }
+              : null
+          }
+        >
           <FaTasks />
         </div>
         <div className={styles.btn_title}>Plan de actiune</div>
       </Link>
       {/* ------------------------------------------------ */}
-      <Link
-        to="/prospectare"
-        className={styles.btn_section}
-        style={location.pathname === "/prospectare" ? { color: "white" } : null}
-      >
-        <div className={styles.btn}>
+      <Link to="/prospectare" className={styles.btn_section}>
+        <div
+          className={styles.btn}
+          style={
+            location.pathname === "/prospectare"
+              ? { background: "rgba(255,255,255,0.3)", borderRadius: "0.5rem" }
+              : null
+          }
+        >
           <BsPinMapFill />
         </div>
         <div className={styles.btn_title}>Prospectare</div>
       </Link>
       {/* ------------------------------------------------ */}
-      <Link
-        to="/obiective"
-        className={styles.btn_section}
-        style={location.pathname === "/obiective" ? { color: "white" } : null}
-      >
-        <div className={styles.btn}>
+      <Link to="/obiective" className={styles.btn_section}>
+        <div
+          className={styles.btn}
+          style={
+            location.pathname === "/obiective"
+              ? { background: "rgba(255,255,255,0.3)", borderRadius: "0.5rem" }
+              : null
+          }
+        >
           <AiOutlineFlag />
         </div>
         <div className={styles.btn_title}>Obiective</div>
       </Link>
       {/* ------------------------------------------------ */}
-      <Link
-        to="/rapoarte"
-        className={styles.btn_section}
-        style={location.pathname === "/rapoarte" ? { color: "white" } : null}
-      >
-        <div className={styles.btn}>
+      <Link to="/rapoarte" className={styles.btn_section}>
+        <div
+          className={styles.btn}
+          style={
+            location.pathname === "/rapoarte"
+              ? { background: "rgba(255,255,255,0.3)", borderRadius: "0.5rem" }
+              : null
+          }
+        >
           <TbReportSearch />
         </div>
         <div className={styles.btn_title}>Rapoarte</div>
